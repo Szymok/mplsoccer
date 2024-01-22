@@ -310,3 +310,87 @@ def plt_attribute_correlation(aspect1, aspect2):
     #    ax = sns.violinplot(x=asp1, y=asp2, data=df_plot, color = '#f21111')
     ax.set(xlabel = aspect1, ylabel = aspect2)
     st.pyplot(fig, ax)
+
+def find_match_game_id(min_max, attribute, what):
+    df_find = df_data_filtered
+    search_attribute = label_fact_dict[attribute]
+    if(what == 'difference between teams'):
+        search_attribute = 'delta_' + label_fact_dict[attribute]
+        df_find[search_attribute] = df_find[search_attribute].abs()
+    if(what == 'by both teams'):
+        df_find = df_data_filtered.groupby(['game_id'], as_index=False).sum()
+    column = df_find[search_attribute]
+    index = 0
+    if(min_max == 'Minimum'):
+        index = column.idxmin()
+    if(min_max == 'Maximum'):
+        index = column.idxmax()
+    game_id = df_find.at[index, 'game_id']
+    value = df_find.at[index, search_attribute]
+    team = ''
+    if(what != 'by both teams'):
+        team = df_find.at[index, 'team']
+    return_game_id_value_team = [game_id,value,team]
+    return return_game_id_value_team
+
+def build_matchfacts_return_string(return_game_id_value_team, min_max, attribute, what):
+    game_id = return_game_id_value_team[0]
+    df_match_result = df_data_filtered.loc[df_data_filtered['game_id'] == game_id]
+    season = df_match_result.iloc[0]['season'].replace('-','/')
+    matchday = str(df_match_result.iloc[0]['matchday'])
+    home_team = df_match_result.iloc[0]['team']
+    away_team = df_match_result.iloc[1]['team']
+    goals_home = str(df_match_result.iloc[0]['goals'])
+    goals_away = str(df_match_result.iloc[1]['goals'])
+    string1 = 'On matchday ' + matchday + ' of the season ' + season + ' ' + home_team + ' played against ' + away_team + '.'
+    string2 = ''
+    if(goals_home>goals_away):
+        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") win for " + home_team + "."
+    if(goals_home<goals_away):
+        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") loss for " + home_team + "."
+    if(goals_home==goals_away):
+        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") draw. "
+    string3 = ""
+    value = str(abs(round(return_game_id_value_team[1],2)))
+    team = str(return_game_id_value_team[2])
+    if(what == "difference between teams"):
+        string3 = " Over the course of the match, a difference of " + value + " " + attribute + " was recorded between the teams."
+        string4 = " This is the " + min_max.lower() + " difference for two teams in the currently selected data."
+    if(what == "by both teams"):
+        string3 = " Over the course of the match, both teams recorded " + value + " " + attribute + " together."
+        string4 = " This is the " + min_max.lower() +" value for two teams in the currently selected data."
+    if(what == "by a team"):
+        string3 = " Over the course of the match, " + team + " recorded " + value + " " + attribute + "."
+        string4 = " This is the " + min_max.lower() +" value for a team in the currently selected data."
+    answer = string1 + string2 + string3 + string4
+    st.markdown(answer)
+    return df_match_result
+
+######################
+### INITIALIZATION ###
+######################
+
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
+with row0_1:
+    st.title('Real Madrid Stats Analysis')
+with row0_2:
+    st.text('')
+    st.subheader('App by [SkSzymon](https://wwww.twitter.com/SkSzymon)')
+row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
+with row3_1:
+    st.markdown("Hello there! Have you ever spent your weekend watching the LaLiga matches and had your friends complain about how 'players definitely used to run more' ? However, you did not want to start an argument because you did not have any stats at hand? Well, this interactive application containing LaLiga data from season ... to ... allows you to discover just that! If you're on a mobile device, I would recommend switching over to landscape for viewing ease.")
+    st.markdown("You can find the source code in the [GitHub repository]()")
+    
+#################
+### SELECTION ###
+#################
+    
+df_stacked = stack_home_away_dataframe(df_database)
+
+st.sidebar.text('')
+st.sidebar.text('')
+st.sidebar.text('')
+
+### SEASON RANGE ###
+
+st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
