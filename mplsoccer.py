@@ -540,4 +540,38 @@ with row7_2:
         st.warning('Please select at least one team')
 
 ### MATCHDAY ###
-corr_plot_types
+row8_spacer1, row8_1, row8_spacer2 = st.columns((.2, 7.1, .2))
+with row8_1:
+    st.subheader('Analysis per Matchday')
+row9_spacer1, row9_1, row9_spacer2, row9_2, row9_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
+with row9_1:
+    st.markdown('Investigate stats over the course of a season. At what point in the season do teams score the most goals? Do teams run less toward the end of the season?')
+    plot_x_per_matchday_selected = st.selectbox('Which aspect do you want to analyze?', list(label_attr_dict.keys()), key='attribute_matchday')
+    plot_x_per_matchday_type = st.selectbox('Which measure do you want to analyze?', types, key = 'measure_matchday')
+with row9_2:
+    if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
+        plot_x_per_matchday(plot_x_per_matchday_selected, plot_x_per_matchday_type)
+    else:
+        st.warning('Please select at least one team')
+
+### CORRELATION ###
+corr_plot_types = ['Regression Plot (Recommended)', 'Standard Scatter Plot']
+row10_spacer1, row10_1, row10_spacer2 = st.columns((.2, 7.1, .2))
+with row10_1:
+    st.subheader('Correlation Analysis')
+row11_spacer1, row11_1, row11_spacer2, row11_2, row11_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
+with row11_1:
+    st.markdown('Investigate the correlation between two attributes. Do teams that run more also score more goals?')
+    corr_plot_type = st.selectbox('Which plot type do you want to use?', corr_plot_types)
+    corr_plot_aspect2 = st.selectbox('Which attribute do you want on the y-axis?', list(label_attr_dict_correlation.keys()))
+    corr_plot_aspect1 = st.selectbox('Which attribute do you want on the x-axis?', list(label_attr_dict_correlation.keys()))
+with row11_2:
+    if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
+        plt_attribute_correlation(corr_plot_aspect1, corr_plot_aspect2)
+    else:
+        st.warning('Please select at least one team')
+
+for variable in dir():
+    if variable[0:2] != '__':
+        del globals()[variable]
+del variable
