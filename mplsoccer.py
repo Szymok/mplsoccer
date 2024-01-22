@@ -525,3 +525,19 @@ with row5_2:
         st.warning('Please select at least one team')
 
 ### SEASON ###
+row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
+with row6_1:
+    st.subheader('Analysis per Season')
+row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
+with row7_1:
+    st.markdown('Investigate developments and trends. Which season had teams score the most goals? Has the amount of passes per games changed?')
+    plot_x_per_season_selected = st.selectbox('Which attribute do you want to analyze?', list(label_attr_dict.keys()), key='attribute_season')
+    plot_x_per_season_type = st.selectbox('Which measure do you want to analyze?', types, key = 'measure_season')
+with row7_2:
+    if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
+        plot_x_per_season(plot_x_per_season_selected, plot_x_per_season_type)
+    else:
+        st.warning('Please select at least one team')
+
+### MATCHDAY ###
+corr_plot_types
