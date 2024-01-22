@@ -151,3 +151,162 @@ def plot_x_per_season(attr, measure):
     fig, ax = plt.subplots()
     ### Goals
     attribute = label_attr_dict[attr]
+    df_plot = pd.DataFrame()
+    df_plot = group_measure_by_attribute('season', attribute, measure)
+    ax = sns.barplot(x='aspect', y=attribute, data=df_plot, color='#b80606')
+    y_str = measure + ' ' + attr + ' ' + ' per Team'
+    if measure == 'Absolute':
+        y_str = measure + ' ' + attr
+    if measure == 'Minimum' or measure == 'Maximum':
+        y_str = measure + ' ' + attr + ' ' + ' by a Team'
+
+    ax.set(xlabel = 'Season', ylabel = y_str)
+    if measure == 'Mean' or attribute in ['distance', 'pass_ratio', 'possesion', 'tackle_ratio']:
+        for p in ax.patches:
+            ax.annotate(format(p.get_height(), '.2f'),
+                        (p.get_x() + p.get_width() / 2., p.get_height()),
+                        ha = 'center',
+                        va = 'center',
+                        xytext = (0, 15),
+                        textcoords = 'offset points')
+    else:
+        for p in ax.patches:
+            ax.annotate(format(str(int(p.get_height()))),
+                        (p.get_x() + p.get_width() / 2., p.get_height()),
+                        ha = 'center',
+                        va = 'center',
+                        xytext = (0, 15),
+                        textcoords = 'offset points')
+    st.pyploy(fig)
+
+def plot_x_per_matchday(attr, measure):
+    rc = {'figure.figsize':(8,4.5),
+          'axes.facecolor':'#0e1117',
+          'axes.edgecolor': '#0e1117',
+          'axes.labelcolor': 'white',
+          'figure.facecolor': '#0e1117',
+          'patch.edgecolor': '#0e1117',
+          'text.color': 'white',
+          'xtick.color': 'white',
+          'ytick.color': 'white',
+          'grid.color': 'grey',
+          'font.size' : 8,
+          'axes.labelsize': 12,
+          'xtick.labelsize': 8,
+          'ytick.labelsize': 12}
+    plt.rcParams.update(rc)
+    fig, ax = plt.subplots()
+    ### Goals
+    attribute = label_attr_dict[attr]
+    df_plot = pd.DataFrame()
+    df_plot = group_measure_by_attribute("matchday",attribute,measure)
+    ax = sns.barplot(x="aspect", y=attribute, data=df_plot.reset_index(), color = "#b80606")
+    plt.gca().xaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)+1))
+    y_str = measure + " " + attr + " per Team"
+    if measure == "Absolute":
+        y_str = measure + " " + attr
+    if measure == "Minimum" or measure == "Maximum":
+        y_str = measure + " " + attr + " by a Team"
+        
+    ax.set(xlabel = "Matchday", ylabel = y_str)
+    if measure == "Mean" or attribute in ["distance","pass_ratio","possession","tackle_ratio"]:
+        for p in ax.patches:
+            ax.annotate(format(p.get_height(), '.2f'), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 18),
+                   rotation = 90,
+                   textcoords = 'offset points')
+    else:
+        for p in ax.patches:
+            ax.annotate(format(str(int(p.get_height()))), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 18),
+                   rotation = 90,
+                   textcoords = 'offset points')
+    st.pyplot(fig)
+
+def plot_x_per_team(attr,measure): #total #against, #conceived
+    rc = {'figure.figsize':(8,4.5),
+          'axes.facecolor':'#0e1117',
+          'axes.edgecolor': '#0e1117',
+          'axes.labelcolor': 'white',
+          'figure.facecolor': '#0e1117',
+          'patch.edgecolor': '#0e1117',
+          'text.color': 'white',
+          'xtick.color': 'white',
+          'ytick.color': 'white',
+          'grid.color': 'grey',
+          'font.size' : 8,
+          'axes.labelsize': 12,
+          'xtick.labelsize': 8,
+          'ytick.labelsize': 12}
+    
+    plt.rcParams.update(rc)
+    fig, ax = plt.subplots()
+    ### Goals
+    attribute = label_attr_dict_teams[attr]
+    df_plot = pd.DataFrame()
+    df_plot = group_measure_by_attribute("team",attribute,measure)
+    if specific_team_colors:
+        ax = sns.barplot(x="aspect", y=attribute, data=df_plot.reset_index(), palette = color_dict)
+    else:
+        ax = sns.barplot(x="aspect", y=attribute, data=df_plot.reset_index(), color = "#b80606")
+    y_str = measure + " " + attr + " " + "per Game"
+    if measure == "Absolute":
+        y_str = measure + " " + attr
+    if measure == "Minimum" or measure == "Maximum":
+        y_str = measure + " " + attr + "in a Game"
+    ax.set(xlabel = "Team", ylabel = y_str)
+    plt.xticks(rotation=66,horizontalalignment="right")
+    if measure == "Mean" or attribute in ["distance","pass_ratio","possession","tackle_ratio"]:
+        for p in ax.patches:
+            ax.annotate(format(p.get_height(), '.2f'), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 18),
+                   rotation = 90,
+                   textcoords = 'offset points')
+    else:
+        for p in ax.patches:
+            ax.annotate(format(str(int(p.get_height()))), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 18),
+                   rotation = 90,
+                   textcoords = 'offset points')
+    st.pyplot(fig)
+
+def plt_attribute_correlation(aspect1, aspect2):
+    df_plot = df_data_filtered
+    rc = {'figure.figsize':(5,5),
+          'axes.facecolor':'#0e1117',
+          'axes.edgecolor': '#0e1117',
+          'axes.labelcolor': 'white',
+          'figure.facecolor': '#0e1117',
+          'patch.edgecolor': '#0e1117',
+          'text.color': 'white',
+          'xtick.color': 'white',
+          'ytick.color': 'white',
+          'grid.color': 'grey',
+          'font.size' : 8,
+          'axes.labelsize': 12,
+          'xtick.labelsize': 12,
+          'ytick.labelsize': 12}
+    plt.rcParams.update(rc)
+    fig, ax = plt.subplots()
+    asp1 = label_attr_dict_correlation[aspect1]
+    asp2 = label_attr_dict_correlation[aspect2]
+    if(corr_type=="Regression Plot (Recommended)"):
+        ax = sns.regplot(x=asp1, y=asp2, x_jitter=.1, data=df_plot, color = '#f21111',scatter_kws={"color": "#f21111"},line_kws={"color": "#c2dbfc"})
+    if(corr_type=="Standard Scatter Plot"):
+        ax = sns.scatterplot(x=asp1, y=asp2, data=df_plot, color = '#f21111')
+    #if(corr_type=="Violin Plot (High Computation)"):
+    #    ax = sns.violinplot(x=asp1, y=asp2, data=df_plot, color = '#f21111')
+    ax.set(xlabel = aspect1, ylabel = aspect2)
+    st.pyplot(fig, ax)
