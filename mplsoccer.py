@@ -61,7 +61,7 @@ def filter_season(df_data):
 def filter_matchday(df_data):
     df_filtered_matchday = pd.DataFrame()
     matchdays_list = list(range(selected_matchdays[0], selected_matchdays[1]+1))
-    df_filtered_matchday = df_Data[df_data['matchday'].isin(matchdays_list)]
+    df_filtered_matchday = df_data[df_data['matchday'].isin(matchdays_list)]
     return df_filtered_matchday
     
 def filter_teams(df_data):
@@ -95,7 +95,7 @@ def stack_home_away_dataframe(df_data):
     df_away.insert(3, 'location', 'a')
     df_home.columns = column_names_new
     df_away.columns = column_names_new
-    df_total = df_home.append(df_Away, ignore_index=True).sort_values(['game_id', 'season', 'matchday'], ascending=[True, True, True])
+    df_total = df_home.append(df_away, ignore_index=True).sort_values(['game_id', 'season', 'matchday'], ascending=[True, True, True])
     df_total_sorted = df_total[['game_id','season','matchday','location','team','goals','goals_received','delta_goals','ht_goals','ht_goals_received','delta_ht_goals','shots_on_goal','shots_on_goal_received','delta_shots_on_goal','distance','delta_distance','total_passes','delta_total_passes','success_passes','failed_passes','pass_ratio','delta_pass_ratio','possession','delta_possession','tackle_ratio','delta_tackle_ratio','fouls','got_fouled','delta_fouls','offside','delta_offside','corners','delta_corners']]
     return df_total_sorted
 
@@ -562,12 +562,12 @@ with row10_1:
 row11_spacer1, row11_1, row11_spacer2, row11_2, row11_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
 with row11_1:
     st.markdown('Investigate the correlation between two attributes. Do teams that run more also score more goals?')
-    corr_plot_type = st.selectbox('Which plot type do you want to use?', corr_plot_types)
-    corr_plot_aspect2 = st.selectbox('Which attribute do you want on the y-axis?', list(label_attr_dict_correlation.keys()))
-    corr_plot_aspect1 = st.selectbox('Which attribute do you want on the x-axis?', list(label_attr_dict_correlation.keys()))
+    corr_type = st.selectbox('Which plot type do you want to use?', corr_plot_types)
+    y_axis_aspect2 = st.selectbox('Which attribute do you want on the y-axis?', list(label_attr_dict_correlation.keys()))
+    x_axis_aspect1 = st.selectbox('Which attribute do you want on the x-axis?', list(label_attr_dict_correlation.keys()))
 with row11_2:
     if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
-        plt_attribute_correlation(corr_plot_aspect1, corr_plot_aspect2)
+        plt_attribute_correlation(x_axis_aspect1, y_axis_aspect2)
     else:
         st.warning('Please select at least one team')
 
