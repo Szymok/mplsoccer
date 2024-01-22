@@ -99,4 +99,55 @@ def stack_home_away_dataframe(df_data):
     df_total_sorted = df_total[['game_id','season','matchday','location','team','goals','goals_received','delta_goals','ht_goals','ht_goals_received','delta_ht_goals','shots_on_goal','shots_on_goal_received','delta_shots_on_goal','distance','delta_distance','total_passes','delta_total_passes','success_passes','failed_passes','pass_ratio','delta_pass_ratio','possession','delta_possession','tackle_ratio','delta_tackle_ratio','fouls','got_fouled','delta_fouls','offside','delta_offside','corners','delta_corners']]
     return df_total_sorted
 
-def
+def group_measure_by_attribute(aspect, attribute, measure):
+    df_data = df_data_filtered
+    df_return = pd.DataFrame()
+    if(measure == 'Absolute'):
+        if(attribute == 'pass_ratio' or attribute == 'tackle_ratio' or attribute == 'possession'):
+            measure = 'Mean'
+        else:
+            df_return = df_data.groupby([aspect]).sum()
+
+        
+    if(measure == 'Mean'):
+        df_return = df_data.groupby([aspect]).mean()
+
+    if(measure == 'Median'):
+        df_return = df_data.groupby([aspect]).median()
+
+    if(measure == 'Maximum'):
+        df_return = df_data.groupby([aspect]).max()
+
+    if(measure == 'Minimum'):
+        df_return = df_data.groupby([aspect]).min()
+
+    df_return['aspect'] = df_return.index
+    if aspect == 'team':
+        df_return = df_return.sort_values(by=[attribute], ascending=False)
+    return df_return
+
+########################
+### ANALYSIS METHODS ###
+########################
+
+def plot_x_per_season(attr, measure):
+    rc = {
+        'figure.figsize':(8,4.5),
+          'axes.facecolor':'#0e1117',
+          'axes.edgecolor': '#0e1117',
+          'axes.labelcolor': 'white',
+          'figure.facecolor': '#0e1117',
+          'patch.edgecolor': '#0e1117',
+          'text.color': 'white',
+          'xtick.color': 'white',
+          'ytick.color': 'white',
+          'grid.color': 'grey',
+          'font.size' : 12,
+          'axes.labelsize': 12,
+          'xtick.labelsize': 12,
+          'ytick.labelsize': 12
+    }
+    plt.rcParams.update(rc)
+    fig, ax = plt.subplots()
+    ### Goals
+    attribute = label_attr_dict[attr]
