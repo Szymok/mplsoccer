@@ -394,3 +394,58 @@ st.sidebar.text('')
 ### SEASON RANGE ###
 
 st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
+unique_seasons = get_unique_seasons_modified(df_database)
+start_season, end_season = st.sidebar.select_slider('Select the season range you want to include', unique_seasons, value = [' 13/14', '23/24 '])
+df_data_filtered_season = filter_season(df_stacked)
+
+### MATCHDAY RANGE ###
+unique_matchdays = get_unique_matchdays(df_data_filtered_season)
+selected_matchdays = st.sidebar.select_slider('Select the matchday range you want to include', unique_matchdays, value=[min(unique_matchdays), max(unique_matchdays)])
+df_data_filtered_matchday = filter_matchday(df_data_filtered_season)
+
+### TEAMS SELECTION ###
+unique_teams = get_unique_teams(df_data_filtered_matchday)
+all_teams_selected = st.sidebar.selectbox('Do you want to only include specific teams? If the answer is yes, please check the box below and then select the team(s) in the new field.', ['Include all available teams', 'Select teams manually (choose below)'])
+if all_teams_selected == 'Select teams manually (choose below)':
+    selected_teams = st.sidebar.multiselect('Select and deselect the teams you would like to include in the analysis. You can clear the current selection by clicking the corresponding x-button on the right.', unique_teams, default = unique_teams)
+df_data_filtered = filter_teams(df_data_filtered_matchday)
+
+### SEE DATA ###
+row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
+with row6_1:
+    st.subheader('Currently selected data:')
+
+row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4, row2_4, row2_spacer5   = st.columns((.2, 1.6, .2, 1.6, .2, 1.6, .2, 1.6, .2))
+with row2_1:
+    unique_games_in_df = df_data_filtered.game_id.nunique()
+    str_games = "🏟️ " + str(unique_games_in_df) + " Matches"
+    st.markdown(str_games)
+with row2_2:
+    unique_teams_in_df = len(np.unique(df_data_filtered.team).tolist())
+    t = ' Teams'
+    if(unique_teams_in_df==1):
+        t = ' Team'
+    str_teams = "🏃‍♂️ " + str(unique_teams_in_df) + t
+    st.markdown(str_teams)
+with row2_3:
+    total_goals_in_df = df_data_filtered['goals'].sum()
+    str_goals = "🥅 " + str(total_goals_in_df) + " Goals"
+    st.markdown(str_goals)
+with row2_4:
+    total_shots_in_df = df_data_filtered['shots_on_goal'].sum()
+    str_shots = "👟⚽ " + str(total_shots_in_df) + " Shots"
+    st.markdown(str_shots)
+
+row3_spacer1, row3_1, row3_spacer2 = st.columns((.2, 7.1, .2))
+with row3_1:
+    st.markdown("")
+    see_data = st.expander('You can click here to see the raw data first 👉')
+    with see_data:
+        st.dataframe(data=df_data_filtered.reset_index(drop=True))
+st.text('')
+
+##########################
+### ANALYSIS SELECTION ###
+##########################
+
+### DATA EXPLORATION ###
