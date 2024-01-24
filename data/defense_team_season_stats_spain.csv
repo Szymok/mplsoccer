@@ -1,0 +1,22 @@
+league,season,team,players_used,90s,Tackles,Tackles,Tackles,Tackles,Tackles,Challenges,Challenges,Challenges,Challenges,Blocks,Blocks,Blocks,Int,Tkl+Int,Clr,Err,url
+,,,,,Tkl,TklW,Def 3rd,Mid 3rd,Att 3rd,Tkl,Att,Tkl%,Lost,Blocks,Sh,Pass,,,,,
+ESP-La Liga,2324,Alavés,27,21,316,201,152,128,36,154,339,45.4,185,189,52,137,145,461,457,2,/en/squads/8d6fd021/Alaves-Stats
+ESP-La Liga,2324,Almería,28,21,370,220,206,131,33,159,341,46.6,182,227,75,152,168,538,410,6,/en/squads/78ecf4bb/Almeria-Stats
+ESP-La Liga,2324,Athletic Club,25,21,320,200,126,152,42,169,363,46.6,194,224,50,174,152,472,366,1,/en/squads/2b390eca/Athletic-Club-Stats
+ESP-La Liga,2324,Atlético Madrid,23,20,332,201,161,132,39,164,340,48.2,176,254,70,184,135,467,440,4,/en/squads/db3b9613/Atletico-Madrid-Stats
+ESP-La Liga,2324,Barcelona,27,20,316,200,152,121,43,140,284,49.3,144,195,51,144,129,445,271,9,/en/squads/206d90db/Barcelona-Stats
+ESP-La Liga,2324,Betis,32,21,364,233,156,162,46,198,393,50.4,195,255,60,195,184,548,448,2,/en/squads/fc536746/Real-Betis-Stats
+ESP-La Liga,2324,Celta Vigo,26,21,334,208,151,139,44,159,349,45.6,190,242,61,181,179,513,485,3,/en/squads/f25da7fb/Celta-Vigo-Stats
+ESP-La Liga,2324,Cádiz,30,21,350,195,177,134,39,167,381,43.8,214,248,78,170,163,513,483,6,/en/squads/ee7c297c/Cadiz-Stats
+ESP-La Liga,2324,Getafe,26,20,291,181,142,112,37,141,283,49.8,142,170,55,115,170,461,395,5,/en/squads/7848bd64/Getafe-Stats
+ESP-La Liga,2324,Girona,23,21,310,192,144,128,38,155,304,51.0,149,226,79,147,140,450,416,6,/en/squads/9024a00a/Girona-Stats
+ESP-La Liga,2324,Granada,32,21,332,194,168,131,33,150,334,44.9,184,221,63,158,124,456,429,17,/en/squads/a0435291/Granada-Stats
+ESP-La Liga,2324,Las Palmas,26,21,413,245,209,162,42,201,414,48.6,213,230,67,163,172,585,498,8,/en/squads/0049d422/Las-Palmas-Stats
+ESP-La Liga,2324,Mallorca,21,21,394,224,202,160,32,204,388,52.6,184,212,73,139,186,580,422,7,/en/squads/2aa12281/Mallorca-Stats
+ESP-La Liga,2324,Osasuna,24,20,268,167,123,110,35,120,268,44.8,148,205,55,150,146,414,426,10,/en/squads/03c57e2b/Osasuna-Stats
+ESP-La Liga,2324,Rayo Vallecano,24,20,320,177,145,141,34,128,303,42.2,175,209,52,157,159,479,432,7,/en/squads/98e8af82/Rayo-Vallecano-Stats
+ESP-La Liga,2324,Real Madrid,23,20,279,180,127,108,44,120,239,50.2,119,205,61,144,175,454,262,4,/en/squads/53a2f082/Real-Madrid-Stats
+ESP-La Liga,2324,Real Sociedad,28,21,354,219,153,155,46,163,330,49.4,167,226,70,156,146,500,406,8,/en/squads/e31d1cd9/Real-Sociedad-Stats
+ESP-La Liga,2324,Sevilla,33,21,384,252,190,139,55,184,343,53.6,159,204,56,148,183,567,349,2,/en/squads/ad2be733/Sevilla-Stats
+ESP-La Liga,2324,Valencia,25,21,372,227,177,151,44,183,365,50.1,182,207,44,163,181,553,451,6,/en/squads/dcc91a7b/Valencia-Stats
+ESP-La Liga,2324,Villarreal,28,21,332,203,165,124,43,147,310,47.4,163,220,75,145,154,486,448,10,/en/squads/2a8183b3/Villarreal-Stats
