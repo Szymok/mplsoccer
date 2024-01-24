@@ -1,0 +1,1382 @@
+league,season,game,team,player,game_id,player_id,reason,status
+ESP-La Liga,2324,2023-08-11 Almeria-Rayo Vallecano,Almeria,LÃ©o BaptistÃ£o,1734621,116227,injured,Out
+ESP-La Liga,2324,2023-08-11 Almeria-Rayo Vallecano,Almeria,SamÃº Costa,1734621,391562,suspended,Out
+ESP-La Liga,2324,2023-08-11 Sevilla-Valencia,Sevilla,JosÃ© Ãngel Carmona,1734625,422956,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-11 Sevilla-Valencia,Sevilla,Ludwig Augustinsson,1734625,282994,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-11 Sevilla-Valencia,Sevilla,Tanguy Nianzou,1734625,382492,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-11 Sevilla-Valencia,Valencia,Alberto MarÃ­,1734625,475551,injured,Out
+ESP-La Liga,2324,2023-08-11 Sevilla-Valencia,Valencia,Marcos AndrÃ©,1734625,402185,injured,Out
+ESP-La Liga,2324,2023-08-12 Athletic Club-Real Madrid,Athletic Club,Yuri Berchiche,1734622,56057,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-12 Athletic Club-Real Madrid,Real Madrid,Arda GÃ¼ler,1734622,415181,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-12 Athletic Club-Real Madrid,Real Madrid,Dani Ceballos,1734622,144890,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-12 Athletic Club-Real Madrid,Real Madrid,Ferland Mendy,1734622,296337,injured,Out
+ESP-La Liga,2324,2023-08-12 Las Palmas-Mallorca,Las Palmas,Fabio GonzÃ¡lez,1734626,344047,injured,Out
+ESP-La Liga,2324,2023-08-12 Real Sociedad-Girona,Girona,Bernardo Espinosa,1734629,67327,suspended,Out
+ESP-La Liga,2324,2023-08-12 Real Sociedad-Girona,Girona,Toni Villa,1734629,362355,injured,Out
+ESP-La Liga,2324,2023-08-12 Real Sociedad-Girona,Real Sociedad,AndrÃ© Silva,1734629,299460,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-12 Real Sociedad-Girona,Real Sociedad,MartÃ­n Merquelanz,1734629,363025,injured,Out
+ESP-La Liga,2324,2023-08-13 Celta Vigo-Osasuna,Celta Vigo,AgustÃ­n MarchesÃ­n,1734624,125622,injured,Out
+ESP-La Liga,2324,2023-08-13 Celta Vigo-Osasuna,Osasuna,Darko Brasanac,1734624,84880,injured,Out
+ESP-La Liga,2324,2023-08-13 Getafe-Barcelona,Barcelona,ÃÃ±igo MartÃ­nez,1734627,106885,injured,Out
+ESP-La Liga,2324,2023-08-13 Getafe-Barcelona,Getafe,Enes Ãnal,1734627,134695,injured,Out
+ESP-La Liga,2324,2023-08-13 Getafe-Barcelona,Getafe,Luis Milla,1734627,279320,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-13 Getafe-Barcelona,Getafe,Mauro Arambarri,1734627,303016,injured,Out
+ESP-La Liga,2324,2023-08-13 Villarreal-Real Betis,Real Betis,Nabil Fekir,1734628,134893,injured,Out
+ESP-La Liga,2324,2023-08-13 Villarreal-Real Betis,Real Betis,William Carvalho,1734628,99911,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-13 Villarreal-Real Betis,Villarreal,Francis Coquelin,1734628,69738,injured,Out
+ESP-La Liga,2324,2023-08-13 Villarreal-Real Betis,Villarreal,RaÃºl Albiol,1734628,12575,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-14 Atletico Madrid-Granada,Atletico Madrid,Axel Witsel,1734623,25191,suspended,Out
+ESP-La Liga,2324,2023-08-14 Atletico Madrid-Granada,Atletico Madrid,JosÃ© GimÃ©nez,1734623,135914,injured,Out
+ESP-La Liga,2324,2023-08-14 Atletico Madrid-Granada,Atletico Madrid,Reinildo,1734623,361812,injured,Out
+ESP-La Liga,2324,2023-08-14 Cadiz-Deportivo Alaves,Cadiz,Brian Ocampo,1734630,417946,injured,Out
+ESP-La Liga,2324,2023-08-14 Cadiz-Deportivo Alaves,Cadiz,Luis HernÃ¡ndez,1734630,294139,injured,Out
+ESP-La Liga,2324,2023-08-14 Cadiz-Deportivo Alaves,Cadiz,Sergi Guardiola,1734630,323135,injured,Out
+ESP-La Liga,2324,2023-08-14 Cadiz-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734630,422918,injured,Out
+ESP-La Liga,2324,2023-08-18 Mallorca-Villarreal,Villarreal,Alberto Moreno,1734633,113275,injured,Out
+ESP-La Liga,2324,2023-08-18 Mallorca-Villarreal,Villarreal,Francis Coquelin,1734633,69738,injured,Out
+ESP-La Liga,2324,2023-08-18 Valencia-Las Palmas,Las Palmas,Alberto Moleiro,1734640,448211,injured,Out
+ESP-La Liga,2324,2023-08-18 Valencia-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734640,344047,injured,Out
+ESP-La Liga,2324,2023-08-18 Valencia-Las Palmas,Valencia,Alberto MarÃ­,1734640,475551,injured,Out
+ESP-La Liga,2324,2023-08-18 Valencia-Las Palmas,Valencia,Marcos AndrÃ©,1734640,402185,injured,Out
+ESP-La Liga,2324,2023-08-19 Almeria-Real Madrid,Almeria,LÃ©o BaptistÃ£o,1734631,116227,injured,Out
+ESP-La Liga,2324,2023-08-19 Almeria-Real Madrid,Almeria,Martin Svidersky,1734631,424535,injured,Out
+ESP-La Liga,2324,2023-08-19 Almeria-Real Madrid,Real Madrid,Arda GÃ¼ler,1734631,415181,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-19 Almeria-Real Madrid,Real Madrid,Dani Ceballos,1734631,144890,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-19 Almeria-Real Madrid,Real Madrid,Ferland Mendy,1734631,296337,injured,Out
+ESP-La Liga,2324,2023-08-19 Almeria-Real Madrid,Real Madrid,Thibaut Courtois,1734631,73798,injured,Out
+ESP-La Liga,2324,2023-08-19 Almeria-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734631,337879,injured,Out
+ESP-La Liga,2324,2023-08-19 Osasuna-Athletic Club,Athletic Club,Yeray Ãlvarez,1734636,279839,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-19 Osasuna-Athletic Club,Athletic Club,Yuri Berchiche,1734636,56057,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-19 Osasuna-Athletic Club,Osasuna,Darko Brasanac,1734636,84880,injured,Out
+ESP-La Liga,2324,2023-08-19 Real Sociedad-Celta Vigo,Celta Vigo,AgustÃ­n MarchesÃ­n,1734638,125622,injured,Out
+ESP-La Liga,2324,2023-08-19 Real Sociedad-Celta Vigo,Real Sociedad,AndrÃ© Silva,1734638,299460,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-19 Real Sociedad-Celta Vigo,Real Sociedad,Aritz Elustondo,1734638,256864,injured,Out
+ESP-La Liga,2324,2023-08-19 Real Sociedad-Celta Vigo,Real Sociedad,MartÃ­n Merquelanz,1734638,363025,injured,Out
+ESP-La Liga,2324,2023-08-19 Real Sociedad-Celta Vigo,Real Sociedad,Mikel Merino,1734638,238916,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-20 Barcelona-Cadiz,Barcelona,Raphinha,1734632,300447,suspended,Out
+ESP-La Liga,2324,2023-08-20 Barcelona-Cadiz,Barcelona,Ronald AraÃºjo,1734632,384711,injured,Out
+ESP-La Liga,2324,2023-08-20 Barcelona-Cadiz,Barcelona,ÃÃ±igo MartÃ­nez,1734632,106885,injured,Out
+ESP-La Liga,2324,2023-08-20 Barcelona-Cadiz,Cadiz,Brian Ocampo,1734632,417946,injured,Out
+ESP-La Liga,2324,2023-08-20 Barcelona-Cadiz,Cadiz,Gonzalo Escalante,1734632,127764,suspended,Out
+ESP-La Liga,2324,2023-08-20 Barcelona-Cadiz,Cadiz,Sergi Guardiola,1734632,323135,injured,Out
+ESP-La Liga,2324,2023-08-20 Barcelona-Cadiz,Cadiz,Victor Chust,1734632,402862,injured,Out
+ESP-La Liga,2324,2023-08-20 Girona-Getafe,Getafe,Enes Ãnal,1734639,134695,injured,Out
+ESP-La Liga,2324,2023-08-20 Girona-Getafe,Getafe,Jaime Mata,1734639,140771,suspended,Out
+ESP-La Liga,2324,2023-08-20 Girona-Getafe,Getafe,Luis Milla,1734639,279320,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-20 Girona-Getafe,Getafe,Mauro Arambarri,1734639,303016,injured,Out
+ESP-La Liga,2324,2023-08-20 Girona-Getafe,Girona,Joel Roca,1734639,444242,injured,Out
+ESP-La Liga,2324,2023-08-20 Girona-Getafe,Girona,Ricard Artero,1734639,444246,injured,Out
+ESP-La Liga,2324,2023-08-20 Girona-Getafe,Girona,Toni Villa,1734639,362355,injured,Out
+ESP-La Liga,2324,2023-08-20 Real Betis-Atletico Madrid,Atletico Madrid,JosÃ© GimÃ©nez,1734637,135914,injured,Out
+ESP-La Liga,2324,2023-08-20 Real Betis-Atletico Madrid,Atletico Madrid,Koke,1734637,80764,injured,Out
+ESP-La Liga,2324,2023-08-20 Real Betis-Atletico Madrid,Atletico Madrid,Reinildo,1734637,361812,injured,Out
+ESP-La Liga,2324,2023-08-20 Real Betis-Atletico Madrid,Real Betis,Nabil Fekir,1734637,134893,injured,Out
+ESP-La Liga,2324,2023-08-20 Real Betis-Atletico Madrid,Real Betis,William Carvalho,1734637,99911,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-21 Deportivo Alaves-Sevilla,Deportivo Alaves,Giuliano Simeone,1734635,422918,injured,Out
+ESP-La Liga,2324,2023-08-21 Deportivo Alaves-Sevilla,Sevilla,JosÃ© Ãngel Carmona,1734635,422956,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-21 Deportivo Alaves-Sevilla,Sevilla,LoÃ¯c BadÃ©,1734635,398416,suspended,Out
+ESP-La Liga,2324,2023-08-21 Deportivo Alaves-Sevilla,Sevilla,Ludwig Augustinsson,1734635,282994,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-21 Deportivo Alaves-Sevilla,Sevilla,Tanguy Nianzou,1734635,382492,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-21 Granada-Rayo Vallecano,Granada,RaÃºl Torrente,1734634,405310,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-25 Celta Vigo-Real Madrid,Celta Vigo,Carles PÃ©rez,1734642,374869,injured,Out
+ESP-La Liga,2324,2023-08-25 Celta Vigo-Real Madrid,Celta Vigo,GonÃ§alo PaciÃªncia,1734642,271856,injured,Out
+ESP-La Liga,2324,2023-08-25 Celta Vigo-Real Madrid,Real Madrid,Arda GÃ¼ler,1734642,415181,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-25 Celta Vigo-Real Madrid,Real Madrid,Dani Ceballos,1734642,144890,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-25 Celta Vigo-Real Madrid,Real Madrid,Ferland Mendy,1734642,296337,injured,Out
+ESP-La Liga,2324,2023-08-25 Celta Vigo-Real Madrid,Real Madrid,Thibaut Courtois,1734642,73798,injured,Out
+ESP-La Liga,2324,2023-08-25 Celta Vigo-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734642,337879,injured,Out
+ESP-La Liga,2324,2023-08-25 Las Palmas-Real Sociedad,Las Palmas,Alberto Moleiro,1734644,448211,injured,Out
+ESP-La Liga,2324,2023-08-25 Las Palmas-Real Sociedad,Las Palmas,Fabio GonzÃ¡lez,1734644,344047,injured,Out
+ESP-La Liga,2324,2023-08-25 Las Palmas-Real Sociedad,Real Sociedad,AndrÃ© Silva,1734644,299460,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-25 Las Palmas-Real Sociedad,Real Sociedad,Aritz Elustondo,1734644,256864,injured,Out
+ESP-La Liga,2324,2023-08-25 Las Palmas-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734644,363025,injured,Out
+ESP-La Liga,2324,2023-08-25 Las Palmas-Real Sociedad,Real Sociedad,Mikel Merino,1734644,238916,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-26 Cadiz-Almeria,Almeria,LÃ©o BaptistÃ£o,1734645,116227,injured,Out
+ESP-La Liga,2324,2023-08-26 Cadiz-Almeria,Almeria,Martin Svidersky,1734645,424535,injured,Out
+ESP-La Liga,2324,2023-08-26 Cadiz-Almeria,Cadiz,Brian Ocampo,1734645,417946,injured,Out
+ESP-La Liga,2324,2023-08-26 Cadiz-Almeria,Cadiz,Jorge MerÃ©,1734645,294145,injured,Out
+ESP-La Liga,2324,2023-08-26 Cadiz-Almeria,Cadiz,Sergi Guardiola,1734645,323135,injured,Out
+ESP-La Liga,2324,2023-08-26 Cadiz-Almeria,Cadiz,Victor Chust,1734645,402862,injured,Out
+ESP-La Liga,2324,2023-08-26 Granada-Mallorca,Granada,Antonio Puertas,1734643,127802,suspended,Out
+ESP-La Liga,2324,2023-08-26 Granada-Mallorca,Granada,RaÃºl Torrente,1734643,405310,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Girona,Alexander Callens,1734648,24601,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Girona,Borja GarcÃ­a,1734648,75913,injured,Out
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Girona,Ibrahima KÃ©bÃ©,1734648,444245,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Girona,Joel Roca,1734648,444242,injured,Out
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Girona,Oscar UreÃ±a,1734648,444240,injured,Out
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Girona,Ricard Artero,1734648,444246,injured,Out
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Girona,Santiago Bueno,1734648,444241,injured,Out
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Girona,Toni Villa,1734648,362355,injured,Out
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Sevilla,Gonzalo Montiel,1734648,316883,injured,Out
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Sevilla,MarcÃ£o,1734648,318120,injured,Out
+ESP-La Liga,2324,2023-08-26 Sevilla-Girona,Sevilla,Tanguy Nianzou,1734648,382492,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-27 Athletic Club-Real Betis,Athletic Club,Oihan Sancet,1734641,381510,suspended,Out
+ESP-La Liga,2324,2023-08-27 Athletic Club-Real Betis,Athletic Club,Yeray Ãlvarez,1734641,279839,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-27 Athletic Club-Real Betis,Athletic Club,Yuri Berchiche,1734641,56057,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-27 Athletic Club-Real Betis,Real Betis,Claudio Bravo,1734641,14199,injured,Out
+ESP-La Liga,2324,2023-08-27 Athletic Club-Real Betis,Real Betis,Luiz Henrique,1734641,397587,injured,Out
+ESP-La Liga,2324,2023-08-27 Athletic Club-Real Betis,Real Betis,Nabil Fekir,1734641,134893,injured,Out
+ESP-La Liga,2324,2023-08-27 Athletic Club-Real Betis,Real Betis,William Carvalho,1734641,99911,injured,Out
+ESP-La Liga,2324,2023-08-27 Valencia-Osasuna,Osasuna,Chimy Avila,1734649,303707,suspended,Out
+ESP-La Liga,2324,2023-08-27 Valencia-Osasuna,Osasuna,Darko Brasanac,1734649,84880,injured,Out
+ESP-La Liga,2324,2023-08-27 Valencia-Osasuna,Valencia,Alberto MarÃ­,1734649,475551,injured,Out
+ESP-La Liga,2324,2023-08-27 Valencia-Osasuna,Valencia,Marcos AndrÃ©,1734649,402185,injured,Out
+ESP-La Liga,2324,2023-08-27 Villarreal-Barcelona,Barcelona,Pedri,1734647,402197,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-27 Villarreal-Barcelona,Barcelona,Raphinha,1734647,300447,suspended,Out
+ESP-La Liga,2324,2023-08-27 Villarreal-Barcelona,Barcelona,Ronald AraÃºjo,1734647,384711,injured,Out
+ESP-La Liga,2324,2023-08-27 Villarreal-Barcelona,Barcelona,ÃÃ±igo MartÃ­nez,1734647,106885,injured,Out
+ESP-La Liga,2324,2023-08-27 Villarreal-Barcelona,Villarreal,Alberto Moreno,1734647,113275,injured,Out
+ESP-La Liga,2324,2023-08-27 Villarreal-Barcelona,Villarreal,Francis Coquelin,1734647,69738,injured,Out
+ESP-La Liga,2324,2023-08-28 Getafe-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734650,422918,injured,Out
+ESP-La Liga,2324,2023-08-28 Getafe-Deportivo Alaves,Getafe,Enes Ãnal,1734650,134695,injured,Out
+ESP-La Liga,2324,2023-08-28 Getafe-Deportivo Alaves,Getafe,JosÃ© Ãngel Carmona,1734650,422956,injured,Out
+ESP-La Liga,2324,2023-08-28 Getafe-Deportivo Alaves,Getafe,Luis Milla,1734650,279320,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-28 Getafe-Deportivo Alaves,Getafe,Mauro Arambarri,1734650,303016,injured,Out
+ESP-La Liga,2324,2023-08-28 Getafe-Deportivo Alaves,Getafe,Omar Alderete,1734650,344639,injured,Out
+ESP-La Liga,2324,2023-08-28 Rayo Vallecano-Atletico Madrid,Atletico Madrid,JosÃ© GimÃ©nez,1734646,135914,injured,Out
+ESP-La Liga,2324,2023-08-28 Rayo Vallecano-Atletico Madrid,Atletico Madrid,Koke,1734646,80764,injured,Out
+ESP-La Liga,2324,2023-08-28 Rayo Vallecano-Atletico Madrid,Atletico Madrid,Reinildo,1734646,361812,injured,Out
+ESP-La Liga,2324,2023-08-28 Rayo Vallecano-Atletico Madrid,Atletico Madrid,Yannick Carrasco,1734646,115472,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-08-28 Rayo Vallecano-Atletico Madrid,Rayo Vallecano,AndrÃ©s MartÃ­n,1734646,422961,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-01 Almeria-Celta Vigo,Almeria,Edgar GonzÃ¡lez,1734651,387160,suspended,Out
+ESP-La Liga,2324,2023-09-01 Almeria-Celta Vigo,Almeria,LÃ©o BaptistÃ£o,1734651,116227,injured,Out
+ESP-La Liga,2324,2023-09-01 Almeria-Celta Vigo,Almeria,Martin Svidersky,1734651,424535,injured,Out
+ESP-La Liga,2324,2023-09-01 Almeria-Celta Vigo,Celta Vigo,Carles PÃ©rez,1734651,374869,injured,Out
+ESP-La Liga,2324,2023-09-01 Almeria-Celta Vigo,Celta Vigo,GonÃ§alo PaciÃªncia,1734651,271856,injured,Out
+ESP-La Liga,2324,2023-09-01 Cadiz-Villarreal,Cadiz,Brian Ocampo,1734662,417946,injured,Out
+ESP-La Liga,2324,2023-09-01 Cadiz-Villarreal,Cadiz,Fede San Emeterio,1734662,141641,suspended,Out
+ESP-La Liga,2324,2023-09-01 Cadiz-Villarreal,Cadiz,Jorge MerÃ©,1734662,294145,injured,Out
+ESP-La Liga,2324,2023-09-01 Cadiz-Villarreal,Cadiz,Sergi Guardiola,1734662,323135,injured,Out
+ESP-La Liga,2324,2023-09-01 Cadiz-Villarreal,Cadiz,Victor Chust,1734662,402862,injured,Out
+ESP-La Liga,2324,2023-09-01 Cadiz-Villarreal,Villarreal,Alberto Moreno,1734662,113275,injured,Out
+ESP-La Liga,2324,2023-09-01 Cadiz-Villarreal,Villarreal,Francis Coquelin,1734662,69738,injured,Out
+ESP-La Liga,2324,2023-09-02 Deportivo Alaves-Valencia,Deportivo Alaves,Giuliano Simeone,1734666,422918,injured,Out
+ESP-La Liga,2324,2023-09-02 Deportivo Alaves-Valencia,Valencia,Alberto MarÃ­,1734666,475551,injured,Out
+ESP-La Liga,2324,2023-09-02 Deportivo Alaves-Valencia,Valencia,Marcos AndrÃ©,1734666,402185,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Betis-Rayo Vallecano,Rayo Vallecano,AndrÃ©s MartÃ­n,1734660,422961,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-02 Real Betis-Rayo Vallecano,Real Betis,Aitor Ruibal,1734660,349494,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-02 Real Betis-Rayo Vallecano,Real Betis,Claudio Bravo,1734660,14199,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Betis-Rayo Vallecano,Real Betis,Luiz Henrique,1734660,397587,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-02 Real Betis-Rayo Vallecano,Real Betis,Nabil Fekir,1734660,134893,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Betis-Rayo Vallecano,Real Betis,William Carvalho,1734660,99911,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Getafe,Enes Ãnal,1734672,134695,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Getafe,JosÃ© Ãngel Carmona,1734672,422956,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Getafe,Luis Milla,1734672,279320,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Getafe,Mauro Arambarri,1734672,303016,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Getafe,Omar Alderete,1734672,344639,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Real Madrid,Arda GÃ¼ler,1734672,415181,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Real Madrid,Dani Ceballos,1734672,144890,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Real Madrid,Ferland Mendy,1734672,296337,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Real Madrid,Thibaut Courtois,1734672,73798,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Real Madrid,VinÃ­cius JÃºnior,1734672,337782,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Madrid-Getafe,Real Madrid,Ãder MilitÃ£o,1734672,337879,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Sociedad-Granada,Granada,Antonio Puertas,1734674,127802,suspended,Out
+ESP-La Liga,2324,2023-09-02 Real Sociedad-Granada,Granada,RaÃºl Torrente,1734674,405310,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-02 Real Sociedad-Granada,Real Sociedad,AndrÃ© Silva,1734674,299460,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-02 Real Sociedad-Granada,Real Sociedad,Aritz Elustondo,1734674,256864,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Sociedad-Granada,Real Sociedad,MartÃ­n Merquelanz,1734674,363025,injured,Out
+ESP-La Liga,2324,2023-09-02 Real Sociedad-Granada,Real Sociedad,Urko GonzÃ¡lez,1734674,401173,injured,Out
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Girona,Alexander Callens,1734664,24601,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Girona,Borja GarcÃ­a,1734664,75913,injured,Out
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Girona,Joel Roca,1734664,444242,injured,Out
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Girona,Ricard Artero,1734664,444246,injured,Out
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Girona,Toni Villa,1734664,362355,injured,Out
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Las Palmas,Alberto Moleiro,1734664,448211,injured,Out
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Las Palmas,Daley Sinkgraven,1734664,141781,injured,Out
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734664,344047,injured,Out
+ESP-La Liga,2324,2023-09-03 Girona-Las Palmas,Las Palmas,Marvin Park,1734664,401175,injured,Out
+ESP-La Liga,2324,2023-09-03 Mallorca-Athletic Club,Athletic Club,Yeray Ãlvarez,1734668,279839,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-03 Mallorca-Athletic Club,Athletic Club,Ãscar De Marcos,1734668,78500,injured,Out
+ESP-La Liga,2324,2023-09-03 Mallorca-Athletic Club,Mallorca,Antonio RaÃ­llo,1734668,294006,injured,Out
+ESP-La Liga,2324,2023-09-03 Osasuna-Barcelona,Barcelona,Pedri,1734670,402197,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-03 Osasuna-Barcelona,Barcelona,Raphinha,1734670,300447,suspended,Out
+ESP-La Liga,2324,2023-09-03 Osasuna-Barcelona,Barcelona,Ronald AraÃºjo,1734670,384711,injured,Out
+ESP-La Liga,2324,2023-09-03 Osasuna-Barcelona,Barcelona,ÃÃ±igo MartÃ­nez,1734670,106885,injured,Out
+ESP-La Liga,2324,2023-09-03 Osasuna-Barcelona,Osasuna,Darko Brasanac,1734670,84880,injured,Out
+ESP-La Liga,2324,2023-09-15 Rayo Vallecano-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734695,422918,injured,Out
+ESP-La Liga,2324,2023-09-15 Rayo Vallecano-Deportivo Alaves,Rayo Vallecano,JosÃ© Pozo,1734695,244564,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-16 Athletic Club-Cadiz,Athletic Club,Peru Nolaskoain,1734676,354411,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-16 Athletic Club-Cadiz,Athletic Club,Yeray Ãlvarez,1734676,279839,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-16 Athletic Club-Cadiz,Athletic Club,Ãscar De Marcos,1734676,78500,injured,Out
+ESP-La Liga,2324,2023-09-16 Athletic Club-Cadiz,Cadiz,Brian Ocampo,1734676,417946,injured,Out
+ESP-La Liga,2324,2023-09-16 Athletic Club-Cadiz,Cadiz,Fede San Emeterio,1734676,141641,injured,Out
+ESP-La Liga,2324,2023-09-16 Athletic Club-Cadiz,Cadiz,Jorge MerÃ©,1734676,294145,injured,Out
+ESP-La Liga,2324,2023-09-16 Athletic Club-Cadiz,Cadiz,Sergi Guardiola,1734676,323135,injured,Out
+ESP-La Liga,2324,2023-09-16 Athletic Club-Cadiz,Cadiz,Victor Chust,1734676,402862,injured,Out
+ESP-La Liga,2324,2023-09-16 Barcelona-Real Betis,Barcelona,Ilkay GÃ¼ndogan,1734678,77464,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-16 Barcelona-Real Betis,Barcelona,Pedri,1734678,402197,injured,Out
+ESP-La Liga,2324,2023-09-16 Barcelona-Real Betis,Barcelona,Ronald AraÃºjo,1734678,384711,injured,Out
+ESP-La Liga,2324,2023-09-16 Barcelona-Real Betis,Real Betis,Aitor Ruibal,1734678,349494,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-16 Barcelona-Real Betis,Real Betis,Claudio Bravo,1734678,14199,injured,Out
+ESP-La Liga,2324,2023-09-16 Barcelona-Real Betis,Real Betis,Luiz Henrique,1734678,397587,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-16 Barcelona-Real Betis,Real Betis,Nabil Fekir,1734678,134893,injured,Out
+ESP-La Liga,2324,2023-09-16 Barcelona-Real Betis,Real Betis,William Carvalho,1734678,99911,injured,Out
+ESP-La Liga,2324,2023-09-16 Celta Vigo-Mallorca,Celta Vigo,Carles PÃ©rez,1734681,374869,injured,Out
+ESP-La Liga,2324,2023-09-16 Celta Vigo-Mallorca,Celta Vigo,Franco Cervi,1734681,303910,injured,Out
+ESP-La Liga,2324,2023-09-16 Celta Vigo-Mallorca,Mallorca,Antonio RaÃ­llo,1734681,294006,injured,Out
+ESP-La Liga,2324,2023-09-16 Valencia-Atletico Madrid,Atletico Madrid,JosÃ© GimÃ©nez,1734689,135914,injured,Out
+ESP-La Liga,2324,2023-09-16 Valencia-Atletico Madrid,Atletico Madrid,Koke,1734689,80764,injured,Out
+ESP-La Liga,2324,2023-09-16 Valencia-Atletico Madrid,Atletico Madrid,Memphis Depay,1734689,110154,injured,Out
+ESP-La Liga,2324,2023-09-16 Valencia-Atletico Madrid,Atletico Madrid,Reinildo,1734689,361812,injured,Out
+ESP-La Liga,2324,2023-09-16 Valencia-Atletico Madrid,Atletico Madrid,Samuel Lino,1734689,381594,injured,Out
+ESP-La Liga,2324,2023-09-16 Valencia-Atletico Madrid,Atletico Madrid,Vitolo,1734689,91430,injured,Out
+ESP-La Liga,2324,2023-09-16 Valencia-Atletico Madrid,Valencia,Alberto MarÃ­,1734689,475551,injured,Out
+ESP-La Liga,2324,2023-09-16 Valencia-Atletico Madrid,Valencia,Gabriel Paulista,1734689,76810,injured,Out
+ESP-La Liga,2324,2023-09-17 Getafe-Osasuna,Getafe,Enes Ãnal,1734683,134695,injured,Out
+ESP-La Liga,2324,2023-09-17 Getafe-Osasuna,Getafe,Luis Milla,1734683,279320,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Getafe-Osasuna,Osasuna,Alejandro Catena,1734683,374638,suspended,Out
+ESP-La Liga,2324,2023-09-17 Getafe-Osasuna,Osasuna,Darko Brasanac,1734683,84880,injured,Out
+ESP-La Liga,2324,2023-09-17 Getafe-Osasuna,Osasuna,David GarcÃ­a,1734683,240874,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Real Madrid-Real Sociedad,Real Madrid,Arda GÃ¼ler,1734685,415181,injured,Out
+ESP-La Liga,2324,2023-09-17 Real Madrid-Real Sociedad,Real Madrid,Dani Ceballos,1734685,144890,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Real Madrid-Real Sociedad,Real Madrid,Thibaut Courtois,1734685,73798,injured,Out
+ESP-La Liga,2324,2023-09-17 Real Madrid-Real Sociedad,Real Madrid,VinÃ­cius JÃºnior,1734685,337782,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Real Madrid-Real Sociedad,Real Madrid,Ãder MilitÃ£o,1734685,337879,injured,Out
+ESP-La Liga,2324,2023-09-17 Real Madrid-Real Sociedad,Real Sociedad,AndrÃ© Silva,1734685,299460,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Real Madrid-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734685,363025,injured,Out
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Las Palmas,Alberto Moleiro,1734693,448211,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Las Palmas,Daley Sinkgraven,1734693,141781,injured,Out
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734693,344047,injured,Out
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Las Palmas,Marvin Park,1734693,401175,injured,Out
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Sevilla,Alfonso Pastor,1734693,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Sevilla,JesÃºs Navas,1734693,9446,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Sevilla,Joan JordÃ¡n,1734693,238941,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Sevilla,Marcos AcuÃ±a,1734693,303729,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Sevilla,MarcÃ£o,1734693,318120,injured,Out
+ESP-La Liga,2324,2023-09-17 Sevilla-Las Palmas,Sevilla,Tanguy Nianzou,1734693,382492,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Villarreal-Almeria,Almeria,CÃ©sar Montes,1734687,447631,other,Out
+ESP-La Liga,2324,2023-09-17 Villarreal-Almeria,Almeria,Martin Svidersky,1734687,424535,injured,Out
+ESP-La Liga,2324,2023-09-17 Villarreal-Almeria,Villarreal,Alberto Moreno,1734687,113275,injured,Out
+ESP-La Liga,2324,2023-09-17 Villarreal-Almeria,Villarreal,Alexander SÃ¸rloth,1734687,302497,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-17 Villarreal-Almeria,Villarreal,Alfonso Pedraza,1734687,276489,suspended,Out
+ESP-La Liga,2324,2023-09-17 Villarreal-Almeria,Villarreal,Francis Coquelin,1734687,69738,injured,Out
+ESP-La Liga,2324,2023-09-18 Granada-Girona,Girona,Borja GarcÃ­a,1734691,75913,injured,Out
+ESP-La Liga,2324,2023-09-18 Granada-Girona,Girona,Toni Villa,1734691,362355,injured,Out
+ESP-La Liga,2324,2023-09-18 Granada-Girona,Granada,JesÃºs Vallejo,1734691,238901,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-18 Granada-Girona,Granada,RaÃºl Torrente,1734691,405310,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-22 Deportivo Alaves-Athletic Club,Athletic Club,Nico Williams,1734711,408449,injured,Out
+ESP-La Liga,2324,2023-09-22 Deportivo Alaves-Athletic Club,Athletic Club,Peru Nolaskoain,1734711,354411,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-22 Deportivo Alaves-Athletic Club,Athletic Club,Yeray Ãlvarez,1734711,279839,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-22 Deportivo Alaves-Athletic Club,Deportivo Alaves,Giuliano Simeone,1734711,422918,injured,Out
+ESP-La Liga,2324,2023-09-23 Almeria-Valencia,Valencia,Alberto MarÃ­,1734697,475551,injured,Out
+ESP-La Liga,2324,2023-09-23 Almeria-Valencia,Valencia,Dimitri Foulquier,1734697,101084,injured,Out
+ESP-La Liga,2324,2023-09-23 Almeria-Valencia,Valencia,Gabriel Paulista,1734697,76810,injured,Out
+ESP-La Liga,2324,2023-09-23 Barcelona-Celta Vigo,Barcelona,Pedri,1734701,402197,injured,Out
+ESP-La Liga,2324,2023-09-23 Barcelona-Celta Vigo,Barcelona,Ronald AraÃºjo,1734701,384711,injured,Out
+ESP-La Liga,2324,2023-09-23 Barcelona-Celta Vigo,Celta Vigo,Carles PÃ©rez,1734701,374869,injured,Out
+ESP-La Liga,2324,2023-09-23 Barcelona-Celta Vigo,Celta Vigo,Franco Cervi,1734701,303910,injured,Out
+ESP-La Liga,2324,2023-09-23 Girona-Mallorca,Girona,Arnau MartÃ­nez,1734705,444239,injured,Out
+ESP-La Liga,2324,2023-09-23 Girona-Mallorca,Girona,Borja GarcÃ­a,1734705,75913,injured,Out
+ESP-La Liga,2324,2023-09-23 Girona-Mallorca,Girona,Toni Villa,1734705,362355,injured,Out
+ESP-La Liga,2324,2023-09-23 Girona-Mallorca,Mallorca,Antonio RaÃ­llo,1734705,294006,injured,Out
+ESP-La Liga,2324,2023-09-23 Girona-Mallorca,Mallorca,Omar Mascarell,1734705,115996,injured,Out
+ESP-La Liga,2324,2023-09-23 Osasuna-Sevilla,Osasuna,Darko Brasanac,1734707,84880,injured,Out
+ESP-La Liga,2324,2023-09-23 Osasuna-Sevilla,Osasuna,Jon Moncayola,1734707,381673,injured,Out
+ESP-La Liga,2324,2023-09-23 Osasuna-Sevilla,Sevilla,Alfonso Pastor,1734707,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-23 Osasuna-Sevilla,Sevilla,Marcos AcuÃ±a,1734707,303729,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-23 Osasuna-Sevilla,Sevilla,MarcÃ£o,1734707,318120,injured,Out
+ESP-La Liga,2324,2023-09-23 Osasuna-Sevilla,Sevilla,Tanguy Nianzou,1734707,382492,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Atletico Madrid,Koke,1734699,80764,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Atletico Madrid,Memphis Depay,1734699,110154,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Atletico Madrid,Reinildo,1734699,361812,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Atletico Madrid,Rodrigo De Paul,1734699,125547,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Atletico Madrid,Thomas Lemar,1734699,132962,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Atletico Madrid,Vitolo,1734699,91430,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Atletico Madrid,Ãaglar SÃ¶yÃ¼ncÃ¼,1734699,317998,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Real Madrid,Dani Carvajal,1734699,106883,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Real Madrid,Thibaut Courtois,1734699,73798,injured,Out
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Real Madrid,VinÃ­cius JÃºnior,1734699,337782,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-24 Atletico Madrid-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734699,337879,injured,Out
+ESP-La Liga,2324,2023-09-24 Las Palmas-Granada,Granada,JesÃºs Vallejo,1734715,238901,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-24 Las Palmas-Granada,Las Palmas,Alberto Moleiro,1734715,448211,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-24 Las Palmas-Granada,Las Palmas,Daley Sinkgraven,1734715,141781,injured,Out
+ESP-La Liga,2324,2023-09-24 Las Palmas-Granada,Las Palmas,Fabio GonzÃ¡lez,1734715,344047,injured,Out
+ESP-La Liga,2324,2023-09-24 Rayo Vallecano-Villarreal,Villarreal,Alfonso Pedraza,1734709,276489,suspended,Out
+ESP-La Liga,2324,2023-09-24 Rayo Vallecano-Villarreal,Villarreal,Francis Coquelin,1734709,69738,injured,Out
+ESP-La Liga,2324,2023-09-24 Rayo Vallecano-Villarreal,Villarreal,Jorge Cuenca,1734709,333182,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-24 Rayo Vallecano-Villarreal,Villarreal,Ramon Terrats,1734709,444244,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-24 Real Betis-Cadiz,Cadiz,Brian Ocampo,1734703,417946,injured,Out
+ESP-La Liga,2324,2023-09-24 Real Betis-Cadiz,Cadiz,Sergi Guardiola,1734703,323135,injured,Out
+ESP-La Liga,2324,2023-09-24 Real Betis-Cadiz,Real Betis,Nabil Fekir,1734703,134893,injured,Out
+ESP-La Liga,2324,2023-09-24 Real Betis-Cadiz,Real Betis,William Carvalho,1734703,99911,injured,Out
+ESP-La Liga,2324,2023-09-24 Real Betis-Cadiz,Real Betis,Youssouf Sabaly,1734703,42002,injured,Out
+ESP-La Liga,2324,2023-09-24 Real Sociedad-Getafe,Getafe,Enes Ãnal,1734713,134695,injured,Out
+ESP-La Liga,2324,2023-09-24 Real Sociedad-Getafe,Getafe,Luis Milla,1734713,279320,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-24 Real Sociedad-Getafe,Real Sociedad,MartÃ­n Merquelanz,1734713,363025,injured,Out
+ESP-La Liga,2324,2023-09-26 Mallorca-Barcelona,Barcelona,Frenkie de Jong,1734726,279423,injured,Out
+ESP-La Liga,2324,2023-09-26 Mallorca-Barcelona,Barcelona,Pedri,1734726,402197,injured,Out
+ESP-La Liga,2324,2023-09-26 Mallorca-Barcelona,Mallorca,Antonio RaÃ­llo,1734726,294006,injured,Out
+ESP-La Liga,2324,2023-09-26 Mallorca-Barcelona,Mallorca,Omar Mascarell,1734726,115996,injured,Out
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Almeria,Marc Pubill,1734722,430148,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Almeria,Ãlex Pozo,1734722,338365,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Sevilla,Alfonso Pastor,1734722,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Sevilla,Marcos AcuÃ±a,1734722,303729,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Sevilla,MarcÃ£o,1734722,318120,injured,Out
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Sevilla,Mariano DÃ­az,1734722,323236,injured,Out
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Sevilla,Sergio Ramos,1734722,9909,injured,Out
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Sevilla,Suso,1734722,105591,injured,Out
+ESP-La Liga,2324,2023-09-26 Sevilla-Almeria,Sevilla,Tanguy Nianzou,1734722,382492,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-27 Athletic Club-Getafe,Athletic Club,Nico Williams,1734717,408449,injured,Out
+ESP-La Liga,2324,2023-09-27 Athletic Club-Getafe,Athletic Club,Peru Nolaskoain,1734717,354411,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-27 Athletic Club-Getafe,Getafe,Enes Ãnal,1734717,134695,injured,Out
+ESP-La Liga,2324,2023-09-27 Athletic Club-Getafe,Getafe,Luis Milla,1734717,279320,injured,Out
+ESP-La Liga,2324,2023-09-27 Cadiz-Rayo Vallecano,Cadiz,Brian Ocampo,1734719,417946,injured,Out
+ESP-La Liga,2324,2023-09-27 Cadiz-Rayo Vallecano,Cadiz,Fede San Emeterio,1734719,141641,injured,Out
+ESP-La Liga,2324,2023-09-27 Real Madrid-Las Palmas,Las Palmas,Alberto Moleiro,1734734,448211,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-27 Real Madrid-Las Palmas,Las Palmas,Benito RamÃ­rez,1734734,333083,injured,Out
+ESP-La Liga,2324,2023-09-27 Real Madrid-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734734,344047,injured,Out
+ESP-La Liga,2324,2023-09-27 Real Madrid-Las Palmas,Las Palmas,Mika MÃ¡rmol,1734734,430511,suspended,Out
+ESP-La Liga,2324,2023-09-27 Real Madrid-Las Palmas,Real Madrid,Dani Carvajal,1734734,106883,injured,Out
+ESP-La Liga,2324,2023-09-27 Real Madrid-Las Palmas,Real Madrid,Thibaut Courtois,1734734,73798,injured,Out
+ESP-La Liga,2324,2023-09-27 Real Madrid-Las Palmas,Real Madrid,VinÃ­cius JÃºnior,1734734,337782,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-27 Real Madrid-Las Palmas,Real Madrid,Ãder MilitÃ£o,1734734,337879,injured,Out
+ESP-La Liga,2324,2023-09-27 Valencia-Real Sociedad,Real Sociedad,Aritz Elustondo,1734732,256864,injured,Out
+ESP-La Liga,2324,2023-09-27 Valencia-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734732,363025,injured,Out
+ESP-La Liga,2324,2023-09-27 Valencia-Real Sociedad,Valencia,Alberto MarÃ­,1734732,475551,injured,Out
+ESP-La Liga,2324,2023-09-27 Valencia-Real Sociedad,Valencia,Gabriel Paulista,1734732,76810,injured,Out
+ESP-La Liga,2324,2023-09-27 Valencia-Real Sociedad,Valencia,Sergi CanÃ³s,1734732,295964,injured,Out
+ESP-La Liga,2324,2023-09-27 Villarreal-Girona,Girona,Borja GarcÃ­a,1734730,75913,injured,Out
+ESP-La Liga,2324,2023-09-27 Villarreal-Girona,Girona,Toni Villa,1734730,362355,injured,Out
+ESP-La Liga,2324,2023-09-27 Villarreal-Girona,Villarreal,Alberto Moreno,1734730,113275,suspended,Out
+ESP-La Liga,2324,2023-09-27 Villarreal-Girona,Villarreal,Francis Coquelin,1734730,69738,injured,Out
+ESP-La Liga,2324,2023-09-27 Villarreal-Girona,Villarreal,Jorge Cuenca,1734730,333182,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-28 Celta Vigo-Deportivo Alaves,Celta Vigo,Franco Cervi,1734736,303910,injured,Out
+ESP-La Liga,2324,2023-09-28 Celta Vigo-Deportivo Alaves,Deportivo Alaves,Antonio Blanco,1734736,409467,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-28 Celta Vigo-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734736,422918,injured,Out
+ESP-La Liga,2324,2023-09-28 Celta Vigo-Deportivo Alaves,Deportivo Alaves,RubÃ©n Duarte,1734736,261286,injured,Out
+ESP-La Liga,2324,2023-09-28 Granada-Real Betis,Granada,JesÃºs Vallejo,1734728,238901,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-28 Granada-Real Betis,Granada,Miguel Rubio,1734728,357118,injured,Out
+ESP-La Liga,2324,2023-09-28 Granada-Real Betis,Real Betis,Nabil Fekir,1734728,134893,injured,Out
+ESP-La Liga,2324,2023-09-28 Granada-Real Betis,Real Betis,William Carvalho,1734728,99911,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-28 Granada-Real Betis,Real Betis,Youssouf Sabaly,1734728,42002,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Atletico Madrid,Pablo Barrios,1734724,434138,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Atletico Madrid,Reinildo,1734724,361812,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Atletico Madrid,Rodrigo De Paul,1734724,125547,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Atletico Madrid,Thomas Lemar,1734724,132962,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Atletico Madrid,Vitolo,1734724,91430,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Atletico Madrid,Ãaglar SÃ¶yÃ¼ncÃ¼,1734724,317998,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Osasuna,Darko Brasanac,1734724,84880,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Osasuna,Jon Moncayola,1734724,381673,injured,Out
+ESP-La Liga,2324,2023-09-28 Osasuna-Atletico Madrid,Osasuna,Unai GarcÃ­a,1734724,131037,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-29 Barcelona-Sevilla,Barcelona,Frenkie de Jong,1734742,279423,injured,Out
+ESP-La Liga,2324,2023-09-29 Barcelona-Sevilla,Barcelona,Pedri,1734742,402197,injured,Out
+ESP-La Liga,2324,2023-09-29 Barcelona-Sevilla,Sevilla,Alfonso Pastor,1734742,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-29 Barcelona-Sevilla,Sevilla,Marcos AcuÃ±a,1734742,303729,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-29 Barcelona-Sevilla,Sevilla,MarcÃ£o,1734742,318120,injured,Out
+ESP-La Liga,2324,2023-09-29 Barcelona-Sevilla,Sevilla,Mariano DÃ­az,1734742,323236,injured,Out
+ESP-La Liga,2324,2023-09-29 Barcelona-Sevilla,Sevilla,Sergio Ramos,1734742,9909,injured,Out
+ESP-La Liga,2324,2023-09-29 Barcelona-Sevilla,Sevilla,Tanguy Nianzou,1734742,382492,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-30 Getafe-Villarreal,Getafe,Enes Ãnal,1734746,134695,injured,Out
+ESP-La Liga,2324,2023-09-30 Getafe-Villarreal,Getafe,Luis Milla,1734746,279320,injured,Out
+ESP-La Liga,2324,2023-09-30 Getafe-Villarreal,Villarreal,Francis Coquelin,1734746,69738,injured,Out
+ESP-La Liga,2324,2023-09-30 Getafe-Villarreal,Villarreal,Jorge Cuenca,1734746,333182,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-30 Girona-Real Madrid,Girona,Borja GarcÃ­a,1734748,75913,injured,Out
+ESP-La Liga,2324,2023-09-30 Girona-Real Madrid,Girona,Toni Villa,1734748,362355,injured,Out
+ESP-La Liga,2324,2023-09-30 Girona-Real Madrid,Real Madrid,Antonio RÃ¼diger,1734748,104010,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-30 Girona-Real Madrid,Real Madrid,David Alaba,1734748,39722,injured,Out
+ESP-La Liga,2324,2023-09-30 Girona-Real Madrid,Real Madrid,Thibaut Courtois,1734748,73798,injured,Out
+ESP-La Liga,2324,2023-09-30 Girona-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734748,337879,injured,Out
+ESP-La Liga,2324,2023-09-30 Rayo Vallecano-Mallorca,Mallorca,Antonio RaÃ­llo,1734756,294006,injured,Out
+ESP-La Liga,2324,2023-09-30 Rayo Vallecano-Mallorca,Mallorca,Omar Mascarell,1734756,115996,injured,Out
+ESP-La Liga,2324,2023-09-30 Rayo Vallecano-Mallorca,Mallorca,Pablo Maffeo,1734756,294848,suspended,Out
+ESP-La Liga,2324,2023-09-30 Rayo Vallecano-Mallorca,Rayo Vallecano,Randy Nteka,1734756,422960,injured,Out
+ESP-La Liga,2324,2023-09-30 Real Sociedad-Athletic Club,Athletic Club,Nico Williams,1734752,408449,injured,Out
+ESP-La Liga,2324,2023-09-30 Real Sociedad-Athletic Club,Athletic Club,Oihan Sancet,1734752,381510,suspended,Out
+ESP-La Liga,2324,2023-09-30 Real Sociedad-Athletic Club,Athletic Club,Peru Nolaskoain,1734752,354411,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-09-30 Real Sociedad-Athletic Club,Athletic Club,ÃÃ±igo RuÃ­z de Galarreta,1734752,106586,injured,Out
+ESP-La Liga,2324,2023-09-30 Real Sociedad-Athletic Club,Real Sociedad,MartÃ­n Merquelanz,1734752,363025,injured,Out
+ESP-La Liga,2324,2023-10-01 Almeria-Granada,Almeria,Lucas Robertone,1734738,323511,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-01 Almeria-Granada,Almeria,Marc Pubill,1734738,430148,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-01 Almeria-Granada,Granada,JesÃºs Vallejo,1734738,238901,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-01 Almeria-Granada,Granada,Myrto Uzuni,1734738,364779,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Atletico Madrid,Pablo Barrios,1734740,434138,injured,Out
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Atletico Madrid,Reinildo,1734740,361812,injured,Out
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Atletico Madrid,Rodrigo De Paul,1734740,125547,injured,Out
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Atletico Madrid,Thomas Lemar,1734740,132962,injured,Out
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Atletico Madrid,Vitolo,1734740,91430,injured,Out
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Atletico Madrid,Ãlvaro Morata,1734740,91213,suspended,Out
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Atletico Madrid,Ãaglar SÃ¶yÃ¼ncÃ¼,1734740,317998,injured,Out
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Cadiz,Brian Ocampo,1734740,417946,injured,Out
+ESP-La Liga,2324,2023-10-01 Atletico Madrid-Cadiz,Cadiz,Fede San Emeterio,1734740,141641,injured,Out
+ESP-La Liga,2324,2023-10-01 Deportivo Alaves-Osasuna,Deportivo Alaves,Giuliano Simeone,1734750,422918,injured,Out
+ESP-La Liga,2324,2023-10-01 Deportivo Alaves-Osasuna,Osasuna,Chimy Avila,1734750,303707,suspended,Out
+ESP-La Liga,2324,2023-10-01 Deportivo Alaves-Osasuna,Osasuna,Darko Brasanac,1734750,84880,injured,Out
+ESP-La Liga,2324,2023-10-01 Deportivo Alaves-Osasuna,Osasuna,Unai GarcÃ­a,1734750,131037,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Real Betis,Luiz Henrique,1734744,397587,injured,Out
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Real Betis,Marc Bartra,1734744,83686,injured,Out
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Real Betis,Nabil Fekir,1734744,134893,injured,Out
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Real Betis,Willian JosÃ©,1734744,77636,injured,Out
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Real Betis,Youssouf Sabaly,1734744,42002,injured,Out
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Valencia,Alberto MarÃ­,1734744,475551,injured,Out
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Valencia,Gabriel Paulista,1734744,76810,injured,Out
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Valencia,Selim Amallah,1734744,384578,suspended,Out
+ESP-La Liga,2324,2023-10-01 Real Betis-Valencia,Valencia,Sergi CanÃ³s,1734744,295964,injured,Out
+ESP-La Liga,2324,2023-10-02 Las Palmas-Celta Vigo,Celta Vigo,Franco Cervi,1734754,303910,injured,Out
+ESP-La Liga,2324,2023-10-02 Las Palmas-Celta Vigo,Celta Vigo,Luca de la Torre,1734754,322406,suspended,Out
+ESP-La Liga,2324,2023-10-02 Las Palmas-Celta Vigo,Las Palmas,Alberto Moleiro,1734754,448211,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-02 Las Palmas-Celta Vigo,Las Palmas,Benito RamÃ­rez,1734754,333083,injured,Out
+ESP-La Liga,2324,2023-10-02 Las Palmas-Celta Vigo,Las Palmas,Fabio GonzÃ¡lez,1734754,344047,injured,Out
+ESP-La Liga,2324,2023-10-02 Las Palmas-Celta Vigo,Las Palmas,Sandro RamÃ­rez,1734754,135242,injured,Out
+ESP-La Liga,2324,2023-10-06 Athletic Club-Almeria,Almeria,Edgar GonzÃ¡lez,1734768,387160,injured,Out
+ESP-La Liga,2324,2023-10-06 Athletic Club-Almeria,Almeria,Lucas Robertone,1734768,323511,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-06 Athletic Club-Almeria,Almeria,Luis SuÃ¡rez,1734768,402887,injured,Out
+ESP-La Liga,2324,2023-10-06 Athletic Club-Almeria,Almeria,Marc Pubill,1734768,430148,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-06 Athletic Club-Almeria,Athletic Club,Peru Nolaskoain,1734768,354411,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-06 Athletic Club-Almeria,Athletic Club,ÃÃ±igo RuÃ­z de Galarreta,1734768,106586,injured,Out
+ESP-La Liga,2324,2023-10-07 Cadiz-Girona,Cadiz,Brian Ocampo,1734760,417946,injured,Out
+ESP-La Liga,2324,2023-10-07 Cadiz-Girona,Cadiz,Fali,1734760,400051,injured,Out
+ESP-La Liga,2324,2023-10-07 Cadiz-Girona,Cadiz,Fede San Emeterio,1734760,141641,injured,Out
+ESP-La Liga,2324,2023-10-07 Cadiz-Girona,Cadiz,Luis HernÃ¡ndez,1734760,294139,injured,Out
+ESP-La Liga,2324,2023-10-07 Cadiz-Girona,Cadiz,Victor Chust,1734760,402862,injured,Out
+ESP-La Liga,2324,2023-10-07 Cadiz-Girona,Girona,Bernardo Espinosa,1734760,67327,injured,Out
+ESP-La Liga,2324,2023-10-07 Cadiz-Girona,Girona,Portu,1734760,106895,injured,Out
+ESP-La Liga,2324,2023-10-07 Cadiz-Girona,Girona,Toni Villa,1734760,362355,injured,Out
+ESP-La Liga,2324,2023-10-07 Mallorca-Valencia,Mallorca,Antonio RaÃ­llo,1734764,294006,injured,Out
+ESP-La Liga,2324,2023-10-07 Mallorca-Valencia,Mallorca,Jaume Costa,1734764,69965,injured,Out
+ESP-La Liga,2324,2023-10-07 Mallorca-Valencia,Valencia,Alberto MarÃ­,1734764,475551,injured,Out
+ESP-La Liga,2324,2023-10-07 Mallorca-Valencia,Valencia,Gabriel Paulista,1734764,76810,injured,Out
+ESP-La Liga,2324,2023-10-07 Mallorca-Valencia,Valencia,JosÃ© GayÃ ,1734764,119817,injured,Out
+ESP-La Liga,2324,2023-10-07 Mallorca-Valencia,Valencia,Sergi CanÃ³s,1734764,295964,injured,Out
+ESP-La Liga,2324,2023-10-07 Real Madrid-Osasuna,Osasuna,Darko Brasanac,1734770,84880,injured,Out
+ESP-La Liga,2324,2023-10-07 Real Madrid-Osasuna,Osasuna,Unai GarcÃ­a,1734770,131037,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-07 Real Madrid-Osasuna,Real Madrid,Arda GÃ¼ler,1734770,415181,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-07 Real Madrid-Osasuna,Real Madrid,Nacho,1734770,106875,suspended,Out
+ESP-La Liga,2324,2023-10-07 Real Madrid-Osasuna,Real Madrid,Thibaut Courtois,1734770,73798,injured,Out
+ESP-La Liga,2324,2023-10-07 Real Madrid-Osasuna,Real Madrid,Ãder MilitÃ£o,1734770,337879,injured,Out
+ESP-La Liga,2324,2023-10-07 Sevilla-Rayo Vallecano,Rayo Vallecano,Abdul Mumin,1734771,400844,suspended,Out
+ESP-La Liga,2324,2023-10-07 Sevilla-Rayo Vallecano,Rayo Vallecano,Randy Nteka,1734771,422960,injured,Out
+ESP-La Liga,2324,2023-10-07 Sevilla-Rayo Vallecano,Sevilla,Alfonso Pastor,1734771,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-07 Sevilla-Rayo Vallecano,Sevilla,MarcÃ£o,1734771,318120,injured,Out
+ESP-La Liga,2324,2023-10-07 Sevilla-Rayo Vallecano,Sevilla,Mariano DÃ­az,1734771,323236,injured,Out
+ESP-La Liga,2324,2023-10-07 Sevilla-Rayo Vallecano,Sevilla,Tanguy Nianzou,1734771,382492,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-07 Sevilla-Rayo Vallecano,Sevilla,Ãrik Lamela,1734771,75830,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Atletico Madrid,JosÃ© GimÃ©nez,1734758,135914,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Atletico Madrid,Memphis Depay,1734758,110154,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Atletico Madrid,Pablo Barrios,1734758,434138,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Atletico Madrid,Reinildo,1734758,361812,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Atletico Madrid,Rodrigo De Paul,1734758,125547,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Atletico Madrid,Thomas Lemar,1734758,132962,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Atletico Madrid,Vitolo,1734758,91430,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Atletico Madrid,Ãaglar SÃ¶yÃ¼ncÃ¼,1734758,317998,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Real Sociedad,Kieran Tierney,1734758,297403,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734758,363025,injured,Out
+ESP-La Liga,2324,2023-10-08 Atletico Madrid-Real Sociedad,Real Sociedad,Ãlvaro Odriozola,1734758,317354,injured,Out
+ESP-La Liga,2324,2023-10-08 Celta Vigo-Getafe,Getafe,Enes Ãnal,1734762,134695,injured,Out
+ESP-La Liga,2324,2023-10-08 Celta Vigo-Getafe,Getafe,Luis Milla,1734762,279320,injured,Out
+ESP-La Liga,2324,2023-10-08 Deportivo Alaves-Real Betis,Deportivo Alaves,Antonio Blanco,1734766,409467,suspended,Out
+ESP-La Liga,2324,2023-10-08 Deportivo Alaves-Real Betis,Deportivo Alaves,Giuliano Simeone,1734766,422918,injured,Out
+ESP-La Liga,2324,2023-10-08 Deportivo Alaves-Real Betis,Deportivo Alaves,Jon Guridi,1734766,335041,injured,Out
+ESP-La Liga,2324,2023-10-08 Deportivo Alaves-Real Betis,Real Betis,Luiz Henrique,1734766,397587,injured,Out
+ESP-La Liga,2324,2023-10-08 Deportivo Alaves-Real Betis,Real Betis,Marc Bartra,1734766,83686,injured,Out
+ESP-La Liga,2324,2023-10-08 Deportivo Alaves-Real Betis,Real Betis,Nabil Fekir,1734766,134893,injured,Out
+ESP-La Liga,2324,2023-10-08 Deportivo Alaves-Real Betis,Real Betis,Willian JosÃ©,1734766,77636,injured,Out
+ESP-La Liga,2324,2023-10-08 Deportivo Alaves-Real Betis,Real Betis,Youssouf Sabaly,1734766,42002,injured,Out
+ESP-La Liga,2324,2023-10-08 Granada-Barcelona,Barcelona,Frenkie de Jong,1734769,279423,injured,Out
+ESP-La Liga,2324,2023-10-08 Granada-Barcelona,Barcelona,Pedri,1734769,402197,injured,Out
+ESP-La Liga,2324,2023-10-08 Granada-Barcelona,Barcelona,Raphinha,1734769,300447,injured,Out
+ESP-La Liga,2324,2023-10-08 Granada-Barcelona,Barcelona,Robert Lewandowski,1734769,29400,injured,Out
+ESP-La Liga,2324,2023-10-08 Granada-Barcelona,Granada,JesÃºs Vallejo,1734769,238901,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Las Palmas,Alberto Moleiro,1734772,448211,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Las Palmas,Benito RamÃ­rez,1734772,333083,injured,Out
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734772,344047,injured,Out
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Las Palmas,Omenuke Mfulu,1734772,146725,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Las Palmas,Sandro RamÃ­rez,1734772,135242,injured,Out
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Villarreal,Francis Coquelin,1734772,69738,injured,Out
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Villarreal,Gerard Moreno,1734772,97659,injured,Out
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Villarreal,Jorge Cuenca,1734772,333182,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Villarreal,Juan Foyth,1734772,335107,injured,Out
+ESP-La Liga,2324,2023-10-08 Villarreal-Las Palmas,Villarreal,Ãlex Baena,1734772,395242,suspended,Out
+ESP-La Liga,2324,2023-10-20 Osasuna-Granada,Granada,RaÃºl FernÃ¡ndez,1734992,33451,injured,Out
+ESP-La Liga,2324,2023-10-20 Osasuna-Granada,Granada,VÃ­ctor DÃ­az,1734992,34525,injured,Out
+ESP-La Liga,2324,2023-10-20 Osasuna-Granada,Osasuna,Johan Mojica,1734992,135098,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-20 Osasuna-Granada,Osasuna,Moi GÃ³mez,1734992,101238,injured,Out
+ESP-La Liga,2324,2023-10-20 Osasuna-Granada,Osasuna,Unai GarcÃ­a,1734992,131037,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-21 Celta Vigo-Atletico Madrid,Atletico Madrid,JosÃ© GimÃ©nez,1734776,135914,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-21 Celta Vigo-Atletico Madrid,Atletico Madrid,Memphis Depay,1734776,110154,injured,Out
+ESP-La Liga,2324,2023-10-21 Celta Vigo-Atletico Madrid,Atletico Madrid,Reinildo,1734776,361812,injured,Out
+ESP-La Liga,2324,2023-10-21 Celta Vigo-Atletico Madrid,Atletico Madrid,Thomas Lemar,1734776,132962,injured,Out
+ESP-La Liga,2324,2023-10-21 Celta Vigo-Atletico Madrid,Atletico Madrid,Vitolo,1734776,91430,injured,Out
+ESP-La Liga,2324,2023-10-21 Celta Vigo-Atletico Madrid,Celta Vigo,Mihailo Ristic,1734776,244778,injured,Out
+ESP-La Liga,2324,2023-10-21 Getafe-Real Betis,Getafe,Enes Ãnal,1734777,134695,injured,Out
+ESP-La Liga,2324,2023-10-21 Getafe-Real Betis,Real Betis,Guido RodrÃ­guez,1734777,303876,suspended,Out
+ESP-La Liga,2324,2023-10-21 Getafe-Real Betis,Real Betis,Luiz Henrique,1734777,397587,injured,Out
+ESP-La Liga,2324,2023-10-21 Getafe-Real Betis,Real Betis,Marc Bartra,1734777,83686,injured,Out
+ESP-La Liga,2324,2023-10-21 Getafe-Real Betis,Real Betis,Nabil Fekir,1734777,134893,injured,Out
+ESP-La Liga,2324,2023-10-21 Getafe-Real Betis,Real Betis,Willian JosÃ©,1734777,77636,suspended,Out
+ESP-La Liga,2324,2023-10-21 Getafe-Real Betis,Real Betis,Youssouf Sabaly,1734777,42002,injured,Out
+ESP-La Liga,2324,2023-10-21 Real Sociedad-Mallorca,Mallorca,Antonio RaÃ­llo,1734779,294006,injured,Out
+ESP-La Liga,2324,2023-10-21 Real Sociedad-Mallorca,Mallorca,Pablo Maffeo,1734779,294848,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-21 Real Sociedad-Mallorca,Mallorca,Sergi Darder,1734779,106596,injured,Out
+ESP-La Liga,2324,2023-10-21 Real Sociedad-Mallorca,Real Sociedad,AndrÃ© Silva,1734779,299460,injured,Out
+ESP-La Liga,2324,2023-10-21 Real Sociedad-Mallorca,Real Sociedad,Kieran Tierney,1734779,297403,injured,Out
+ESP-La Liga,2324,2023-10-21 Real Sociedad-Mallorca,Real Sociedad,MartÃ­n Merquelanz,1734779,363025,injured,Out
+ESP-La Liga,2324,2023-10-21 Real Sociedad-Mallorca,Real Sociedad,Mohamed-Ali Cho,1734779,399014,injured,Out
+ESP-La Liga,2324,2023-10-21 Sevilla-Real Madrid,Real Madrid,Andriy Lunin,1734991,345031,injured,Out
+ESP-La Liga,2324,2023-10-21 Sevilla-Real Madrid,Real Madrid,Nacho,1734991,106875,suspended,Out
+ESP-La Liga,2324,2023-10-21 Sevilla-Real Madrid,Real Madrid,Thibaut Courtois,1734991,73798,injured,Out
+ESP-La Liga,2324,2023-10-21 Sevilla-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734991,337879,injured,Out
+ESP-La Liga,2324,2023-10-21 Sevilla-Real Madrid,Sevilla,Alfonso Pastor,1734991,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-21 Sevilla-Real Madrid,Sevilla,Mariano DÃ­az,1734991,323236,injured,Out
+ESP-La Liga,2324,2023-10-21 Sevilla-Real Madrid,Sevilla,Marko Dmitrovic,1734991,259393,injured,Out
+ESP-La Liga,2324,2023-10-21 Sevilla-Real Madrid,Sevilla,Ãrik Lamela,1734991,75830,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Athletic Club,Mikel Vesga,1734775,261516,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Athletic Club,Peru Nolaskoain,1734775,354411,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Athletic Club,Yeray Ãlvarez,1734775,279839,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Athletic Club,ÃÃ±igo RuÃ­z de Galarreta,1734775,106586,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Athletic Club,Ãscar De Marcos,1734775,78500,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Barcelona,Frenkie de Jong,1734775,279423,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Barcelona,Jules KoundÃ©,1734775,301019,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Barcelona,Pedri,1734775,402197,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Barcelona,Raphinha,1734775,300447,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Barcelona,Robert Lewandowski,1734775,29400,injured,Out
+ESP-La Liga,2324,2023-10-22 Barcelona-Athletic Club,Barcelona,Sergi Roberto,1734775,90782,injured,Out
+ESP-La Liga,2324,2023-10-22 Girona-Almeria,Almeria,Edgar GonzÃ¡lez,1734774,387160,injured,Out
+ESP-La Liga,2324,2023-10-22 Girona-Almeria,Almeria,Ibrahima KonÃ©,1734774,354297,injured,Out
+ESP-La Liga,2324,2023-10-22 Girona-Almeria,Almeria,Lucas Robertone,1734774,323511,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-22 Girona-Almeria,Almeria,Luis SuÃ¡rez,1734774,402887,injured,Out
+ESP-La Liga,2324,2023-10-22 Girona-Almeria,Almeria,Marc Pubill,1734774,430148,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-22 Girona-Almeria,Girona,Bernardo Espinosa,1734774,67327,injured,Out
+ESP-La Liga,2324,2023-10-22 Girona-Almeria,Girona,Portu,1734774,106895,injured,Out
+ESP-La Liga,2324,2023-10-22 Girona-Almeria,Girona,Toni Villa,1734774,362355,injured,Out
+ESP-La Liga,2324,2023-10-22 Las Palmas-Rayo Vallecano,Las Palmas,Alberto Moleiro,1734773,448211,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-22 Las Palmas-Rayo Vallecano,Las Palmas,Benito RamÃ­rez,1734773,333083,injured,Out
+ESP-La Liga,2324,2023-10-22 Las Palmas-Rayo Vallecano,Las Palmas,Eric Curbelo,1734773,333084,injured,Out
+ESP-La Liga,2324,2023-10-22 Las Palmas-Rayo Vallecano,Las Palmas,Fabio GonzÃ¡lez,1734773,344047,injured,Out
+ESP-La Liga,2324,2023-10-22 Las Palmas-Rayo Vallecano,Las Palmas,JuliÃ¡n Araujo,1734773,371039,injured,Out
+ESP-La Liga,2324,2023-10-22 Las Palmas-Rayo Vallecano,Las Palmas,Omenuke Mfulu,1734773,146725,injured,Out
+ESP-La Liga,2324,2023-10-22 Las Palmas-Rayo Vallecano,Las Palmas,Sandro RamÃ­rez,1734773,135242,injured,Out
+ESP-La Liga,2324,2023-10-22 Las Palmas-Rayo Vallecano,Rayo Vallecano,Randy Nteka,1734773,422960,injured,Out
+ESP-La Liga,2324,2023-10-22 Villarreal-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734993,422918,injured,Out
+ESP-La Liga,2324,2023-10-22 Villarreal-Deportivo Alaves,Deportivo Alaves,Javi LÃ³pez,1734993,395234,injured,Out
+ESP-La Liga,2324,2023-10-22 Villarreal-Deportivo Alaves,Villarreal,Francis Coquelin,1734993,69738,injured,Out
+ESP-La Liga,2324,2023-10-22 Villarreal-Deportivo Alaves,Villarreal,Yeremy Pino,1734993,403865,injured,Out
+ESP-La Liga,2324,2023-10-22 Villarreal-Deportivo Alaves,Villarreal,Ãlex Baena,1734993,395242,suspended,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Cadiz,Brian Ocampo,1734778,417946,injured,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Cadiz,Darwin MachÃ­s,1734778,107567,suspended,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Cadiz,Fede San Emeterio,1734778,141641,injured,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Cadiz,Roger MartÃ­,1734778,109811,injured,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Cadiz,RubÃ©n Alcaraz,1734778,279711,suspended,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Valencia,Alberto MarÃ­,1734778,475551,injured,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Valencia,JosÃ© GayÃ ,1734778,119817,injured,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Valencia,Mouctar Diakhaby,1734778,322095,injured,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Valencia,Sergi CanÃ³s,1734778,295964,injured,Out
+ESP-La Liga,2324,2023-10-23 Valencia-Cadiz,Valencia,Thierry Correia,1734778,367180,injured,Out
+ESP-La Liga,2324,2023-10-27 Girona-Celta Vigo,Celta Vigo,Carles PÃ©rez,1734653,374869,injured,Out
+ESP-La Liga,2324,2023-10-27 Girona-Celta Vigo,Celta Vigo,IvÃ¡n Villar,1734653,323350,suspended,Out
+ESP-La Liga,2324,2023-10-27 Girona-Celta Vigo,Celta Vigo,Joseph Aidoo,1734653,320713,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-27 Girona-Celta Vigo,Celta Vigo,Mihailo Ristic,1734653,244778,injured,Out
+ESP-La Liga,2324,2023-10-27 Girona-Celta Vigo,Girona,Bernardo Espinosa,1734653,67327,injured,Out
+ESP-La Liga,2324,2023-10-27 Girona-Celta Vigo,Girona,Toni Villa,1734653,362355,injured,Out
+ESP-La Liga,2324,2023-10-28 Almeria-Las Palmas,Almeria,Edgar GonzÃ¡lez,1734994,387160,injured,Out
+ESP-La Liga,2324,2023-10-28 Almeria-Las Palmas,Almeria,Luis SuÃ¡rez,1734994,402887,injured,Out
+ESP-La Liga,2324,2023-10-28 Almeria-Las Palmas,Almeria,Marc Pubill,1734994,430148,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-28 Almeria-Las Palmas,Almeria,Sergio Akieme,1734994,301773,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-28 Almeria-Las Palmas,Las Palmas,Eric Curbelo,1734994,333084,injured,Out
+ESP-La Liga,2324,2023-10-28 Almeria-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734994,344047,injured,Out
+ESP-La Liga,2324,2023-10-28 Almeria-Las Palmas,Las Palmas,Omenuke Mfulu,1734994,146725,injured,Out
+ESP-La Liga,2324,2023-10-28 Almeria-Las Palmas,Las Palmas,Sandro RamÃ­rez,1734994,135242,injured,Out
+ESP-La Liga,2324,2023-10-28 Barcelona-Real Madrid,Barcelona,Frenkie de Jong,1734996,279423,injured,Out
+ESP-La Liga,2324,2023-10-28 Barcelona-Real Madrid,Barcelona,Jules KoundÃ©,1734996,301019,injured,Out
+ESP-La Liga,2324,2023-10-28 Barcelona-Real Madrid,Barcelona,Pedri,1734996,402197,injured,Out
+ESP-La Liga,2324,2023-10-28 Barcelona-Real Madrid,Barcelona,Raphinha,1734996,300447,injured,Out
+ESP-La Liga,2324,2023-10-28 Barcelona-Real Madrid,Barcelona,Robert Lewandowski,1734996,29400,injured,Out
+ESP-La Liga,2324,2023-10-28 Barcelona-Real Madrid,Barcelona,Sergi Roberto,1734996,90782,injured,Out
+ESP-La Liga,2324,2023-10-28 Barcelona-Real Madrid,Real Madrid,Thibaut Courtois,1734996,73798,injured,Out
+ESP-La Liga,2324,2023-10-28 Barcelona-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734996,337879,injured,Out
+ESP-La Liga,2324,2023-10-28 Cadiz-Sevilla,Cadiz,Brian Ocampo,1734998,417946,injured,Out
+ESP-La Liga,2324,2023-10-28 Cadiz-Sevilla,Cadiz,Fede San Emeterio,1734998,141641,injured,Out
+ESP-La Liga,2324,2023-10-28 Cadiz-Sevilla,Cadiz,Robert Navarro,1734998,400237,suspended,Out
+ESP-La Liga,2324,2023-10-28 Cadiz-Sevilla,Cadiz,RubÃ©n Alcaraz,1734998,279711,suspended,Out
+ESP-La Liga,2324,2023-10-28 Cadiz-Sevilla,Sevilla,Alfonso Pastor,1734998,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-28 Cadiz-Sevilla,Sevilla,Fernando,1734998,31958,injured,Out
+ESP-La Liga,2324,2023-10-28 Cadiz-Sevilla,Sevilla,MarcÃ£o,1734998,318120,injured,Out
+ESP-La Liga,2324,2023-10-28 Mallorca-Getafe,Getafe,Enes Ãnal,1734654,134695,injured,Out
+ESP-La Liga,2324,2023-10-28 Mallorca-Getafe,Mallorca,Antonio RaÃ­llo,1734654,294006,injured,Out
+ESP-La Liga,2324,2023-10-28 Mallorca-Getafe,Mallorca,Pablo Maffeo,1734654,294848,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-28 Mallorca-Getafe,Mallorca,Sergi Darder,1734654,106596,injured,Out
+ESP-La Liga,2324,2023-10-29 Athletic Club-Valencia,Athletic Club,Mikel Vesga,1734995,261516,injured,Out
+ESP-La Liga,2324,2023-10-29 Athletic Club-Valencia,Athletic Club,Peru Nolaskoain,1734995,354411,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-29 Athletic Club-Valencia,Athletic Club,Yeray Ãlvarez,1734995,279839,injured,Out
+ESP-La Liga,2324,2023-10-29 Athletic Club-Valencia,Athletic Club,ÃÃ±igo RuÃ­z de Galarreta,1734995,106586,injured,Out
+ESP-La Liga,2324,2023-10-29 Athletic Club-Valencia,Valencia,Alberto MarÃ­,1734995,475551,injured,Out
+ESP-La Liga,2324,2023-10-29 Athletic Club-Valencia,Valencia,JesÃºs VÃ¡zquez,1734995,408732,injured,Out
+ESP-La Liga,2324,2023-10-29 Athletic Club-Valencia,Valencia,Mouctar Diakhaby,1734995,322095,injured,Out
+ESP-La Liga,2324,2023-10-29 Athletic Club-Valencia,Valencia,Sergi CanÃ³s,1734995,295964,injured,Out
+ESP-La Liga,2324,2023-10-29 Atletico Madrid-Deportivo Alaves,Atletico Madrid,JosÃ© GimÃ©nez,1734655,135914,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-29 Atletico Madrid-Deportivo Alaves,Atletico Madrid,Memphis Depay,1734655,110154,injured,Out
+ESP-La Liga,2324,2023-10-29 Atletico Madrid-Deportivo Alaves,Atletico Madrid,Reinildo,1734655,361812,injured,Out
+ESP-La Liga,2324,2023-10-29 Atletico Madrid-Deportivo Alaves,Atletico Madrid,Samuel Lino,1734655,381594,injured,Out
+ESP-La Liga,2324,2023-10-29 Atletico Madrid-Deportivo Alaves,Atletico Madrid,Thomas Lemar,1734655,132962,injured,Out
+ESP-La Liga,2324,2023-10-29 Atletico Madrid-Deportivo Alaves,Atletico Madrid,Vitolo,1734655,91430,injured,Out
+ESP-La Liga,2324,2023-10-29 Atletico Madrid-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734655,422918,injured,Out
+ESP-La Liga,2324,2023-10-29 Atletico Madrid-Deportivo Alaves,Deportivo Alaves,Javi LÃ³pez,1734655,395234,injured,Out
+ESP-La Liga,2324,2023-10-29 Rayo Vallecano-Real Sociedad,Rayo Vallecano,Randy Nteka,1734999,422960,injured,Out
+ESP-La Liga,2324,2023-10-29 Rayo Vallecano-Real Sociedad,Rayo Vallecano,Ãscar ValentÃ­n,1734999,422958,suspended,Out
+ESP-La Liga,2324,2023-10-29 Rayo Vallecano-Real Sociedad,Real Sociedad,AndrÃ© Silva,1734999,299460,injured,Out
+ESP-La Liga,2324,2023-10-29 Rayo Vallecano-Real Sociedad,Real Sociedad,Kieran Tierney,1734999,297403,injured,Out
+ESP-La Liga,2324,2023-10-29 Rayo Vallecano-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734999,363025,injured,Out
+ESP-La Liga,2324,2023-10-29 Rayo Vallecano-Real Sociedad,Real Sociedad,Ãlvaro Odriozola,1734999,317354,injured,Out
+ESP-La Liga,2324,2023-10-29 Real Betis-Osasuna,Osasuna,JosÃ© ArnÃ¡iz,1734997,279698,injured,Out
+ESP-La Liga,2324,2023-10-29 Real Betis-Osasuna,Osasuna,Unai GarcÃ­a,1734997,131037,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-10-29 Real Betis-Osasuna,Real Betis,Juan Cruz,1734997,357786,injured,Out
+ESP-La Liga,2324,2023-10-29 Real Betis-Osasuna,Real Betis,Luiz Henrique,1734997,397587,injured,Out
+ESP-La Liga,2324,2023-10-29 Real Betis-Osasuna,Real Betis,Marc Bartra,1734997,83686,injured,Out
+ESP-La Liga,2324,2023-10-29 Real Betis-Osasuna,Real Betis,Nabil Fekir,1734997,134893,injured,Out
+ESP-La Liga,2324,2023-10-29 Real Betis-Osasuna,Real Betis,Sergi Altimira,1734997,489232,injured,Out
+ESP-La Liga,2324,2023-10-29 Real Betis-Osasuna,Real Betis,Youssouf Sabaly,1734997,42002,injured,Out
+ESP-La Liga,2324,2023-10-30 Granada-Villarreal,Granada,Gerard Gumbau,1735000,294123,suspended,Out
+ESP-La Liga,2324,2023-10-30 Granada-Villarreal,Granada,Lucas BoyÃ©,1735000,303800,suspended,Out
+ESP-La Liga,2324,2023-10-30 Granada-Villarreal,Granada,RaÃºl FernÃ¡ndez,1735000,33451,injured,Out
+ESP-La Liga,2324,2023-10-30 Granada-Villarreal,Granada,VÃ­ctor DÃ­az,1735000,34525,injured,Out
+ESP-La Liga,2324,2023-10-30 Granada-Villarreal,Villarreal,Denis SuÃ¡rez,1735000,106525,injured,Out
+ESP-La Liga,2324,2023-10-30 Granada-Villarreal,Villarreal,Francis Coquelin,1735000,69738,injured,Out
+ESP-La Liga,2324,2023-10-30 Granada-Villarreal,Villarreal,Yeremy Pino,1735000,403865,injured,Out
+ESP-La Liga,2324,2023-11-03 Las Palmas-Atletico Madrid,Atletico Madrid,Memphis Depay,1734661,110154,injured,Out
+ESP-La Liga,2324,2023-11-03 Las Palmas-Atletico Madrid,Atletico Madrid,Reinildo,1734661,361812,injured,Out
+ESP-La Liga,2324,2023-11-03 Las Palmas-Atletico Madrid,Atletico Madrid,Samuel Lino,1734661,381594,injured,Out
+ESP-La Liga,2324,2023-11-03 Las Palmas-Atletico Madrid,Atletico Madrid,Thomas Lemar,1734661,132962,injured,Out
+ESP-La Liga,2324,2023-11-03 Las Palmas-Atletico Madrid,Atletico Madrid,Vitolo,1734661,91430,injured,Out
+ESP-La Liga,2324,2023-11-03 Las Palmas-Atletico Madrid,Las Palmas,Fabio GonzÃ¡lez,1734661,344047,injured,Out
+ESP-La Liga,2324,2023-11-03 Las Palmas-Atletico Madrid,Las Palmas,Jonathan Viera,1734661,91304,other,Out
+ESP-La Liga,2324,2023-11-03 Las Palmas-Atletico Madrid,Las Palmas,Sandro RamÃ­rez,1734661,135242,injured,Out
+ESP-La Liga,2324,2023-11-04 Celta Vigo-Sevilla,Celta Vigo,Joseph Aidoo,1734657,320713,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-04 Celta Vigo-Sevilla,Celta Vigo,Mihailo Ristic,1734657,244778,injured,Out
+ESP-La Liga,2324,2023-11-04 Celta Vigo-Sevilla,Sevilla,Alfonso Pastor,1734657,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-04 Celta Vigo-Sevilla,Sevilla,JesÃºs Navas,1734657,9446,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-04 Celta Vigo-Sevilla,Sevilla,MarcÃ£o,1734657,318120,injured,Out
+ESP-La Liga,2324,2023-11-04 Celta Vigo-Sevilla,Sevilla,Sergio Ramos,1734657,9909,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-04 Celta Vigo-Sevilla,Sevilla,Suso,1734657,105591,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-04 Osasuna-Girona,Girona,Borja GarcÃ­a,1734667,75913,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-04 Osasuna-Girona,Girona,David LÃ³pez,1734667,92691,injured,Out
+ESP-La Liga,2324,2023-11-04 Osasuna-Girona,Girona,Eric GarcÃ­a,1734667,368091,injured,Out
+ESP-La Liga,2324,2023-11-04 Osasuna-Girona,Girona,Juan Carlos,1734667,97643,injured,Out
+ESP-La Liga,2324,2023-11-04 Osasuna-Girona,Girona,Toni Villa,1734667,362355,injured,Out
+ESP-La Liga,2324,2023-11-04 Osasuna-Girona,Girona,Valery FernÃ¡ndez,1734667,365619,injured,Out
+ESP-La Liga,2324,2023-11-04 Osasuna-Girona,Osasuna,Juan Cruz,1734667,96566,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Betis-Mallorca,Mallorca,Sergi Darder,1734656,106596,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Betis-Mallorca,Real Betis,Borja Iglesias,1734656,259042,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Betis-Mallorca,Real Betis,Dani PÃ©rez,1734656,462987,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Betis-Mallorca,Real Betis,Marc Bartra,1734656,83686,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Betis-Mallorca,Real Betis,Nabil Fekir,1734656,134893,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Betis-Mallorca,Real Betis,Youssouf Sabaly,1734656,42002,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Sociedad-Barcelona,Barcelona,Frenkie de Jong,1734663,279423,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-04 Real Sociedad-Barcelona,Barcelona,Pedri,1734663,402197,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-04 Real Sociedad-Barcelona,Barcelona,Sergi Roberto,1734663,90782,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Sociedad-Barcelona,Real Sociedad,AndrÃ© Silva,1734663,299460,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Sociedad-Barcelona,Real Sociedad,Kieran Tierney,1734663,297403,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Sociedad-Barcelona,Real Sociedad,MartÃ­n Merquelanz,1734663,363025,injured,Out
+ESP-La Liga,2324,2023-11-04 Real Sociedad-Barcelona,Real Sociedad,Ãlvaro Odriozola,1734663,317354,injured,Out
+ESP-La Liga,2324,2023-11-05 Deportivo Alaves-Almeria,Almeria,Edgar GonzÃ¡lez,1734658,387160,injured,Out
+ESP-La Liga,2324,2023-11-05 Deportivo Alaves-Almeria,Almeria,Ibrahima KonÃ©,1734658,354297,injured,Out
+ESP-La Liga,2324,2023-11-05 Deportivo Alaves-Almeria,Almeria,Luis SuÃ¡rez,1734658,402887,injured,Out
+ESP-La Liga,2324,2023-11-05 Deportivo Alaves-Almeria,Almeria,Martin Svidersky,1734658,424535,injured,Out
+ESP-La Liga,2324,2023-11-05 Deportivo Alaves-Almeria,Almeria,Sergio Akieme,1734658,301773,injured,Out
+ESP-La Liga,2324,2023-11-05 Deportivo Alaves-Almeria,Deportivo Alaves,Giuliano Simeone,1734658,422918,injured,Out
+ESP-La Liga,2324,2023-11-05 Deportivo Alaves-Almeria,Deportivo Alaves,Javi LÃ³pez,1734658,395234,injured,Out
+ESP-La Liga,2324,2023-11-05 Deportivo Alaves-Almeria,Deportivo Alaves,Nikola Maras,1734658,50044,injured,Out
+ESP-La Liga,2324,2023-11-05 Real Madrid-Rayo Vallecano,Real Madrid,AurÃ©lien TchouamÃ©ni,1734669,353423,injured,Out
+ESP-La Liga,2324,2023-11-05 Real Madrid-Rayo Vallecano,Real Madrid,Ferland Mendy,1734669,296337,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-05 Real Madrid-Rayo Vallecano,Real Madrid,Thibaut Courtois,1734669,73798,injured,Out
+ESP-La Liga,2324,2023-11-05 Real Madrid-Rayo Vallecano,Real Madrid,Ãder MilitÃ£o,1734669,337879,injured,Out
+ESP-La Liga,2324,2023-11-05 Valencia-Granada,Granada,JesÃºs Vallejo,1734671,238901,injured,Out
+ESP-La Liga,2324,2023-11-05 Valencia-Granada,Granada,Miguel Rubio,1734671,357118,injured,Out
+ESP-La Liga,2324,2023-11-05 Valencia-Granada,Granada,RaÃºl FernÃ¡ndez,1734671,33451,injured,Out
+ESP-La Liga,2324,2023-11-05 Valencia-Granada,Valencia,Alberto MarÃ­,1734671,475551,injured,Out
+ESP-La Liga,2324,2023-11-05 Valencia-Granada,Valencia,AndrÃ© Almeida,1734671,322246,injured,Out
+ESP-La Liga,2324,2023-11-05 Valencia-Granada,Valencia,Hugo Duro,1734671,354526,injured,Out
+ESP-La Liga,2324,2023-11-05 Valencia-Granada,Valencia,JesÃºs VÃ¡zquez,1734671,408732,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-05 Valencia-Granada,Valencia,Mouctar Diakhaby,1734671,322095,injured,Out
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Athletic Club,Ander Herrera,1734659,71174,injured,Out
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Athletic Club,Nico Williams,1734659,408449,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Athletic Club,Yeray Ãlvarez,1734659,279839,injured,Out
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Athletic Club,Yuri Berchiche,1734659,56057,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Villarreal,Alexander SÃ¸rloth,1734659,302497,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Villarreal,Alfonso Pedraza,1734659,276489,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Villarreal,Denis SuÃ¡rez,1734659,106525,injured,Out
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Villarreal,Francis Coquelin,1734659,69738,injured,Out
+ESP-La Liga,2324,2023-11-05 Villarreal-Athletic Club,Villarreal,Yeremy Pino,1734659,403865,injured,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Cadiz,Brian Ocampo,1734665,417946,injured,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Cadiz,Fali,1734665,400051,suspended,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Cadiz,Fede San Emeterio,1734665,141641,injured,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Cadiz,IvÃ¡n Alejo,1734665,280027,suspended,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Cadiz,Luis HernÃ¡ndez,1734665,294139,injured,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Cadiz,Momo Mbaye,1734665,409318,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Cadiz,RubÃ©n Sobrino,1734665,323250,suspended,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Getafe,DamiÃ¡n SuÃ¡rez,1734665,83705,injured,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Getafe,Enes Ãnal,1734665,134695,injured,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Getafe,GastÃ³n Ãlvarez,1734665,432458,injured,Out
+ESP-La Liga,2324,2023-11-06 Getafe-Cadiz,Getafe,Mauro Arambarri,1734665,303016,injured,Out
+ESP-La Liga,2324,2023-11-10 Athletic Club-Celta Vigo,Athletic Club,Ander Herrera,1734675,71174,injured,Out
+ESP-La Liga,2324,2023-11-10 Athletic Club-Celta Vigo,Athletic Club,RaÃºl GarcÃ­a,1734675,11386,injured,Out
+ESP-La Liga,2324,2023-11-10 Athletic Club-Celta Vigo,Athletic Club,Yeray Ãlvarez,1734675,279839,injured,Out
+ESP-La Liga,2324,2023-11-10 Athletic Club-Celta Vigo,Athletic Club,Yuri Berchiche,1734675,56057,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-10 Athletic Club-Celta Vigo,Celta Vigo,Joseph Aidoo,1734675,320713,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-10 Athletic Club-Celta Vigo,Celta Vigo,Mihailo Ristic,1734675,244778,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-10 Athletic Club-Celta Vigo,Celta Vigo,Renato Tapia,1734675,136987,suspended,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Almeria,Ibrahima KonÃ©,1734673,354297,injured,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Almeria,Luis SuÃ¡rez,1734673,402887,injured,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Almeria,Marc Pubill,1734673,430148,injured,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Almeria,Ãlex Centelles,1734673,369876,injured,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Real Sociedad,AndrÃ© Silva,1734673,299460,injured,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Real Sociedad,Brais MÃ©ndez,1734673,344542,suspended,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Real Sociedad,Igor Zubeldia,1734673,315566,suspended,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Real Sociedad,Kieran Tierney,1734673,297403,injured,Out
+ESP-La Liga,2324,2023-11-11 Almeria-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734673,363025,injured,Out
+ESP-La Liga,2324,2023-11-11 Granada-Getafe,Getafe,DjenÃ© Dakonam,1734684,332990,suspended,Out
+ESP-La Liga,2324,2023-11-11 Granada-Getafe,Getafe,Enes Ãnal,1734684,134695,injured,Out
+ESP-La Liga,2324,2023-11-11 Granada-Getafe,Getafe,Mauro Arambarri,1734684,303016,injured,Out
+ESP-La Liga,2324,2023-11-11 Granada-Getafe,Granada,JesÃºs Vallejo,1734684,238901,injured,Out
+ESP-La Liga,2324,2023-11-11 Granada-Getafe,Granada,Miguel Rubio,1734684,357118,injured,Out
+ESP-La Liga,2324,2023-11-11 Granada-Getafe,Granada,RaÃºl FernÃ¡ndez,1734684,33451,injured,Out
+ESP-La Liga,2324,2023-11-11 Osasuna-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734688,344047,injured,Out
+ESP-La Liga,2324,2023-11-11 Osasuna-Las Palmas,Las Palmas,Jonathan Viera,1734688,91304,other,Out
+ESP-La Liga,2324,2023-11-11 Osasuna-Las Palmas,Las Palmas,Sandro RamÃ­rez,1734688,135242,injured,Out
+ESP-La Liga,2324,2023-11-11 Osasuna-Las Palmas,Osasuna,Juan Cruz,1734688,96566,injured,Out
+ESP-La Liga,2324,2023-11-11 Rayo Vallecano-Girona,Girona,Borja GarcÃ­a,1734686,75913,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-11 Rayo Vallecano-Girona,Girona,David LÃ³pez,1734686,92691,injured,Out
+ESP-La Liga,2324,2023-11-11 Rayo Vallecano-Girona,Girona,Juan Carlos,1734686,97643,injured,Out
+ESP-La Liga,2324,2023-11-11 Rayo Vallecano-Girona,Girona,Toni Villa,1734686,362355,injured,Out
+ESP-La Liga,2324,2023-11-11 Real Madrid-Valencia,Real Madrid,AurÃ©lien TchouamÃ©ni,1734679,353423,injured,Out
+ESP-La Liga,2324,2023-11-11 Real Madrid-Valencia,Real Madrid,Ferland Mendy,1734679,296337,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-11 Real Madrid-Valencia,Real Madrid,Thibaut Courtois,1734679,73798,injured,Out
+ESP-La Liga,2324,2023-11-11 Real Madrid-Valencia,Real Madrid,Ãder MilitÃ£o,1734679,337879,injured,Out
+ESP-La Liga,2324,2023-11-11 Real Madrid-Valencia,Valencia,Alberto MarÃ­,1734679,475551,injured,Out
+ESP-La Liga,2324,2023-11-11 Real Madrid-Valencia,Valencia,AndrÃ© Almeida,1734679,322246,injured,Out
+ESP-La Liga,2324,2023-11-11 Real Madrid-Valencia,Valencia,JesÃºs VÃ¡zquez,1734679,408732,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-11 Real Madrid-Valencia,Valencia,Mouctar Diakhaby,1734679,322095,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Atletico Madrid,Memphis Depay,1734677,110154,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Atletico Madrid,Reinildo,1734677,361812,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Atletico Madrid,Thomas Lemar,1734677,132962,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Atletico Madrid,Vitolo,1734677,91430,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Villarreal,Alfonso Pedraza,1734677,276489,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Villarreal,Denis SuÃ¡rez,1734677,106525,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Villarreal,Francis Coquelin,1734677,69738,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Villarreal,Gerard Moreno,1734677,97659,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Villarreal,Juan Foyth,1734677,335107,injured,Out
+ESP-La Liga,2324,2023-11-12 Atletico Madrid-Villarreal,Villarreal,Yeremy Pino,1734677,403865,injured,Out
+ESP-La Liga,2324,2023-11-12 Barcelona-Deportivo Alaves,Barcelona,Frenkie de Jong,1734690,279423,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-12 Barcelona-Deportivo Alaves,Barcelona,Gavi,1734690,422937,suspended,Out
+ESP-La Liga,2324,2023-11-12 Barcelona-Deportivo Alaves,Barcelona,Sergi Roberto,1734690,90782,injured,Out
+ESP-La Liga,2324,2023-11-12 Barcelona-Deportivo Alaves,Deportivo Alaves,Carlos BenavÃ­dez,1734690,362393,injured,Out
+ESP-La Liga,2324,2023-11-12 Barcelona-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734690,422918,injured,Out
+ESP-La Liga,2324,2023-11-12 Sevilla-Real Betis,Real Betis,Marc Bartra,1734680,83686,injured,Out
+ESP-La Liga,2324,2023-11-12 Sevilla-Real Betis,Real Betis,Rui Silva,1734680,141833,injured,Out
+ESP-La Liga,2324,2023-11-12 Sevilla-Real Betis,Real Betis,Youssouf Sabaly,1734680,42002,injured,Out
+ESP-La Liga,2324,2023-11-12 Sevilla-Real Betis,Sevilla,Alfonso Pastor,1734680,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-12 Sevilla-Real Betis,Sevilla,MarcÃ£o,1734680,318120,injured,Out
+ESP-La Liga,2324,2023-11-12 Sevilla-Real Betis,Sevilla,Sergio Ramos,1734680,9909,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-24 Deportivo Alaves-Granada,Deportivo Alaves,Abdel Abqar,1734700,409740,injured,Out
+ESP-La Liga,2324,2023-11-24 Deportivo Alaves-Granada,Deportivo Alaves,Aleksandar Sedlar,1734700,294019,injured,Out
+ESP-La Liga,2324,2023-11-24 Deportivo Alaves-Granada,Deportivo Alaves,Carlos BenavÃ­dez,1734700,362393,injured,Out
+ESP-La Liga,2324,2023-11-24 Deportivo Alaves-Granada,Deportivo Alaves,Giuliano Simeone,1734700,422918,injured,Out
+ESP-La Liga,2324,2023-11-24 Deportivo Alaves-Granada,Granada,JesÃºs Vallejo,1734700,238901,injured,Out
+ESP-La Liga,2324,2023-11-24 Deportivo Alaves-Granada,Granada,Miguel Rubio,1734700,357118,injured,Out
+ESP-La Liga,2324,2023-11-24 Deportivo Alaves-Granada,Granada,RaÃºl FernÃ¡ndez,1734700,33451,injured,Out
+ESP-La Liga,2324,2023-11-24 Deportivo Alaves-Granada,Granada,RaÃºl Torrente,1734700,405310,injured,Out
+ESP-La Liga,2324,2023-11-25 Atletico Madrid-Mallorca,Atletico Madrid,Memphis Depay,1734692,110154,injured,Out
+ESP-La Liga,2324,2023-11-25 Atletico Madrid-Mallorca,Atletico Madrid,Reinildo,1734692,361812,injured,Out
+ESP-La Liga,2324,2023-11-25 Atletico Madrid-Mallorca,Atletico Madrid,Thomas Lemar,1734692,132962,injured,Out
+ESP-La Liga,2324,2023-11-25 Atletico Madrid-Mallorca,Atletico Madrid,Vitolo,1734692,91430,injured,Out
+ESP-La Liga,2324,2023-11-25 Atletico Madrid-Mallorca,Mallorca,Vedat Muriqi,1734692,254352,injured,Out
+ESP-La Liga,2324,2023-11-25 Getafe-Almeria,Almeria,Ibrahima KonÃ©,1734702,354297,injured,Out
+ESP-La Liga,2324,2023-11-25 Getafe-Almeria,Almeria,Luis SuÃ¡rez,1734702,402887,injured,Out
+ESP-La Liga,2324,2023-11-25 Getafe-Almeria,Almeria,Marc Pubill,1734702,430148,injured,Out
+ESP-La Liga,2324,2023-11-25 Getafe-Almeria,Almeria,Marezi,1734702,444226,injured,Out
+ESP-La Liga,2324,2023-11-25 Getafe-Almeria,Almeria,Ãlex Centelles,1734702,369876,injured,Out
+ESP-La Liga,2324,2023-11-25 Getafe-Almeria,Getafe,Enes Ãnal,1734702,134695,injured,Out
+ESP-La Liga,2324,2023-11-25 Getafe-Almeria,Getafe,JosÃ© Ãngel Carmona,1734702,422956,injured,Out
+ESP-La Liga,2324,2023-11-25 Getafe-Almeria,Getafe,Mauro Arambarri,1734702,303016,injured,Out
+ESP-La Liga,2324,2023-11-25 Rayo Vallecano-Barcelona,Barcelona,Gavi,1734706,422937,injured,Out
+ESP-La Liga,2324,2023-11-25 Rayo Vallecano-Barcelona,Barcelona,Marc-AndrÃ© ter Stegen,1734706,80774,injured,Out
+ESP-La Liga,2324,2023-11-25 Rayo Vallecano-Barcelona,Barcelona,Sergi Roberto,1734706,90782,injured,Out
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Celta Vigo,Carl Starfelt,1734708,378626,injured,Out
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Celta Vigo,Hugo Sotelo,1734708,415345,injured,Out
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Celta Vigo,Jonathan Bamba,1734708,241019,injured,Out
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Celta Vigo,Joseph Aidoo,1734708,320713,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Celta Vigo,Mihailo Ristic,1734708,244778,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Valencia,Alberto MarÃ­,1734708,475551,injured,Out
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Valencia,AndrÃ© Almeida,1734708,322246,injured,Out
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Valencia,Mouctar Diakhaby,1734708,322095,injured,Out
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Valencia,Pepelu,1734708,302889,injured,Out
+ESP-La Liga,2324,2023-11-25 Valencia-Celta Vigo,Valencia,Selim Amallah,1734708,384578,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Cadiz,Brian Ocampo,1734696,417946,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Cadiz,Fali,1734696,400051,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Cadiz,Fede San Emeterio,1734696,141641,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Cadiz,Luis HernÃ¡ndez,1734696,294139,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,Arda GÃ¼ler,1734696,415181,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,AurÃ©lien TchouamÃ©ni,1734696,353423,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,Dani Ceballos,1734696,144890,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,Eduardo Camavinga,1734696,369109,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,Ferland Mendy,1734696,296337,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,Kepa,1734696,113880,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,Thibaut Courtois,1734696,73798,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,VinÃ­cius JÃºnior,1734696,337782,injured,Out
+ESP-La Liga,2324,2023-11-26 Cadiz-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734696,337879,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Betis-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734694,344047,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Betis-Las Palmas,Las Palmas,Jonathan Viera,1734694,91304,other,Out
+ESP-La Liga,2324,2023-11-26 Real Betis-Las Palmas,Las Palmas,PejiÃ±o,1734694,448213,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Betis-Las Palmas,Las Palmas,Ãlvaro Lemos,1734694,296121,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Betis-Las Palmas,Real Betis,Claudio Bravo,1734694,14199,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Betis-Las Palmas,Real Betis,Marc Bartra,1734694,83686,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Betis-Las Palmas,Real Betis,Rui Silva,1734694,141833,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Betis-Las Palmas,Real Betis,Youssouf Sabaly,1734694,42002,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Sociedad-Sevilla,Real Sociedad,MartÃ­n Merquelanz,1734698,363025,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Sociedad-Sevilla,Real Sociedad,Mikel Oyarzabal,1734698,298839,injured,Out
+ESP-La Liga,2324,2023-11-26 Real Sociedad-Sevilla,Sevilla,Alfonso Pastor,1734698,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-26 Real Sociedad-Sevilla,Sevilla,Fernando,1734698,31958,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-26 Real Sociedad-Sevilla,Sevilla,Nemanja Gudelj,1734698,77417,suspended,Out
+ESP-La Liga,2324,2023-11-26 Real Sociedad-Sevilla,Sevilla,Ãrjan Nyland,1734698,39187,injured,Out
+ESP-La Liga,2324,2023-11-26 Villarreal-Osasuna,Osasuna,Darko Brasanac,1734710,84880,injured,Out
+ESP-La Liga,2324,2023-11-26 Villarreal-Osasuna,Villarreal,Alexander SÃ¸rloth,1734710,302497,injured,Out
+ESP-La Liga,2324,2023-11-26 Villarreal-Osasuna,Villarreal,Alfonso Pedraza,1734710,276489,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-26 Villarreal-Osasuna,Villarreal,AÃ¯ssa Mandi,1734710,90115,injured,Out
+ESP-La Liga,2324,2023-11-26 Villarreal-Osasuna,Villarreal,Denis SuÃ¡rez,1734710,106525,injured,Out
+ESP-La Liga,2324,2023-11-26 Villarreal-Osasuna,Villarreal,Francis Coquelin,1734710,69738,injured,Out
+ESP-La Liga,2324,2023-11-26 Villarreal-Osasuna,Villarreal,Juan Foyth,1734710,335107,injured,Out
+ESP-La Liga,2324,2023-11-26 Villarreal-Osasuna,Villarreal,Yeremy Pino,1734710,403865,injured,Out
+ESP-La Liga,2324,2023-11-27 Girona-Athletic Club,Athletic Club,Yeray Ãlvarez,1734704,279839,injured,Out
+ESP-La Liga,2324,2023-11-27 Girona-Athletic Club,Girona,Borja GarcÃ­a,1734704,75913,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-27 Girona-Athletic Club,Girona,David LÃ³pez,1734704,92691,injured,Out
+ESP-La Liga,2324,2023-11-27 Girona-Athletic Club,Girona,Juan Carlos,1734704,97643,injured,Out
+ESP-La Liga,2324,2023-11-27 Girona-Athletic Club,Girona,SÃ¡vio,1734704,397821,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-11-27 Girona-Athletic Club,Girona,Toni Villa,1734704,362355,injured,Out
+ESP-La Liga,2324,2023-11-29 Mallorca-Cadiz,Cadiz,Fede San Emeterio,1734682,141641,injured,Out
+ESP-La Liga,2324,2023-11-29 Mallorca-Cadiz,Cadiz,Gonzalo Escalante,1734682,127764,injured,Out
+ESP-La Liga,2324,2023-11-29 Mallorca-Cadiz,Cadiz,Luis HernÃ¡ndez,1734682,294139,injured,Out
+ESP-La Liga,2324,2023-11-29 Mallorca-Cadiz,Cadiz,Rominigue KouamÃ©,1734682,342570,injured,Out
+ESP-La Liga,2324,2023-11-29 Mallorca-Cadiz,Mallorca,Vedat Muriqi,1734682,254352,injured,Out
+ESP-La Liga,2324,2023-12-01 Las Palmas-Getafe,Getafe,Enes Ãnal,1734725,134695,injured,Out
+ESP-La Liga,2324,2023-12-01 Las Palmas-Getafe,Getafe,JosÃ© Ãngel Carmona,1734725,422956,injured,Out
+ESP-La Liga,2324,2023-12-01 Las Palmas-Getafe,Getafe,Mauro Arambarri,1734725,303016,injured,Out
+ESP-La Liga,2324,2023-12-01 Las Palmas-Getafe,Las Palmas,Eric Curbelo,1734725,333084,injured,Out
+ESP-La Liga,2324,2023-12-01 Las Palmas-Getafe,Las Palmas,Fabio GonzÃ¡lez,1734725,344047,injured,Out
+ESP-La Liga,2324,2023-12-01 Las Palmas-Getafe,Las Palmas,Jonathan Viera,1734725,91304,other,Out
+ESP-La Liga,2324,2023-12-01 Las Palmas-Getafe,Las Palmas,Ãlvaro Lemos,1734725,296121,injured,Out
+ESP-La Liga,2324,2023-12-02 Athletic Club-Rayo Vallecano,Athletic Club,Dani GarcÃ­a,1734714,127392,injured,Out
+ESP-La Liga,2324,2023-12-02 Athletic Club-Rayo Vallecano,Athletic Club,Yeray Ãlvarez,1734714,279839,injured,Out
+ESP-La Liga,2324,2023-12-02 Girona-Valencia,Girona,Artem Dovbyk,1734716,296975,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-02 Girona-Valencia,Girona,Borja GarcÃ­a,1734716,75913,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-02 Girona-Valencia,Girona,Juan Carlos,1734716,97643,injured,Out
+ESP-La Liga,2324,2023-12-02 Girona-Valencia,Girona,Toni Villa,1734716,362355,injured,Out
+ESP-La Liga,2324,2023-12-02 Girona-Valencia,Valencia,AndrÃ© Almeida,1734716,322246,injured,Out
+ESP-La Liga,2324,2023-12-02 Osasuna-Real Sociedad,Osasuna,Darko Brasanac,1734718,84880,injured,Out
+ESP-La Liga,2324,2023-12-02 Osasuna-Real Sociedad,Osasuna,Kike Barja,1734718,336251,injured,Out
+ESP-La Liga,2324,2023-12-02 Osasuna-Real Sociedad,Real Sociedad,Carlos FernÃ¡ndez,1734718,140812,injured,Out
+ESP-La Liga,2324,2023-12-02 Osasuna-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734718,363025,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Granada,JesÃºs Vallejo,1734727,238901,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Granada,Miguel Rubio,1734727,357118,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Real Madrid,Arda GÃ¼ler,1734727,415181,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Real Madrid,AurÃ©lien TchouamÃ©ni,1734727,353423,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Real Madrid,Eduardo Camavinga,1734727,369109,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Real Madrid,Kepa,1734727,113880,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Real Madrid,Thibaut Courtois,1734727,73798,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Real Madrid,VinÃ­cius JÃºnior,1734727,337782,injured,Out
+ESP-La Liga,2324,2023-12-02 Real Madrid-Granada,Real Madrid,Ãder MilitÃ£o,1734727,337879,injured,Out
+ESP-La Liga,2324,2023-12-03 Almeria-Real Betis,Almeria,Ibrahima KonÃ©,1734712,354297,injured,Out
+ESP-La Liga,2324,2023-12-03 Almeria-Real Betis,Almeria,Luis SuÃ¡rez,1734712,402887,injured,Out
+ESP-La Liga,2324,2023-12-03 Almeria-Real Betis,Almeria,Marc Pubill,1734712,430148,injured,Out
+ESP-La Liga,2324,2023-12-03 Almeria-Real Betis,Real Betis,Claudio Bravo,1734712,14199,injured,Out
+ESP-La Liga,2324,2023-12-03 Almeria-Real Betis,Real Betis,Marc Bartra,1734712,83686,injured,Out
+ESP-La Liga,2324,2023-12-03 Almeria-Real Betis,Real Betis,Rodri,1734712,395188,injured,Out
+ESP-La Liga,2324,2023-12-03 Almeria-Real Betis,Real Betis,William Carvalho,1734712,99911,injured,Out
+ESP-La Liga,2324,2023-12-03 Almeria-Real Betis,Real Betis,Youssouf Sabaly,1734712,42002,injured,Out
+ESP-La Liga,2324,2023-12-03 Barcelona-Atletico Madrid,Atletico Madrid,Memphis Depay,1734721,110154,injured,Out
+ESP-La Liga,2324,2023-12-03 Barcelona-Atletico Madrid,Atletico Madrid,Reinildo,1734721,361812,injured,Out
+ESP-La Liga,2324,2023-12-03 Barcelona-Atletico Madrid,Atletico Madrid,Thomas Lemar,1734721,132962,injured,Out
+ESP-La Liga,2324,2023-12-03 Barcelona-Atletico Madrid,Atletico Madrid,Vitolo,1734721,91430,injured,Out
+ESP-La Liga,2324,2023-12-03 Barcelona-Atletico Madrid,Barcelona,Gavi,1734721,422937,injured,Out
+ESP-La Liga,2324,2023-12-03 Barcelona-Atletico Madrid,Barcelona,JoÃ£o Cancelo,1734721,128967,injured,Out
+ESP-La Liga,2324,2023-12-03 Barcelona-Atletico Madrid,Barcelona,Marc-AndrÃ© ter Stegen,1734721,80774,injured,Out
+ESP-La Liga,2324,2023-12-03 Mallorca-Deportivo Alaves,Deportivo Alaves,Aleksandar Sedlar,1734729,294019,injured,Out
+ESP-La Liga,2324,2023-12-03 Mallorca-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734729,422918,injured,Out
+ESP-La Liga,2324,2023-12-03 Mallorca-Deportivo Alaves,Mallorca,Antonio RaÃ­llo,1734729,294006,injured,Out
+ESP-La Liga,2324,2023-12-03 Mallorca-Deportivo Alaves,Mallorca,Dani RodrÃ­guez,1734729,6227,suspended,Out
+ESP-La Liga,2324,2023-12-03 Mallorca-Deportivo Alaves,Mallorca,Jaume Costa,1734729,69965,injured,Out
+ESP-La Liga,2324,2023-12-03 Mallorca-Deportivo Alaves,Mallorca,Pablo Maffeo,1734729,294848,injured,Out
+ESP-La Liga,2324,2023-12-03 Mallorca-Deportivo Alaves,Mallorca,Vedat Muriqi,1734729,254352,injured,Out
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Sevilla,Alfonso Pastor,1734720,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Sevilla,Fernando,1734720,31958,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Sevilla,JesÃºs Navas,1734720,9446,suspended,Out
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Sevilla,LoÃ¯c BadÃ©,1734720,398416,injured,Out
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Sevilla,Sergio Ramos,1734720,9909,suspended,Out
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Sevilla,Ãrjan Nyland,1734720,39187,injured,Out
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Villarreal,Alexander SÃ¸rloth,1734720,302497,injured,Out
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Villarreal,Denis SuÃ¡rez,1734720,106525,injured,Out
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Villarreal,Francis Coquelin,1734720,69738,injured,Out
+ESP-La Liga,2324,2023-12-03 Sevilla-Villarreal,Villarreal,Yeremy Pino,1734720,403865,injured,Out
+ESP-La Liga,2324,2023-12-04 Celta Vigo-Cadiz,Cadiz,Fede San Emeterio,1734723,141641,injured,Out
+ESP-La Liga,2324,2023-12-04 Celta Vigo-Cadiz,Cadiz,Gonzalo Escalante,1734723,127764,injured,Out
+ESP-La Liga,2324,2023-12-04 Celta Vigo-Cadiz,Cadiz,Iza CarcelÃ©n,1734723,400046,injured,Out
+ESP-La Liga,2324,2023-12-04 Celta Vigo-Cadiz,Cadiz,Luis HernÃ¡ndez,1734723,294139,injured,Out
+ESP-La Liga,2324,2023-12-04 Celta Vigo-Cadiz,Cadiz,Robert Navarro,1734723,400237,injured,Out
+ESP-La Liga,2324,2023-12-04 Celta Vigo-Cadiz,Cadiz,Rominigue KouamÃ©,1734723,342570,injured,Out
+ESP-La Liga,2324,2023-12-04 Celta Vigo-Cadiz,Celta Vigo,Joseph Aidoo,1734723,320713,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-08 Getafe-Valencia,Getafe,DamiÃ¡n SuÃ¡rez,1734737,83705,suspended,Out
+ESP-La Liga,2324,2023-12-08 Getafe-Valencia,Getafe,Diego Rico,1734737,323352,suspended,Out
+ESP-La Liga,2324,2023-12-08 Getafe-Valencia,Getafe,Enes Ãnal,1734737,134695,injured,Out
+ESP-La Liga,2324,2023-12-08 Getafe-Valencia,Getafe,JosÃ© Ãngel Carmona,1734737,422956,injured,Out
+ESP-La Liga,2324,2023-12-08 Getafe-Valencia,Getafe,Mauro Arambarri,1734737,303016,injured,Out
+ESP-La Liga,2324,2023-12-08 Getafe-Valencia,Getafe,Omar Alderete,1734737,344639,suspended,Out
+ESP-La Liga,2324,2023-12-08 Getafe-Valencia,Valencia,AndrÃ© Almeida,1734737,322246,injured,Out
+ESP-La Liga,2324,2023-12-09 Deportivo Alaves-Las Palmas,Deportivo Alaves,Aleksandar Sedlar,1734741,294019,injured,Out
+ESP-La Liga,2324,2023-12-09 Deportivo Alaves-Las Palmas,Deportivo Alaves,Giuliano Simeone,1734741,422918,injured,Out
+ESP-La Liga,2324,2023-12-09 Deportivo Alaves-Las Palmas,Las Palmas,Jonathan Viera,1734741,91304,other,Out
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Mallorca,Antonio RaÃ­llo,1734739,294006,injured,Out
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Mallorca,Dani RodrÃ­guez,1734739,6227,suspended,Out
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Mallorca,Pablo Maffeo,1734739,294848,injured,Out
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Mallorca,Vedat Muriqi,1734739,254352,injured,Out
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Sevilla,Alfonso Pastor,1734739,389348,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Sevilla,Fernando,1734739,31958,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Sevilla,JesÃºs Navas,1734739,9446,suspended,Out
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Sevilla,LoÃ¯c BadÃ©,1734739,398416,injured,Out
+ESP-La Liga,2324,2023-12-09 Mallorca-Sevilla,Sevilla,Ãrjan Nyland,1734739,39187,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Betis,Claudio Bravo,1734733,14199,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Betis,HÃ©ctor BellerÃ­n,1734733,125211,suspended,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Betis,Marc Bartra,1734733,83686,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Betis,Rodri,1734733,395188,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Betis,William Carvalho,1734733,99911,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Betis,Youssouf Sabaly,1734733,42002,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,Arda GÃ¼ler,1734733,415181,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,AurÃ©lien TchouamÃ©ni,1734733,353423,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,Dani Carvajal,1734733,106883,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,Eduardo Camavinga,1734733,369109,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,Kepa,1734733,113880,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,Luka Modric,1734733,20874,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,Thibaut Courtois,1734733,73798,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,VinÃ­cius JÃºnior,1734733,337782,injured,Out
+ESP-La Liga,2324,2023-12-09 Real Betis-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734733,337879,injured,Out
+ESP-La Liga,2324,2023-12-09 Villarreal-Real Sociedad,Real Sociedad,Ander Barrenetxea,1734749,367857,injured,Out
+ESP-La Liga,2324,2023-12-09 Villarreal-Real Sociedad,Real Sociedad,Carlos FernÃ¡ndez,1734749,140812,injured,Out
+ESP-La Liga,2324,2023-12-09 Villarreal-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734749,363025,injured,Out
+ESP-La Liga,2324,2023-12-09 Villarreal-Real Sociedad,Real Sociedad,Robin Le Normand,1734749,367008,injured,Out
+ESP-La Liga,2324,2023-12-09 Villarreal-Real Sociedad,Villarreal,Alexander SÃ¸rloth,1734749,302497,injured,Out
+ESP-La Liga,2324,2023-12-09 Villarreal-Real Sociedad,Villarreal,Denis SuÃ¡rez,1734749,106525,injured,Out
+ESP-La Liga,2324,2023-12-09 Villarreal-Real Sociedad,Villarreal,Francis Coquelin,1734749,69738,injured,Out
+ESP-La Liga,2324,2023-12-09 Villarreal-Real Sociedad,Villarreal,Yeremy Pino,1734749,403865,injured,Out
+ESP-La Liga,2324,2023-12-10 Atletico Madrid-Almeria,Almeria,Ibrahima KonÃ©,1734743,354297,injured,Out
+ESP-La Liga,2324,2023-12-10 Atletico Madrid-Almeria,Almeria,Luis SuÃ¡rez,1734743,402887,injured,Out
+ESP-La Liga,2324,2023-12-10 Atletico Madrid-Almeria,Almeria,Marc Pubill,1734743,430148,injured,Out
+ESP-La Liga,2324,2023-12-10 Atletico Madrid-Almeria,Almeria,Marezi,1734743,444226,injured,Out
+ESP-La Liga,2324,2023-12-10 Atletico Madrid-Almeria,Atletico Madrid,Pablo Barrios,1734743,434138,injured,Out
+ESP-La Liga,2324,2023-12-10 Atletico Madrid-Almeria,Atletico Madrid,Thomas Lemar,1734743,132962,injured,Out
+ESP-La Liga,2324,2023-12-10 Atletico Madrid-Almeria,Atletico Madrid,Vitolo,1734743,91430,injured,Out
+ESP-La Liga,2324,2023-12-10 Barcelona-Girona,Barcelona,Gavi,1734731,422937,injured,Out
+ESP-La Liga,2324,2023-12-10 Barcelona-Girona,Barcelona,Marc-AndrÃ© ter Stegen,1734731,80774,injured,Out
+ESP-La Liga,2324,2023-12-10 Barcelona-Girona,Barcelona,Marcos Alonso,1734731,84008,injured,Out
+ESP-La Liga,2324,2023-12-10 Barcelona-Girona,Girona,Borja GarcÃ­a,1734731,75913,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-10 Barcelona-Girona,Girona,Juan Carlos,1734731,97643,injured,Out
+ESP-La Liga,2324,2023-12-10 Barcelona-Girona,Girona,Toni Villa,1734731,362355,injured,Out
+ESP-La Liga,2324,2023-12-10 Barcelona-Girona,Girona,Yangel Herrera,1734731,318505,injured,Out
+ESP-La Liga,2324,2023-12-10 Cadiz-Osasuna,Cadiz,Gonzalo Escalante,1734735,127764,injured,Out
+ESP-La Liga,2324,2023-12-10 Cadiz-Osasuna,Cadiz,Luis HernÃ¡ndez,1734735,294139,injured,Out
+ESP-La Liga,2324,2023-12-10 Cadiz-Osasuna,Cadiz,Rominigue KouamÃ©,1734735,342570,injured,Out
+ESP-La Liga,2324,2023-12-10 Cadiz-Osasuna,Cadiz,Victor Chust,1734735,402862,suspended,Out
+ESP-La Liga,2324,2023-12-10 Cadiz-Osasuna,Osasuna,Alejandro Catena,1734735,374638,suspended,Out
+ESP-La Liga,2324,2023-12-10 Cadiz-Osasuna,Osasuna,Darko Brasanac,1734735,84880,injured,Out
+ESP-La Liga,2324,2023-12-10 Cadiz-Osasuna,Osasuna,Kike Barja,1734735,336251,injured,Out
+ESP-La Liga,2324,2023-12-10 Cadiz-Osasuna,Osasuna,RubÃ©n PeÃ±a,1734735,118479,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-11 Granada-Athletic Club,Athletic Club,Dani GarcÃ­a,1734745,127392,injured,Out
+ESP-La Liga,2324,2023-12-11 Granada-Athletic Club,Athletic Club,Yeray Ãlvarez,1734745,279839,injured,Out
+ESP-La Liga,2324,2023-12-11 Granada-Athletic Club,Granada,JesÃºs Vallejo,1734745,238901,injured,Out
+ESP-La Liga,2324,2023-12-11 Granada-Athletic Club,Granada,Miguel Rubio,1734745,357118,injured,Out
+ESP-La Liga,2324,2023-12-11 Granada-Athletic Club,Granada,RaÃºl FernÃ¡ndez,1734745,33451,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-11 Rayo Vallecano-Celta Vigo,Celta Vigo,Joseph Aidoo,1734747,320713,injured,Out
+ESP-La Liga,2324,2023-12-11 Rayo Vallecano-Celta Vigo,Rayo Vallecano,Alfonso Espino,1734747,143655,suspended,Out
+ESP-La Liga,2324,2023-12-15 Osasuna-Rayo Vallecano,Osasuna,Johan Mojica,1734757,135098,injured,Out
+ESP-La Liga,2324,2023-12-15 Osasuna-Rayo Vallecano,Osasuna,Kike Barja,1734757,336251,injured,Out
+ESP-La Liga,2324,2023-12-15 Osasuna-Rayo Vallecano,Osasuna,RubÃ©n PeÃ±a,1734757,118479,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-16 Athletic Club-Atletico Madrid,Athletic Club,Dani GarcÃ­a,1734753,127392,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-16 Athletic Club-Atletico Madrid,Athletic Club,Malcom Adu,1734753,449384,injured,Out
+ESP-La Liga,2324,2023-12-16 Athletic Club-Atletico Madrid,Athletic Club,Mikel Vesga,1734753,261516,injured,Out
+ESP-La Liga,2324,2023-12-16 Athletic Club-Atletico Madrid,Athletic Club,Yeray Ãlvarez,1734753,279839,injured,Out
+ESP-La Liga,2324,2023-12-16 Athletic Club-Atletico Madrid,Atletico Madrid,Pablo Barrios,1734753,434138,injured,Out
+ESP-La Liga,2324,2023-12-16 Athletic Club-Atletico Madrid,Atletico Madrid,Thomas Lemar,1734753,132962,injured,Out
+ESP-La Liga,2324,2023-12-16 Athletic Club-Atletico Madrid,Atletico Madrid,Vitolo,1734753,91430,injured,Out
+ESP-La Liga,2324,2023-12-16 Celta Vigo-Granada,Celta Vigo,Joseph Aidoo,1734755,320713,injured,Out
+ESP-La Liga,2324,2023-12-16 Celta Vigo-Granada,Granada,JesÃºs Vallejo,1734755,238901,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-16 Celta Vigo-Granada,Granada,RaÃºl FernÃ¡ndez,1734755,33451,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Getafe,Domingos Duarte,1734767,322772,suspended,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Getafe,Enes Ãnal,1734767,134695,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Getafe,JosÃ© Ãngel Carmona,1734767,422956,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Getafe,Mauro Arambarri,1734767,303016,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,Dodi LukÃ©bakio,1734767,299490,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,Fernando,1734767,31958,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,JesÃºs Navas,1734767,9446,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,Joan JordÃ¡n,1734767,238941,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,LoÃ¯c BadÃ©,1734767,398416,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,Marcos AcuÃ±a,1734767,303729,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,Mariano DÃ­az,1734767,323236,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,Suso,1734767,105591,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,Tanguy Nianzou,1734767,382492,injured,Out
+ESP-La Liga,2324,2023-12-16 Sevilla-Getafe,Sevilla,Ãrik Lamela,1734767,75830,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Barcelona,Frenkie de Jong,1734761,279423,injured,Out
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Barcelona,Gavi,1734761,422937,injured,Out
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Barcelona,Marc-AndrÃ© ter Stegen,1734761,80774,injured,Out
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Barcelona,Marcos Alonso,1734761,84008,injured,Out
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Barcelona,ÃÃ±igo MartÃ­nez,1734761,106885,injured,Out
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Valencia,AndrÃ© Almeida,1734761,322246,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Valencia,Gabriel Paulista,1734761,76810,suspended,Out
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Valencia,Javi Guerra,1734761,431507,suspended,Out
+ESP-La Liga,2324,2023-12-16 Valencia-Barcelona,Valencia,JosÃ© GayÃ ,1734761,119817,injured,Out
+ESP-La Liga,2324,2023-12-17 Almeria-Mallorca,Almeria,Gonzalo Melero,1734751,261698,injured,Out
+ESP-La Liga,2324,2023-12-17 Almeria-Mallorca,Almeria,Ibrahima KonÃ©,1734751,354297,injured,Out
+ESP-La Liga,2324,2023-12-17 Almeria-Mallorca,Almeria,Luis SuÃ¡rez,1734751,402887,injured,Out
+ESP-La Liga,2324,2023-12-17 Almeria-Mallorca,Almeria,Marc Pubill,1734751,430148,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-17 Almeria-Mallorca,Almeria,Marezi,1734751,444226,injured,Out
+ESP-La Liga,2324,2023-12-17 Almeria-Mallorca,Mallorca,Vedat Muriqi,1734751,254352,injured,Out
+ESP-La Liga,2324,2023-12-17 Las Palmas-Cadiz,Cadiz,Gonzalo Escalante,1734765,127764,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-17 Las Palmas-Cadiz,Cadiz,Luis HernÃ¡ndez,1734765,294139,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-17 Las Palmas-Cadiz,Cadiz,Rominigue KouamÃ©,1734765,342570,injured,Out
+ESP-La Liga,2324,2023-12-17 Las Palmas-Cadiz,Las Palmas,Jonathan Viera,1734765,91304,other,Out
+ESP-La Liga,2324,2023-12-17 Las Palmas-Cadiz,Las Palmas,Sergi Cardona,1734765,448209,suspended,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Real Madrid,Arda GÃ¼ler,1734759,415181,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Real Madrid,AurÃ©lien TchouamÃ©ni,1734759,353423,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Real Madrid,Dani Carvajal,1734759,106883,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Real Madrid,Eduardo Camavinga,1734759,369109,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Real Madrid,Thibaut Courtois,1734759,73798,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Real Madrid,VinÃ­cius JÃºnior,1734759,337782,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Real Madrid,Ãder MilitÃ£o,1734759,337879,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Villarreal,AÃ¯ssa Mandi,1734759,90115,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Villarreal,Denis SuÃ¡rez,1734759,106525,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Villarreal,Santi ComesaÃ±a,1734759,362735,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Madrid-Villarreal,Villarreal,Yeremy Pino,1734759,403865,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Sociedad-Real Betis,Real Betis,Claudio Bravo,1734763,14199,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Sociedad-Real Betis,Real Betis,Guido RodrÃ­guez,1734763,303876,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Sociedad-Real Betis,Real Betis,Marc Bartra,1734763,83686,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Sociedad-Real Betis,Real Betis,Nabil Fekir,1734763,134893,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-17 Real Sociedad-Real Betis,Real Betis,Youssouf Sabaly,1734763,42002,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Sociedad-Real Betis,Real Sociedad,Ander Barrenetxea,1734763,367857,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Sociedad-Real Betis,Real Sociedad,Brais MÃ©ndez,1734763,344542,injured,Out
+ESP-La Liga,2324,2023-12-17 Real Sociedad-Real Betis,Real Sociedad,Mohamed-Ali Cho,1734763,399014,injured,Out
+ESP-La Liga,2324,2023-12-18 Girona-Deportivo Alaves,Deportivo Alaves,Abdel Abqar,1734810,409740,suspended,Out
+ESP-La Liga,2324,2023-12-18 Girona-Deportivo Alaves,Deportivo Alaves,Aleksandar Sedlar,1734810,294019,injured,Out
+ESP-La Liga,2324,2023-12-18 Girona-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734810,422918,injured,Out
+ESP-La Liga,2324,2023-12-18 Girona-Deportivo Alaves,Girona,Borja GarcÃ­a,1734810,75913,injured,Out
+ESP-La Liga,2324,2023-12-18 Girona-Deportivo Alaves,Girona,Toni Villa,1734810,362355,injured,Out
+ESP-La Liga,2324,2023-12-18 Girona-Deportivo Alaves,Girona,Yangel Herrera,1734810,318505,injured,Out
+ESP-La Liga,2324,2023-12-19 Atletico Madrid-Getafe,Atletico Madrid,Pablo Barrios,1734819,434138,injured,Out
+ESP-La Liga,2324,2023-12-19 Atletico Madrid-Getafe,Atletico Madrid,Thomas Lemar,1734819,132962,injured,Out
+ESP-La Liga,2324,2023-12-19 Atletico Madrid-Getafe,Atletico Madrid,Vitolo,1734819,91430,injured,Out
+ESP-La Liga,2324,2023-12-19 Atletico Madrid-Getafe,Getafe,Enes Ãnal,1734819,134695,injured,Out
+ESP-La Liga,2324,2023-12-19 Atletico Madrid-Getafe,Getafe,Mauro Arambarri,1734819,303016,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Granada,JesÃºs Vallejo,1734839,238901,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Granada,RaÃºl FernÃ¡ndez,1734839,33451,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,Dodi LukÃ©bakio,1734839,299490,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,Fernando,1734839,31958,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,JesÃºs Navas,1734839,9446,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,Joan JordÃ¡n,1734839,238941,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,LoÃ¯c BadÃ©,1734839,398416,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,Marcos AcuÃ±a,1734839,303729,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,Mariano DÃ­az,1734839,323236,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,Suso,1734839,105591,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,Tanguy Nianzou,1734839,382492,injured,Out
+ESP-La Liga,2324,2023-12-19 Granada-Sevilla,Sevilla,Ãrik Lamela,1734839,75830,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-19 Rayo Vallecano-Valencia,Rayo Vallecano,Ãscar Trejo,1734835,16942,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-19 Rayo Vallecano-Valencia,Valencia,AndrÃ© Almeida,1734835,322246,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-19 Rayo Vallecano-Valencia,Valencia,JosÃ© GayÃ ,1734835,119817,injured,Out
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Athletic Club,Dani GarcÃ­a,1734815,127392,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Athletic Club,Iker Muniain,1734815,77922,injured,Out
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Athletic Club,Yeray Ãlvarez,1734815,279839,injured,Out
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Athletic Club,ÃÃ±igo RuÃ­z de Galarreta,1734815,106586,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Athletic Club,Ãscar De Marcos,1734815,78500,injured,Out
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Las Palmas,Alberto Moleiro,1734815,448211,injured,Out
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734815,344047,injured,Out
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Las Palmas,Jonathan Viera,1734815,91304,other,Out
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Las Palmas,JuliÃ¡n Araujo,1734815,371039,injured,Out
+ESP-La Liga,2324,2023-12-20 Athletic Club-Las Palmas,Las Palmas,Kirian RodrÃ­guez,1734815,448212,suspended,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Almeria,Gonzalo Melero,1734847,261698,injured,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Almeria,Ibrahima KonÃ©,1734847,354297,injured,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Almeria,Lucas Robertone,1734847,323511,suspended,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Almeria,Luis SuÃ¡rez,1734847,402887,injured,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Almeria,Marc Pubill,1734847,430148,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Almeria,Marezi,1734847,444226,injured,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Barcelona,Frenkie de Jong,1734847,279423,suspended,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Barcelona,Gavi,1734847,422937,injured,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Barcelona,Marc-AndrÃ© ter Stegen,1734847,80774,injured,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Barcelona,Marcos Alonso,1734847,84008,injured,Out
+ESP-La Liga,2324,2023-12-20 Barcelona-Almeria,Barcelona,ÃÃ±igo MartÃ­nez,1734847,106885,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Celta Vigo,Iago Aspas,1734851,91242,suspended,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Celta Vigo,Joseph Aidoo,1734851,320713,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Denis SuÃ¡rez,1734851,106525,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Francis Coquelin,1734851,69738,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Gerard Moreno,1734851,97659,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Juan Foyth,1734851,335107,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Matteo Gabbia,1734851,337443,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Santi ComesaÃ±a,1734851,362735,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Yeremy Pino,1734851,403865,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Ãlex Baena,1734851,395242,injured,Out
+ESP-La Liga,2324,2023-12-20 Villarreal-Celta Vigo,Villarreal,Ãtienne Capoue,1734851,33590,suspended,Out
+ESP-La Liga,2324,2023-12-21 Cadiz-Real Sociedad,Cadiz,David Gil,1734827,137372,injured,Out
+ESP-La Liga,2324,2023-12-21 Cadiz-Real Sociedad,Cadiz,Gonzalo Escalante,1734827,127764,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-21 Cadiz-Real Sociedad,Cadiz,Jorge MerÃ©,1734827,294145,injured,Out
+ESP-La Liga,2324,2023-12-21 Cadiz-Real Sociedad,Cadiz,JosÃ© Mari MartÃ­n,1734827,118481,injured,Out
+ESP-La Liga,2324,2023-12-21 Cadiz-Real Sociedad,Cadiz,Luis HernÃ¡ndez,1734827,294139,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-21 Cadiz-Real Sociedad,Real Sociedad,Ander Barrenetxea,1734827,367857,injured,Out
+ESP-La Liga,2324,2023-12-21 Cadiz-Real Sociedad,Real Sociedad,Brais MÃ©ndez,1734827,344542,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Deportivo Alaves,Aleksandar Sedlar,1734843,294019,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Deportivo Alaves,Giuliano Simeone,1734843,422918,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Real Madrid,Arda GÃ¼ler,1734843,415181,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Real Madrid,AurÃ©lien TchouamÃ©ni,1734843,353423,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Real Madrid,Dani Carvajal,1734843,106883,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Real Madrid,Eduardo Camavinga,1734843,369109,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Real Madrid,Ferland Mendy,1734843,296337,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Real Madrid,Thibaut Courtois,1734843,73798,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Real Madrid,VinÃ­cius JÃºnior,1734843,337782,injured,Out
+ESP-La Liga,2324,2023-12-21 Deportivo Alaves-Real Madrid,Real Madrid,Ãder MilitÃ£o,1734843,337879,injured,Out
+ESP-La Liga,2324,2023-12-21 Mallorca-Osasuna,Mallorca,Martin Valjent,1734831,142387,injured,Out
+ESP-La Liga,2324,2023-12-21 Mallorca-Osasuna,Mallorca,Omar Mascarell,1734831,115996,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-21 Mallorca-Osasuna,Mallorca,Toni Lato,1734831,312580,injured,Out
+ESP-La Liga,2324,2023-12-21 Mallorca-Osasuna,Mallorca,Vedat Muriqi,1734831,254352,injured,Out
+ESP-La Liga,2324,2023-12-21 Mallorca-Osasuna,Osasuna,Johan Mojica,1734831,135098,injured,Out
+ESP-La Liga,2324,2023-12-21 Mallorca-Osasuna,Osasuna,Kike Barja,1734831,336251,injured,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Girona,Borja GarcÃ­a,1734823,75913,injured,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Girona,Toni Villa,1734823,362355,injured,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Girona,Viktor Tsygankov,1734823,231125,injured,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Girona,Yangel Herrera,1734823,318505,injured,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Real Betis,Claudio Bravo,1734823,14199,injured,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Real Betis,Guido RodrÃ­guez,1734823,303876,injured,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Real Betis,Isco,1734823,82989,suspended,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Real Betis,Marc Bartra,1734823,83686,injured,Out
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Real Betis,Nabil Fekir,1734823,134893,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-21 Real Betis-Girona,Real Betis,Youssouf Sabaly,1734823,42002,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Atletico Madrid,Pablo Barrios,1734652,434138,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Atletico Madrid,Thomas Lemar,1734652,132962,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Atletico Madrid,Vitolo,1734652,91430,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Dodi LukÃ©bakio,1734652,299490,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Fernando,1734652,31958,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,JesÃºs Navas,1734652,9446,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Joan JordÃ¡n,1734652,238941,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,LoÃ¯c BadÃ©,1734652,398416,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Marcos AcuÃ±a,1734652,303729,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Mariano DÃ­az,1734652,323236,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Suso,1734652,105591,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Tanguy Nianzou,1734652,382492,injured,Out
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Ãrik Lamela,1734652,75830,injured doubtful,Doubtful
+ESP-La Liga,2324,2023-12-23 Atletico Madrid-Sevilla,Sevilla,Ãrjan Nyland,1734652,39187,injured,Out
+ESP-La Liga,2324,2024-01-02 Getafe-Rayo Vallecano,Getafe,Mauro Arambarri,1734855,303016,injured,Out
+ESP-La Liga,2324,2024-01-02 Getafe-Rayo Vallecano,Getafe,Ãscar RodrÃ­guez,1734855,353783,suspended,Out
+ESP-La Liga,2324,2024-01-02 Getafe-Rayo Vallecano,Rayo Vallecano,Ãscar Trejo,1734855,16942,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-02 Getafe-Rayo Vallecano,Rayo Vallecano,Ãscar ValentÃ­n,1734855,422958,injured,Out
+ESP-La Liga,2324,2024-01-02 Real Sociedad-Deportivo Alaves,Deportivo Alaves,Aleksandar Sedlar,1734889,294019,injured,Out
+ESP-La Liga,2324,2024-01-02 Real Sociedad-Deportivo Alaves,Deportivo Alaves,Giuliano Simeone,1734889,422918,injured,Out
+ESP-La Liga,2324,2024-01-02 Real Sociedad-Deportivo Alaves,Deportivo Alaves,RubÃ©n Duarte,1734889,261286,suspended,Out
+ESP-La Liga,2324,2024-01-02 Real Sociedad-Deportivo Alaves,Real Sociedad,Ander Barrenetxea,1734889,367857,injured,Out
+ESP-La Liga,2324,2024-01-02 Real Sociedad-Deportivo Alaves,Real Sociedad,Arsen Zakharyan,1734889,400185,injured,Out
+ESP-La Liga,2324,2024-01-02 Real Sociedad-Deportivo Alaves,Real Sociedad,Hamari TraorÃ©,1734889,289018,injured,Out
+ESP-La Liga,2324,2024-01-02 Real Sociedad-Deportivo Alaves,Real Sociedad,MartÃ­n Merquelanz,1734889,363025,injured,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Valencia,AndrÃ© Almeida,1734860,322246,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Valencia,JosÃ© GayÃ ,1734860,119817,injured,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Valencia,Mouctar Diakhaby,1734860,322095,suspended,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Valencia,Thierry Correia,1734860,367180,suspended,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Villarreal,Denis SuÃ¡rez,1734860,106525,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Villarreal,Francis Coquelin,1734860,69738,injured,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Villarreal,Gerard Moreno,1734860,97659,injured,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Villarreal,Juan Foyth,1734860,335107,injured,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Villarreal,Matteo Gabbia,1734860,337443,injured,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Villarreal,Santi ComesaÃ±a,1734860,362735,suspended,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Villarreal,Yeremy Pino,1734860,403865,injured,Out
+ESP-La Liga,2324,2024-01-02 Valencia-Villarreal,Villarreal,Ãlex Baena,1734860,395242,suspended,Out
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Celta Vigo,Carl Starfelt,1734880,378626,injured,Out
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Celta Vigo,Joseph Aidoo,1734880,320713,injured,Out
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Celta Vigo,Mihailo Ristic,1734880,244778,injured,Out
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Real Betis,Claudio Bravo,1734880,14199,injured,Out
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Real Betis,Guido RodrÃ­guez,1734880,303876,injured,Out
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Real Betis,Isco,1734880,82989,suspended,Out
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Real Betis,Marc Bartra,1734880,83686,injured,Out
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Real Betis,Marc Roca,1734880,323148,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Real Betis,Nabil Fekir,1734880,134893,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-03 Celta Vigo-Real Betis,Real Betis,Youssouf Sabaly,1734880,42002,injured,Out
+ESP-La Liga,2324,2024-01-03 Girona-Atletico Madrid,Atletico Madrid,Pablo Barrios,1734873,434138,injured,Out
+ESP-La Liga,2324,2024-01-03 Girona-Atletico Madrid,Atletico Madrid,Thomas Lemar,1734873,132962,injured,Out
+ESP-La Liga,2324,2024-01-03 Girona-Atletico Madrid,Atletico Madrid,Vitolo,1734873,91430,injured,Out
+ESP-La Liga,2324,2024-01-03 Girona-Atletico Madrid,Atletico Madrid,Ãaglar SÃ¶yÃ¼ncÃ¼,1734873,317998,suspended,Out
+ESP-La Liga,2324,2024-01-03 Girona-Atletico Madrid,Girona,Borja GarcÃ­a,1734873,75913,injured,Out
+ESP-La Liga,2324,2024-01-03 Girona-Atletico Madrid,Girona,David LÃ³pez,1734873,92691,injured,Out
+ESP-La Liga,2324,2024-01-03 Girona-Atletico Madrid,Girona,Toni Villa,1734873,362355,injured,Out
+ESP-La Liga,2324,2024-01-03 Girona-Atletico Madrid,Girona,Yangel Herrera,1734873,318505,injured,Out
+ESP-La Liga,2324,2024-01-03 Granada-Cadiz,Cadiz,Fali,1734883,400051,injured,Out
+ESP-La Liga,2324,2024-01-03 Granada-Cadiz,Cadiz,Gonzalo Escalante,1734883,127764,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-03 Granada-Cadiz,Cadiz,Jorge MerÃ©,1734883,294145,injured,Out
+ESP-La Liga,2324,2024-01-03 Granada-Cadiz,Cadiz,Luis HernÃ¡ndez,1734883,294139,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-03 Granada-Cadiz,Cadiz,Roger MartÃ­,1734883,109811,injured,Out
+ESP-La Liga,2324,2024-01-03 Granada-Cadiz,Granada,JesÃºs Vallejo,1734883,238901,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-03 Granada-Cadiz,Granada,RaÃºl FernÃ¡ndez,1734883,33451,injured,Out
+ESP-La Liga,2324,2024-01-03 Real Madrid-Mallorca,Mallorca,Jaume Costa,1734886,69965,suspended,Out
+ESP-La Liga,2324,2024-01-03 Real Madrid-Mallorca,Mallorca,Martin Valjent,1734886,142387,injured,Out
+ESP-La Liga,2324,2024-01-03 Real Madrid-Mallorca,Mallorca,Vedat Muriqi,1734886,254352,injured,Out
+ESP-La Liga,2324,2024-01-03 Real Madrid-Mallorca,Real Madrid,Ferland Mendy,1734886,296337,injured,Out
+ESP-La Liga,2324,2024-01-03 Real Madrid-Mallorca,Real Madrid,Nacho,1734886,106875,suspended,Out
+ESP-La Liga,2324,2024-01-03 Real Madrid-Mallorca,Real Madrid,Thibaut Courtois,1734886,73798,injured,Out
+ESP-La Liga,2324,2024-01-03 Real Madrid-Mallorca,Real Madrid,Ãder MilitÃ£o,1734886,337879,injured,Out
+ESP-La Liga,2324,2024-01-04 Las Palmas-Barcelona,Barcelona,Gavi,1734877,422937,injured,Out
+ESP-La Liga,2324,2024-01-04 Las Palmas-Barcelona,Barcelona,Marc-AndrÃ© ter Stegen,1734877,80774,injured,Out
+ESP-La Liga,2324,2024-01-04 Las Palmas-Barcelona,Barcelona,Marcos Alonso,1734877,84008,injured,Out
+ESP-La Liga,2324,2024-01-04 Las Palmas-Barcelona,Barcelona,Pedri,1734877,402197,injured,Out
+ESP-La Liga,2324,2024-01-04 Las Palmas-Barcelona,Barcelona,ÃÃ±igo MartÃ­nez,1734877,106885,injured,Out
+ESP-La Liga,2324,2024-01-04 Las Palmas-Barcelona,Las Palmas,Alberto Moleiro,1734877,448211,injured,Out
+ESP-La Liga,2324,2024-01-04 Las Palmas-Barcelona,Las Palmas,Fabio GonzÃ¡lez,1734877,344047,injured,Out
+ESP-La Liga,2324,2024-01-04 Las Palmas-Barcelona,Las Palmas,Jonathan Viera,1734877,91304,other,Out
+ESP-La Liga,2324,2024-01-04 Osasuna-Almeria,Almeria,Gonzalo Melero,1734865,261698,injured,Out
+ESP-La Liga,2324,2024-01-04 Osasuna-Almeria,Almeria,Ibrahima KonÃ©,1734865,354297,injured,Out
+ESP-La Liga,2324,2024-01-04 Osasuna-Almeria,Almeria,Iddrisu Baba,1734865,381644,suspended,Out
+ESP-La Liga,2324,2024-01-04 Osasuna-Almeria,Almeria,Luis SuÃ¡rez,1734865,402887,injured,Out
+ESP-La Liga,2324,2024-01-04 Osasuna-Almeria,Almeria,Marezi,1734865,444226,injured,Out
+ESP-La Liga,2324,2024-01-04 Osasuna-Almeria,Osasuna,Johan Mojica,1734865,135098,injured,Out
+ESP-La Liga,2324,2024-01-04 Osasuna-Almeria,Osasuna,RubÃ©n GarcÃ­a,1734865,119189,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Athletic Club,Dani GarcÃ­a,1734869,127392,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Athletic Club,IÃ±aki Williams,1734869,255182,international duty,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Athletic Club,Yeray Ãlvarez,1734869,279839,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Athletic Club,ÃÃ±igo RuÃ­z de Galarreta,1734869,106586,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Athletic Club,Ãscar De Marcos,1734869,78500,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Alfonso Pastor,1734869,389348,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Dodi LukÃ©bakio,1734869,299490,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Fernando,1734869,31958,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,JesÃºs Navas,1734869,9446,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Joan JordÃ¡n,1734869,238941,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Marcos AcuÃ±a,1734869,303729,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Mariano DÃ­az,1734869,323236,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Tanguy Nianzou,1734869,382492,injured,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Youssef En-Nesyri,1734869,323547,international duty,Out
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Ãrik Lamela,1734869,75830,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-04 Sevilla-Athletic Club,Sevilla,Ãrjan Nyland,1734869,39187,injured,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Deportivo Alaves,Abdel Abqar,1734917,409740,international duty,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Deportivo Alaves,Aleksandar Sedlar,1734917,294019,injured,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Sevilla,Alfonso Pastor,1734917,389348,injured,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Sevilla,Dodi LukÃ©bakio,1734917,299490,injured,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Sevilla,Fernando,1734917,31958,injured,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Sevilla,JesÃºs Navas,1734917,9446,injured,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Sevilla,Mariano DÃ­az,1734917,323236,injured,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Sevilla,Youssef En-Nesyri,1734917,323547,international duty,Out
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Sevilla,Ãrik Lamela,1734917,75830,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-12 Sevilla-Deportivo Alaves,Sevilla,Ãrjan Nyland,1734917,39187,injured,Out
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Athletic Club,Dani GarcÃ­a,1734895,127392,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Athletic Club,IÃ±aki Williams,1734895,255182,international duty,Out
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Athletic Club,Yeray Ãlvarez,1734895,279839,injured,Out
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Real Sociedad,AndrÃ© Silva,1734895,299460,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Real Sociedad,Aritz Elustondo,1734895,256864,injured,Out
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Real Sociedad,Hamari TraorÃ©,1734895,289018,international duty,Out
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734895,363025,injured,Out
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Real Sociedad,Takefusa Kubo,1734895,377285,international duty,Out
+ESP-La Liga,2324,2024-01-13 Athletic Club-Real Sociedad,Real Sociedad,Umar Sadiq,1734895,297546,international duty,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Las Palmas,Daley Sinkgraven,1734911,141781,suspended,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Las Palmas,Fabio GonzÃ¡lez,1734911,344047,injured,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Las Palmas,Jonathan Viera,1734911,91304,other,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Las Palmas,Marvin Park,1734911,401175,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Las Palmas,Munir El Haddadi,1734911,143158,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Las Palmas,Omenuke Mfulu,1734911,146725,international duty,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Las Palmas,SaÃºl Coco,1734911,431167,international duty,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Villarreal,Alexander SÃ¸rloth,1734911,302497,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Villarreal,AÃ¯ssa Mandi,1734911,90115,international duty,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Villarreal,Denis SuÃ¡rez,1734911,106525,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Villarreal,Juan Foyth,1734911,335107,injured,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Villarreal,RaÃºl Albiol,1734911,12575,injured,Out
+ESP-La Liga,2324,2024-01-13 Las Palmas-Villarreal,Villarreal,Yeremy Pino,1734911,403865,injured,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Celta Vigo,Carl Starfelt,1734914,378626,injured,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Celta Vigo,Carlos DomÃ­nguez,1734914,415344,injured,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Celta Vigo,Franco Cervi,1734914,303910,injured,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Celta Vigo,IvÃ¡n Villar,1734914,323350,suspended,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Celta Vigo,Joseph Aidoo,1734914,320713,injured,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Celta Vigo,Mihailo Ristic,1734914,244778,injured,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Mallorca,Martin Valjent,1734914,142387,injured,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Mallorca,Matija Nastasic,1734914,91200,suspended,Out
+ESP-La Liga,2324,2024-01-13 Mallorca-Celta Vigo,Mallorca,Vedat Muriqi,1734914,254352,injured,Out
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Granada,RaÃºl FernÃ¡ndez,1734902,33451,injured,Out
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Granada,Ricard SÃ¡nchez,1734902,391977,suspended,Out
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Real Betis,Abde Ezzalzouli,1734902,427283,international duty,Out
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Real Betis,Chadi Riad,1734902,454342,international duty,Out
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Real Betis,Claudio Bravo,1734902,14199,injured,Out
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Real Betis,Guido RodrÃ­guez,1734902,303876,injured,Out
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Real Betis,Marc Bartra,1734902,83686,injured,Out
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Real Betis,Nabil Fekir,1734902,134893,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-13 Real Betis-Granada,Real Betis,Youssouf Sabaly,1734902,42002,international duty,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Almeria,Gonzalo Melero,1734892,261698,injured,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Almeria,Ibrahima KonÃ©,1734892,354297,injured,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Almeria,Iddrisu Baba,1734892,381644,international duty,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Almeria,Luis SuÃ¡rez,1734892,402887,injured,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Almeria,Marezi,1734892,444226,injured,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Girona,Borja GarcÃ­a,1734892,75913,injured,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Girona,David LÃ³pez,1734892,92691,injured,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Girona,Toni Villa,1734892,362355,injured,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Girona,Viktor Tsygankov,1734892,231125,injured,Out
+ESP-La Liga,2324,2024-01-14 Almeria-Girona,Girona,Yangel Herrera,1734892,318505,injured,Out
+ESP-La Liga,2324,2024-01-14 Cadiz-Valencia,Cadiz,Gonzalo Escalante,1734905,127764,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-14 Cadiz-Valencia,Cadiz,Luis HernÃ¡ndez,1734905,294139,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-14 Cadiz-Valencia,Cadiz,Roger MartÃ­,1734905,109811,injured,Out
+ESP-La Liga,2324,2024-01-14 Cadiz-Valencia,Cadiz,RubÃ©n Sobrino,1734905,323250,suspended,Out
+ESP-La Liga,2324,2024-01-14 Cadiz-Valencia,Valencia,AndrÃ© Almeida,1734905,322246,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-14 Cadiz-Valencia,Valencia,Mouctar Diakhaby,1734905,322095,international duty,Out
+ESP-La Liga,2324,2024-01-14 Cadiz-Valencia,Valencia,Selim Amallah,1734905,384578,international duty,Out
+ESP-La Liga,2324,2024-01-14 Cadiz-Valencia,Valencia,Thierry Correia,1734905,367180,injured,Out
+ESP-La Liga,2324,2024-01-19 Deportivo Alaves-Cadiz,Cadiz,Darwin MachÃ­s,1734926,107567,injured,Out
+ESP-La Liga,2324,2024-01-19 Deportivo Alaves-Cadiz,Cadiz,Fede San Emeterio,1734926,141641,injured,Out
+ESP-La Liga,2324,2024-01-19 Deportivo Alaves-Cadiz,Cadiz,Roger MartÃ­,1734926,109811,injured,Out
+ESP-La Liga,2324,2024-01-19 Deportivo Alaves-Cadiz,Cadiz,RubÃ©n Alcaraz,1734926,279711,suspended,Out
+ESP-La Liga,2324,2024-01-19 Deportivo Alaves-Cadiz,Cadiz,RubÃ©n Sobrino,1734926,323250,suspended,Out
+ESP-La Liga,2324,2024-01-19 Deportivo Alaves-Cadiz,Deportivo Alaves,Abdel Abqar,1734926,409740,international duty,Out
+ESP-La Liga,2324,2024-01-19 Deportivo Alaves-Cadiz,Deportivo Alaves,Aleksandar Sedlar,1734926,294019,injured,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Celta Vigo,Carl Starfelt,1734920,378626,injured,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Celta Vigo,Franco Cervi,1734920,303910,injured,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Celta Vigo,IvÃ¡n Villar,1734920,323350,suspended,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Celta Vigo,Joseph Aidoo,1734920,320713,injured,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Celta Vigo,Mihailo Ristic,1734920,244778,injured,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Real Sociedad,Hamari TraorÃ©,1734920,289018,international duty,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Real Sociedad,MartÃ­n Merquelanz,1734920,363025,injured,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Real Sociedad,Takefusa Kubo,1734920,377285,international duty,Out
+ESP-La Liga,2324,2024-01-20 Celta Vigo-Real Sociedad,Real Sociedad,Umar Sadiq,1734920,297546,international duty,Out
+ESP-La Liga,2324,2024-01-20 Rayo Vallecano-Las Palmas,Las Palmas,Daley Sinkgraven,1734946,141781,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-20 Rayo Vallecano-Las Palmas,Las Palmas,Fabio GonzÃ¡lez,1734946,344047,injured,Out
+ESP-La Liga,2324,2024-01-20 Rayo Vallecano-Las Palmas,Las Palmas,JuliÃ¡n Araujo,1734946,371039,suspended,Out
+ESP-La Liga,2324,2024-01-20 Rayo Vallecano-Las Palmas,Rayo Vallecano,Kike PÃ©rez,1734946,395579,suspended,Out
+ESP-La Liga,2324,2024-01-20 Rayo Vallecano-Las Palmas,Rayo Vallecano,PathÃ© Ciss,1734946,422963,international duty,Out
+ESP-La Liga,2324,2024-01-20 Rayo Vallecano-Las Palmas,Rayo Vallecano,Ãscar Trejo,1734946,16942,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-20 Valencia-Athletic Club,Athletic Club,Dani GarcÃ­a,1734931,127392,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-20 Valencia-Athletic Club,Athletic Club,IÃ±aki Williams,1734931,255182,international duty,Out
+ESP-La Liga,2324,2024-01-20 Valencia-Athletic Club,Athletic Club,Yeray Ãlvarez,1734931,279839,injured,Out
+ESP-La Liga,2324,2024-01-20 Valencia-Athletic Club,Athletic Club,Ãscar De Marcos,1734931,78500,injured,Out
+ESP-La Liga,2324,2024-01-20 Valencia-Athletic Club,Valencia,AndrÃ© Almeida,1734931,322246,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-20 Valencia-Athletic Club,Valencia,Mouctar Diakhaby,1734931,322095,international duty,Out
+ESP-La Liga,2324,2024-01-20 Valencia-Athletic Club,Valencia,Roman Yaremchuk,1734931,281025,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-20 Valencia-Athletic Club,Valencia,Selim Amallah,1734931,384578,international duty,Out
+ESP-La Liga,2324,2024-01-20 Villarreal-Mallorca,Mallorca,Martin Valjent,1734943,142387,injured,Out
+ESP-La Liga,2324,2024-01-20 Villarreal-Mallorca,Mallorca,Matija Nastasic,1734943,91200,suspended,Out
+ESP-La Liga,2324,2024-01-20 Villarreal-Mallorca,Mallorca,Vedat Muriqi,1734943,254352,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-20 Villarreal-Mallorca,Villarreal,AÃ¯ssa Mandi,1734943,90115,international duty,Out
+ESP-La Liga,2324,2024-01-20 Villarreal-Mallorca,Villarreal,Juan Foyth,1734943,335107,injured,Out
+ESP-La Liga,2324,2024-01-20 Villarreal-Mallorca,Villarreal,RaÃºl Albiol,1734943,12575,injured,Out
+ESP-La Liga,2324,2024-01-20 Villarreal-Mallorca,Villarreal,Yeremy Pino,1734943,403865,injured,Out
+ESP-La Liga,2324,2024-01-21 Girona-Sevilla,Girona,Aleix GarcÃ­a,1734923,280663,suspended,Out
+ESP-La Liga,2324,2024-01-21 Girona-Sevilla,Girona,Borja GarcÃ­a,1734923,75913,injured,Out
+ESP-La Liga,2324,2024-01-21 Girona-Sevilla,Girona,David LÃ³pez,1734923,92691,suspended,Out
+ESP-La Liga,2324,2024-01-21 Girona-Sevilla,Girona,Toni Villa,1734923,362355,injured,Out
+ESP-La Liga,2324,2024-01-21 Girona-Sevilla,Sevilla,Boubakary SoumarÃ©,1734923,345664,suspended,Out
+ESP-La Liga,2324,2024-01-21 Girona-Sevilla,Sevilla,Marcos AcuÃ±a,1734923,303729,injured,Out
+ESP-La Liga,2324,2024-01-21 Girona-Sevilla,Sevilla,Youssef En-Nesyri,1734923,323547,international duty,Out
+ESP-La Liga,2324,2024-01-21 Girona-Sevilla,Sevilla,Ãrik Lamela,1734923,75830,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-21 Osasuna-Getafe,Getafe,Jaime Mata,1734940,140771,suspended,Out
+ESP-La Liga,2324,2024-01-21 Osasuna-Getafe,Getafe,Juanmi Latasa,1734940,432209,suspended,Out
+ESP-La Liga,2324,2024-01-21 Osasuna-Getafe,Getafe,Mauro Arambarri,1734940,303016,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Barcelona,Gavi,1734937,422937,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Barcelona,JoÃ£o Cancelo,1734937,128967,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Barcelona,Marc-AndrÃ© ter Stegen,1734937,80774,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Barcelona,Marcos Alonso,1734937,84008,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Barcelona,Raphinha,1734937,300447,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Barcelona,ÃÃ±igo MartÃ­nez,1734937,106885,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Real Betis,Abde Ezzalzouli,1734937,427283,international duty,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Real Betis,Aitor Ruibal,1734937,349494,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Real Betis,Ayoze PÃ©rez,1734937,135366,injured doubtful,Doubtful
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Real Betis,Chadi Riad,1734937,454342,international duty,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Real Betis,Claudio Bravo,1734937,14199,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Real Betis,Guido RodrÃ­guez,1734937,303876,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Real Betis,Marc Bartra,1734937,83686,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Betis-Barcelona,Real Betis,Youssouf Sabaly,1734937,42002,international duty,Out
+ESP-La Liga,2324,2024-01-21 Real Madrid-Almeria,Almeria,Ibrahima KonÃ©,1734928,354297,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Madrid-Almeria,Almeria,Iddrisu Baba,1734928,381644,international duty,Out
+ESP-La Liga,2324,2024-01-21 Real Madrid-Almeria,Almeria,LÃ©o BaptistÃ£o,1734928,116227,suspended,Out
+ESP-La Liga,2324,2024-01-21 Real Madrid-Almeria,Real Madrid,David Alaba,1734928,39722,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Madrid-Almeria,Real Madrid,Lucas VÃ¡zquez,1734928,144511,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Madrid-Almeria,Real Madrid,Thibaut Courtois,1734928,73798,injured,Out
+ESP-La Liga,2324,2024-01-21 Real Madrid-Almeria,Real Madrid,Ãder MilitÃ£o,1734928,337879,injured,Out
+ESP-La Liga,2324,2024-01-22 Granada-Atletico Madrid,Atletico Madrid,Pablo Barrios,1734934,434138,injured,Out
+ESP-La Liga,2324,2024-01-22 Granada-Atletico Madrid,Atletico Madrid,Thomas Lemar,1734934,132962,injured,Out
+ESP-La Liga,2324,2024-01-22 Granada-Atletico Madrid,Atletico Madrid,Vitolo,1734934,91430,injured,Out
+ESP-La Liga,2324,2024-01-22 Granada-Atletico Madrid,Granada,RaÃºl FernÃ¡ndez,1734934,33451,injured,Out
