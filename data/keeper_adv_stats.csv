@@ -1,5 +1,4 @@
-league,season,team,players_used,90s,Goals,Goals,Goals,Goals,Goals,Expected,Expected,Expected,Expected,Launched,Launched,Launched,Passes,Passes,Passes,Passes,Goal Kicks,Goal Kicks,Goal Kicks,Crosses,Crosses,Crosses,Sweeper,Sweeper,Sweeper,url
-,,,,,GA,PKA,FK,CK,OG,PSxG,PSxG/SoT,PSxG+/-,/90,Cmp,Att,Cmp%,Att (GK),Thr,Launch%,AvgLen,Att,Launch%,AvgLen,Opp,Stp,Stp%,#OPA,#OPA/90,AvgDist,
+league,season,team,players_used,90s,Goals_GA,Goals_PKA,Goals_FK,Goals_CK,Goals_OG,Expected_PSxG,Expected_PSxG/SoT,Expected_PSxG+/-,Expected_/90,Launched_Cmp,Launched_Att,Launched_Cmp%,Passes_Att (GK),Passes_Thr,Passes_Launch%,Passes_AvgLen,Goal Kicks_Att,Goal Kicks_Launch%,Goal Kicks_AvgLen,Crosses_Opp,Crosses_Stp,Crosses_Stp%,Sweeper_#OPA,Sweeper_#OPA/90,Sweeper_AvgDist,url
 ESP-La Liga,2324,Alavés,1,21,27,7,0,1,2,26.0,0.25,1.0,0.05,160,393,40.7,472,67,59.7,43.3,191,58.1,42.3,302,14,4.6,21,1.0,15.0,/en/squads/8d6fd021/Alaves-Stats
 ESP-La Liga,2324,Almería,3,21,46,5,0,6,0,42.9,0.35,-3.1,-0.15,98,352,27.8,581,104,40.6,24.1,196,59.2,45.0,331,16,4.8,28,1.33,22.7,/en/squads/78ecf4bb/Almeria-Stats
 ESP-La Liga,2324,Athletic Club,1,21,21,0,0,2,1,24.2,0.31,4.2,0.2,129,420,30.7,603,88,49.6,39.0,151,80.1,58.9,272,19,7.0,38,1.81,18.0,/en/squads/2b390eca/Athletic-Club-Stats

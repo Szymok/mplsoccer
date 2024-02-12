@@ -1,5 +1,4 @@
-league,season,team,players_used,Playing Time,Playing Time,Playing Time,Playing Time,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Penalty Kicks,Penalty Kicks,Penalty Kicks,Penalty Kicks,Penalty Kicks,url
-,,,,MP,Starts,Min,90s,GA,GA90,SoTA,Saves,Save%,W,D,L,CS,CS%,PKatt,PKA,PKsv,PKm,Save%,
+league,season,team,players_used,Playing Time_MP,Playing Time_Starts,Playing Time_Min,Playing Time_90s,Performance_GA,Performance_GA90,Performance_SoTA,Performance_Saves,Performance_Save%,Performance_W,Performance_D,Performance_L,Performance_CS,Performance_CS%,Penalty Kicks_PKatt,Penalty Kicks_PKA,Penalty Kicks_PKsv,Penalty Kicks_PKm,Penalty Kicks_Save%,url
 ESP-La Liga,2324,Alavés,1,21,21,1890,21,27,1.29,78,53,74.4,6,5,10,4,19.0,7,7,0,0,0.0,/en/squads/8d6fd021/Alaves-Stats
 ESP-La Liga,2324,Almería,3,21,21,1890,21,46,2.19,107,60,61.7,0,6,15,3,14.3,7,5,1,1,16.7,/en/squads/78ecf4bb/Almeria-Stats
 ESP-La Liga,2324,Athletic Club,1,21,21,1890,21,21,1.0,77,56,72.7,12,5,4,9,42.9,1,0,1,0,100.0,/en/squads/2b390eca/Athletic-Club-Stats

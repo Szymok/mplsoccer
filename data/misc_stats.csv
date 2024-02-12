@@ -1,5 +1,4 @@
-league,season,team,players_used,90s,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Performance,Aerial Duels,Aerial Duels,Aerial Duels,url
-,,,,,CrdY,CrdR,2CrdY,Fls,Fld,Off,Crs,Int,TklW,PKwon,PKcon,OG,Recov,Won,Lost,Won%,
+league,season,team,players_used,90s,Performance_CrdY,Performance_CrdR,Performance_2CrdY,Performance_Fls,Performance_Fld,Performance_Off,Performance_Crs,Performance_Int,Performance_TklW,Performance_PKwon,Performance_PKcon,Performance_OG,Performance_Recov,Aerial Duels_Won,Aerial Duels_Lost,Aerial Duels_Won%,url
 ESP-La Liga,2324,Alavés,27,21,47,1,0,278,245,38,454,145,201,4,7,2,1079,309,340,47.6,/en/squads/8d6fd021/Alaves-Stats
 ESP-La Liga,2324,Almería,28,21,51,1,1,262,271,43,392,168,220,1,7,0,996,321,340,48.6,/en/squads/78ecf4bb/Almeria-Stats
 ESP-La Liga,2324,Athletic Club,25,21,47,2,1,293,236,46,478,152,200,4,1,1,1215,305,308,49.8,/en/squads/2b390eca/Athletic-Club-Stats

@@ -1,5 +1,4 @@
-league,season,team,players_used,90s,SCA,SCA,SCA Types,SCA Types,SCA Types,SCA Types,SCA Types,SCA Types,GCA,GCA,GCA Types,GCA Types,GCA Types,GCA Types,GCA Types,GCA Types,url
-,,,,,SCA,SCA90,PassLive,PassDead,TO,Sh,Fld,Def,GCA,GCA90,PassLive,PassDead,TO,Sh,Fld,Def,
+league,season,team,players_used,90s,SCA_SCA,SCA_SCA90,SCA Types_PassLive,SCA Types_PassDead,SCA Types_TO,SCA Types_Sh,SCA Types_Fld,SCA Types_Def,GCA_GCA,GCA_GCA90,GCA Types_PassLive,GCA Types_PassDead,GCA Types_TO,GCA Types_Sh,GCA Types_Fld,GCA Types_Def,url
 ESP-La Liga,2324,Alavés,27,21,477,22.71,330,45,35,31,28,8,29,1.38,22,0,2,3,2,0,/en/squads/8d6fd021/Alaves-Stats
 ESP-La Liga,2324,Almería,28,21,442,21.05,305,41,27,29,31,9,33,1.57,17,3,5,5,3,0,/en/squads/78ecf4bb/Almeria-Stats
 ESP-La Liga,2324,Athletic Club,25,21,508,24.19,376,48,35,22,19,8,68,3.24,56,2,4,2,3,1,/en/squads/2b390eca/Athletic-Club-Stats

@@ -1,5 +1,4 @@
-league,season,team,players_used,90s,Att,Pass Types,Pass Types,Pass Types,Pass Types,Pass Types,Pass Types,Pass Types,Pass Types,Corner Kicks,Corner Kicks,Corner Kicks,Outcomes,Outcomes,Outcomes,url
-,,,,,,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks,
+league,season,team,players_used,90s,Att,Pass Types_Live,Pass Types_Dead,Pass Types_FK,Pass Types_TB,Pass Types_Sw,Pass Types_Crs,Pass Types_TI,Pass Types_CK,Corner Kicks_In,Corner Kicks_Out,Corner Kicks_Str,Outcomes_Cmp,Outcomes_Off,Outcomes_Blocks,url
 ESP-La Liga,2324,Alavés,27,21,7958,6863,1057,274,19,66,454,448,96,22,35,1,5746,38,203,/en/squads/8d6fd021/Alaves-Stats
 ESP-La Liga,2324,Almería,28,21,9054,7930,1082,305,20,65,392,413,101,41,38,0,6894,42,178,/en/squads/78ecf4bb/Almeria-Stats
 ESP-La Liga,2324,Athletic Club,25,21,10194,9071,1077,298,36,57,478,473,113,43,50,0,7783,46,197,/en/squads/2b390eca/Athletic-Club-Stats

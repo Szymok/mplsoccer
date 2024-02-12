@@ -1,5 +1,4 @@
-league,season,team,players_used,90s,Total,Total,Total,Total,Total,Short,Short,Short,Medium,Medium,Medium,Long,Long,Long,Ast,xAG,xA,A-xAG,KP,1/3,PPA,CrsPA,PrgP,url
-,,,,,Cmp,Att,Cmp%,TotDist,PrgDist,Cmp,Att,Cmp%,Cmp,Att,Cmp%,Cmp,Att,Cmp%,,,,,,,,,,
+league,season,team,players_used,90s,Total_Cmp,Total_Att,Total_Cmp%,Total_TotDist,Total_PrgDist,Short_Cmp,Short_Att,Short_Cmp%,Medium_Cmp,Medium_Att,Medium_Cmp%,Long_Cmp,Long_Att,Long_Cmp%,Ast,xAG,xA,A-xAG,KP,1/3,PPA,CrsPA,PrgP,url
 ESP-La Liga,2324,Alavés,22,6,1596,2321,68.8,30783,13958,712,877,81.2,598,816,73.3,241,493,48.9,4,4.2,4.1,-0.2,55,148,39,19,199,/en/squads/8d6fd021/Alaves-Stats
 ESP-La Liga,2324,Almería,23,6,2434,2968,82.0,43660,14992,1069,1180,90.6,1084,1236,87.7,231,418,55.3,4,7.7,5.9,-3.7,69,172,39,20,207,/en/squads/78ecf4bb/Almeria-Stats
 ESP-La Liga,2324,Athletic Club,22,6,2318,3017,76.8,40592,15841,1086,1247,87.1,965,1150,83.9,217,460,47.2,7,6.2,6.1,0.8,48,196,49,17,246,/en/squads/2b390eca/Athletic-Club-Stats

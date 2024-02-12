@@ -1,5 +1,4 @@
-league,season,team,players_used,Poss,90s,Touches,Touches,Touches,Touches,Touches,Touches,Touches,Take-Ons,Take-Ons,Take-Ons,Take-Ons,Take-Ons,Carries,Carries,Carries,Carries,Carries,Carries,Carries,Carries,Receiving,Receiving,url
-,,,,,,Touches,Def Pen,Def 3rd,Mid 3rd,Att 3rd,Att Pen,Live,Att,Succ,Succ%,Tkld,Tkld%,Carries,TotDist,PrgDist,PrgC,1/3,CPA,Mis,Dis,Rec,PrgR,
+league,season,team,players_used,Poss,90s,Touches_Touches,Touches_Def Pen,Touches_Def 3rd,Touches_Mid 3rd,Touches_Att 3rd,Touches_Att Pen,Touches_Live,Take-Ons_Att,Take-Ons_Succ,Take-Ons_Succ%,Take-Ons_Tkld,Take-Ons_Tkld%,Carries_Carries,Carries_TotDist,Carries_PrgDist,Carries_PrgC,Carries_1/3,Carries_CPA,Carries_Mis,Carries_Dis,Receiving_Rec,Receiving_PrgR,url
 ESP-La Liga,2324,Alavés,27,42.5,21,10204,1195,3391,4225,2715,430,10200,359,185,51.5,140,39.0,4972,28179,15277,340,224,88,296,169,5683,723,/en/squads/8d6fd021/Alaves-Stats
 ESP-La Liga,2324,Almería,28,46.8,21,11368,1422,4152,5051,2286,362,11367,369,159,43.1,177,48.0,6238,33485,16812,316,226,67,288,144,6817,612,/en/squads/78ecf4bb/Almeria-Stats
 ESP-La Liga,2324,Athletic Club,25,50.0,21,12515,1119,3608,5690,3362,540,12510,408,196,48.0,181,44.4,6781,36019,18673,424,301,120,317,213,7706,863,/en/squads/2b390eca/Athletic-Club-Stats

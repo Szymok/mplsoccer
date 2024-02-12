@@ -1,5 +1,4 @@
-league,season,team,players_used,90s,Tackles,Tackles,Tackles,Tackles,Tackles,Challenges,Challenges,Challenges,Challenges,Blocks,Blocks,Blocks,Int,Tkl+Int,Clr,Err,url
-,,,,,Tkl,TklW,Def 3rd,Mid 3rd,Att 3rd,Tkl,Att,Tkl%,Lost,Blocks,Sh,Pass,,,,,
+league,season,team,players_used,90s,Tackles_Tkl,Tackles_TklW,Tackles_Def 3rd,Tackles_Mid 3rd,Tackles_Att 3rd,Challenges_Tkl,Challenges_Att,Challenges_Tkl%,Challenges_Lost,Blocks_Blocks,Blocks_Sh,Blocks_Pass,Int,Tkl+Int,Clr,Err,url
 ESP-La Liga,2324,Alavés,27,21,316,201,152,128,36,154,339,45.4,185,189,52,137,145,461,457,2,/en/squads/8d6fd021/Alaves-Stats
 ESP-La Liga,2324,Almería,28,21,370,220,206,131,33,159,341,46.6,182,227,75,152,168,538,410,6,/en/squads/78ecf4bb/Almeria-Stats
 ESP-La Liga,2324,Athletic Club,25,21,320,200,126,152,42,169,363,46.6,194,224,50,174,152,472,366,1,/en/squads/2b390eca/Athletic-Club-Stats
