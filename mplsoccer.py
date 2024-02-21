@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import psycopg2
 import pickle
 import time
 from matplotlib import pyplot as plt
@@ -9,8 +10,30 @@ import seaborn as sns
 
 st.set_page_config(layout="wide")
 
-# Load the data
-df_database = pd.read_csv('')
+st.set_page_config(layout="wide")
+
+# Database connection parameters
+DB_HOST = 'your_database_host'
+DB_NAME = 'your_database_name'
+DB_USER = 'your_database_user'
+DB_PASS = 'your_database_password'
+
+# Establishing database connection using SQLAlchemy Engine
+# This is preferable in a Streamlit app for handling connections efficiently
+def create_db_engine():
+    engine_url = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}'
+    engine = create_engine(engine_url)
+    return engine
+
+# Load the data from PostgreSQL database
+def load_data_from_db(query, engine):
+    with engine.connect() as conn:
+        df = pd.read_sql(query, conn)
+    return df
+
+engine = create_db_engine()
+query = "SELECT * FROM your_table_name"  # Adjust the query as needed
+df_database = load_data_from_db(query, engine)
 types = ['Mean', 'Absolute', 'Median', 'Maximum', 'Minimum']
 label_attr_dict = {}
 label_attr_dict_teams = {}
