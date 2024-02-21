@@ -1,4 +1,7 @@
 from soccerdata import FBref
+from typing import List, Dict
+import psycopg2
+from psycopg2.extras import execute_batch
 import pandas as pd
 
 def flatten_columns(df):
@@ -59,10 +62,33 @@ def download_all_player_season_stats(leagues, seasons, stat_types=None):
     return all_stats
 
 # Example usage
-leagues = "ESP-La Liga"
-seasons = ["23-24"]
-player_stats = download_all_player_season_stats(leagues, seasons)
+# leagues = "ESP-La Liga"
+# seasons = ["23-24"]
+# player_stats = download_all_player_season_stats(leagues, seasons)
 
-for stat_type, stats in player_stats.items():
-    print(f"\nStats Type: {stat_type}")
-    print(stats.head())
+# for stat_type, stats in player_stats.items():
+#     print(f"\nStats Type: {stat_type}")
+#     print(stats.head())
+
+def connect_to_db(host='localhost', dbname='soccer_stats', user='username', password='password'):
+    """
+    Connects to a PostgreSQL database and returns the connection and cursor.
+    
+    Parameters:
+    - host: Database host address
+    - dbname: Name of the database
+    - user: Username for the database
+    - password: Password for the database user
+    
+    Returns:
+    - conn: Database connection object
+    - cursor: Database cursor object
+    """
+    conn = psycopg2.connect(
+        host=host,
+        dbname=dbname,
+        user=user,
+        password=password
+    )
+    return conn, conn.cursor()
+
