@@ -92,3 +92,27 @@ def connect_to_db(host='localhost', dbname='soccer_stats', user='username', pass
     )
     return conn, conn.cursor()
 
+def upload_df_to_postgres(df, table_name, conn_details):
+    """
+    Uploads a DataFrame to a PostgreSQL table.
+    
+    Parameters:
+    - df: DataFrame to upload.
+    - table_name: Name of the target table in the database.
+    - conn_details: Dictionary containing connection details (host, dbname, user, password).
+    """
+    conn, cursor = connect_to_db(**conn_details)
+    cols = ','.join(list(df.columns))
+    values_placeholder = ','.join(['%s'] * len(df.columns))
+    insert_query = f'INSERT INTO {table_name} ({cols}) VALUES ({values_placeholder})'
+    
+    try:
+        execute_batch(cursor, insert_query, df.values)
+        conn.commit()
+        print(f"Data uploaded successfully to table {table_name}.")
+    except Exception as e:
+        conn.rollback()
+        print(f"Failed to upload data to table {table_name}: {e}")
+    finally:
+        cursor.close()
+        conn.close()
