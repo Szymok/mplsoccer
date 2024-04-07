@@ -5,6 +5,7 @@ import pandas as pd
 import os
 import json
 from dotenv import load_dotenv
+from datetime import datetime
 
 # Load environment variables from .env file
 load_dotenv()
@@ -121,6 +122,20 @@ def generate_seasons(start_year, end_year):
         season = f"{start_str}-{end_str}"
         seasons.append(season)
     return seasons
+
+def add_timestamp_column(df, timestamp):
+    """
+    Adds a new column with the provided timestamp to the DataFrame.
+
+    Parameters:
+    - df (DataFrame): The DataFrame to which the timestamp column will be added.
+    - timestamp (datetime): The timestamp to add as a new column.
+
+    Returns:
+    - DataFrame with the new timestamp column.
+    """
+    df['script_run_time'] = timestamp
+    return df
 
 def connect_to_db():
     """
@@ -249,7 +264,11 @@ def main():
     conn, cursor = connect_to_db()
     create_schema("team_season", conn)
 
+    current_datetime = datetime.now()
+
     for stat_type, stats in all_stats.items():
+        # Add the current date and time as a new column to the DataFrame
+        stats_with_timestamp = add_timestamp_column(stats, current_datetime)
         print(f"\nStats Type: {stat_type}")
         print("DataFrame columns:", stats.columns)
         upload_df_to_postgres(stats, f"{stat_type}_stats", "team_season", conn)
