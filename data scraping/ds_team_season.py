@@ -71,9 +71,9 @@ def download_all_team_season_stats(leagues, seasons, opponent_stats=False):
 leagues = "ESP-La Liga"  # Or a specific league ID or list of league IDs
 seasons = ["23-24"]  # Can be a single season or a list of seasons
 all_stats = download_all_team_season_stats(leagues, seasons)
-for stat_type, stats in all_stats.items():
-    print(f"\nStats Type: {stat_type}")
-    print(stats.head())
+# for stat_type, stats in all_stats.items():
+    # print(f"\nStats Type: {stat_type}")
+    # print(stats.head())
     # stats.to_csv(f"{stat_type}_stats.csv") # Save to CSV if needed
 
 def connect_to_db(host='psql01.mikr.us', dbname='db_m185', user='m185', password='5854_9a960a'):
@@ -100,7 +100,6 @@ def connect_to_db(host='psql01.mikr.us', dbname='db_m185', user='m185', password
 
 def create_schema(schema_name, conn_details):
     conn, cursor = connect_to_db(**conn_details)
-    
     try:
         cursor.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name};")
         conn.commit()
@@ -126,8 +125,9 @@ def upload_df_to_postgres(df, file_name, schema_name, conn_details):
     conn, cursor = connect_to_db(**conn_details)
     
     # Reset the index to convert MultiIndex columns to regular columns
-    df = df.reset_index(drop=True)
+    df = df.reset_index()
     df.columns = df.columns.str.replace('%', 'percent')
+
     for col in df.columns:
         # Convert pandas NA and NaT to None, which psycopg2 interprets as SQL NULL
         if pd.api.types.is_datetime64_any_dtype(df[col]):
@@ -182,12 +182,11 @@ def upload_df_to_postgres(df, file_name, schema_name, conn_details):
         cursor.close()
         conn.close()
 
-# Connection details for the PostgreSQL database
 conn_details = {
-    'host': 'psql01.mikr.us',
-    'dbname': 'db_m185',
-    'user': 'm185',
-    'password': '5854_9a960a'
+    'host': os.getenv('DB_HOST'),
+    'dbname': os.getenv('DB_NAME'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD')
 }
 
 create_schema("team_season", conn_details)
