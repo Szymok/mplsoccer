@@ -3,6 +3,11 @@ import psycopg2
 from psycopg2.extras import execute_batch, execute_values
 import pandas as pd
 import os
+import json
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 def flatten_columns(df):
     """
@@ -33,6 +38,17 @@ def flatten_columns(df):
         df.columns = new_columns
     return df
 
+def load_cached_data(cache_file):
+    try:
+        with open(cache_file, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {}
+
+def save_cached_data(cache_file, data):
+    with open(cache_file, 'w') as file:
+        json.dump(data, file)
+
 def download_all_team_season_stats(leagues, seasons, opponent_stats=False):
     """
     Downloads all types of team season stats for specified leagues and seasons,
@@ -56,6 +72,7 @@ def download_all_team_season_stats(leagues, seasons, opponent_stats=False):
     for stat_type in stat_types:
         try:
             print(f"Downloading {stat_type} stats for leagues: {leagues}, seasons: {seasons}...")
+            # Correctly call read_team_season_stats without the 'season' argument
             stats = fbref.read_team_season_stats(stat_type=stat_type, opponent_stats=opponent_stats)
             # Flatten the columns immediately after download
             flattened_stats = flatten_columns(stats)
@@ -67,29 +84,52 @@ def download_all_team_season_stats(leagues, seasons, opponent_stats=False):
     
     return all_stats
 
-# Example usage
-leagues = "ESP-La Liga"  # Or a specific league ID or list of league IDs
-seasons = ["23-24"]  # Can be a single season or a list of seasons
-all_stats = download_all_team_season_stats(leagues, seasons)
-# for stat_type, stats in all_stats.items():
-    # print(f"\nStats Type: {stat_type}")
-    # print(stats.head())
-    # stats.to_csv(f"{stat_type}_stats.csv") # Save to CSV if needed
 
-def connect_to_db(host='psql01.mikr.us', dbname='db_m185', user='m185', password='5854_9a960a'):
+def generate_seasons(start_year, end_year):
     """
-    Connects to a PostgreSQL database and returns the connection and cursor.
+    Generates a list of season strings from start_year to end_year.
     
     Parameters:
-    - host: Database host address
-    - dbname: Name of the database
-    - user: Username for the database
-    - password: Password for the database user
+    - start_year: The starting year of the first season (as an integer).
+    - end_year: The ending year of the last season (as an integer).
+    
+    Returns:
+    - A list of strings, each representing a season in the format "YY-YY".
+    """
+    seasons = []
+    for year in range(start_year, end_year):
+        # Format the current year and the next year as two-digit strings
+        start_str = str(year)[-2:]
+        end_str = str(year + 1)[-2:]
+        # Combine them to form the season string
+        season = f"{start_str}-{end_str}"
+        seasons.append(season)
+    return seasons
+
+# Example usage
+start_year = 2022
+end_year = 2024  # This is the start year of the last season you want to include
+seasons = generate_seasons(start_year, end_year)
+
+# Example usage
+leagues = "ESP-La Liga"
+all_stats = download_all_team_season_stats(leagues, seasons)
+
+def connect_to_db():
+    """
+    Connects to a PostgreSQL database using environment variables and returns the connection and cursor.
     
     Returns:
     - conn: Database connection object
     - cursor: Database cursor object
     """
+    # Retrieve database connection details from environment variables
+    host = os.getenv('DB_HOST')
+    dbname = os.getenv('DB_NAME')
+    user = os.getenv('DB_USER')
+    password = os.getenv('DB_PASSWORD')
+    
+    # Establish the database connection
     conn = psycopg2.connect(
         host=host,
         dbname=dbname,
@@ -98,8 +138,9 @@ def connect_to_db(host='psql01.mikr.us', dbname='db_m185', user='m185', password
     )
     return conn, conn.cursor()
 
-def create_schema(schema_name, conn_details):
-    conn, cursor = connect_to_db(**conn_details)
+def create_schema(schema_name, conn):
+    cursor = conn.cursor()
+    
     try:
         cursor.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name};")
         conn.commit()
@@ -109,7 +150,7 @@ def create_schema(schema_name, conn_details):
         print(f"Failed to create schema '{schema_name}': {e}")
     finally:
         cursor.close()
-        conn.close()
+
 
 def upload_df_to_postgres(df, file_name, schema_name, conn_details):
     """
@@ -122,7 +163,7 @@ def upload_df_to_postgres(df, file_name, schema_name, conn_details):
     - conn_details: Dictionary containing connection details (host, dbname, user, password).
     """
     table_name = os.path.splitext(file_name)[0]  # Remove file extension to get table name
-    conn, cursor = connect_to_db(**conn_details)
+    cursor = conn.cursor()
     
     # Reset the index to convert MultiIndex columns to regular columns
     df = df.reset_index()
@@ -180,19 +221,13 @@ def upload_df_to_postgres(df, file_name, schema_name, conn_details):
         print(f"Failed to upload data to table {schema_name}.{table_name}: {e}")
     finally:
         cursor.close()
-        conn.close()
 
-conn_details = {
-    'host': os.getenv('DB_HOST'),
-    'dbname': os.getenv('DB_NAME'),
-    'user': os.getenv('DB_USER'),
-    'password': os.getenv('DB_PASSWORD')
-}
+conn, cursor = connect_to_db()
 
-create_schema("team_season", conn_details)
+create_schema("team_season", conn)
 
 for stat_type, stats in all_stats.items():
     print(f"\nStats Type: {stat_type}")
     print("DataFrame columns:", stats.columns)
     file_name = f"{stat_type}_stats.csv"
-    upload_df_to_postgres(stats, file_name, "team_season", conn_details)
+    upload_df_to_postgres(stats, file_name, "team_season", conn)
