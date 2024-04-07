@@ -258,7 +258,7 @@ def main():
     connects to a PostgreSQL database, creates a schema, and uploads the data.
     """
     leagues = "ESP-La Liga"
-    seasons = generate_seasons(2022, 2024)
+    seasons = generate_seasons(1988, 2024)
     all_stats = download_all_team_season_stats(leagues, seasons)
 
     conn, cursor = connect_to_db()
