@@ -1,7 +1,8 @@
 from soccerdata import FBref
 import psycopg2
-from psycopg2.extras import execute_batch
+from psycopg2.extras import execute_batch, execute_values
 import pandas as pd
+import os
 
 def flatten_columns(df):
     """
@@ -31,8 +32,6 @@ def flatten_columns(df):
                 new_columns.append(new_col_name)
         df.columns = new_columns
     return df
-
-# The rest of your code remains the same...
 
 def download_all_team_season_stats(leagues, seasons, opponent_stats=False):
     """
@@ -77,7 +76,7 @@ for stat_type, stats in all_stats.items():
     print(stats.head())
     # stats.to_csv(f"{stat_type}_stats.csv") # Save to CSV if needed
 
-def connect_to_db(host='localhost', dbname='soccer_stats', user='username', password='password'):
+def connect_to_db(host='psql01.mikr.us', dbname='db_m185', user='m185', password='5854_9a960a'):
     """
     Connects to a PostgreSQL database and returns the connection and cursor.
     
@@ -99,27 +98,102 @@ def connect_to_db(host='localhost', dbname='soccer_stats', user='username', pass
     )
     return conn, conn.cursor()
 
-def upload_df_to_postgres(df, table_name, conn_details):
+def create_schema(schema_name, conn_details):
+    conn, cursor = connect_to_db(**conn_details)
+    
+    try:
+        cursor.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name};")
+        conn.commit()
+        print(f"Schema '{schema_name}' created successfully.")
+    except Exception as e:
+        conn.rollback()
+        print(f"Failed to create schema '{schema_name}': {e}")
+    finally:
+        cursor.close()
+        conn.close()
+
+def upload_df_to_postgres(df, file_name, schema_name, conn_details):
     """
     Uploads a DataFrame to a PostgreSQL table.
     
     Parameters:
     - df: DataFrame to upload.
-    - table_name: Name of the target table in the database.
+    - file_name: Name of the CSV file to derive the table name from.
+    - schema_name: Name of the schema in the database.
     - conn_details: Dictionary containing connection details (host, dbname, user, password).
     """
+    table_name = os.path.splitext(file_name)[0]  # Remove file extension to get table name
     conn, cursor = connect_to_db(**conn_details)
-    cols = ','.join(list(df.columns))
-    values_placeholder = ','.join(['%s'] * len(df.columns))
-    insert_query = f'INSERT INTO {table_name} ({cols}) VALUES ({values_placeholder})'
     
+    # Reset the index to convert MultiIndex columns to regular columns
+    df = df.reset_index(drop=True)
+    df.columns = df.columns.str.replace('%', 'percent')
+    for col in df.columns:
+        # Convert pandas NA and NaT to None, which psycopg2 interprets as SQL NULL
+        if pd.api.types.is_datetime64_any_dtype(df[col]):
+            df[col] = df[col].where(df[col].notna(), None)
+        elif pd.api.types.is_numeric_dtype(df[col]):
+            df[col] = df[col].astype(object).where(df[col].notna(), None)
+        elif pd.api.types.is_string_dtype(df[col]):
+            df[col] = df[col].astype(object).where(df[col].notna(), None)
+
     try:
-        execute_batch(cursor, insert_query, df.values.tolist())
+        # Drop the existing table (if it exists)
+        drop_table_query = f"DROP TABLE IF EXISTS {schema_name}.{table_name}"
+        cursor.execute(drop_table_query)
+        
+        # Create a new table with the desired schema
+        columns_with_types = []
+        for col in df.columns:
+            # Escape double quotes in column names
+            col_name = col.replace('"', '""')
+            # Wrap the column name in double quotes
+            col_name = f'"{col_name}"'
+            # Determine the data type of the column
+            if pd.api.types.is_integer_dtype(df[col]):
+                col_type = 'INTEGER'
+            elif pd.api.types.is_float_dtype(df[col]):
+                col_type = 'REAL'
+            elif pd.api.types.is_datetime64_any_dtype(df[col]):
+                col_type = 'TIMESTAMP'
+            else:
+                col_type = 'TEXT'
+            columns_with_types.append(f'{col_name} {col_type}')
+        
+        create_table_query = f"CREATE TABLE {schema_name}.{table_name} ({', '.join(columns_with_types)})"
+        cursor.execute(create_table_query)
+        
+        # Construct the insert query with proper escaping of special characters
+        cols = ','.join(['"' + col.replace('"', '""') + '"' for col in df.columns])
+
+        insert_query = f'INSERT INTO {schema_name}.{table_name} ({cols}) VALUES %s'
+        
+        # Convert DataFrame to a list of tuples
+        data = [tuple(x) for x in df.to_numpy()]
+        
+        # Use execute_values to efficiently insert data
+        execute_values(cursor, insert_query, data)
         conn.commit()
-        print(f"Data uploaded successfully to table {table_name}.")
+        print(f"Data uploaded successfully to table {schema_name}.{table_name}.")
     except Exception as e:
         conn.rollback()
-        print(f"Failed to upload data to table {table_name}: {e}")
+        print(f"Failed to upload data to table {schema_name}.{table_name}: {e}")
     finally:
         cursor.close()
         conn.close()
+
+# Connection details for the PostgreSQL database
+conn_details = {
+    'host': 'psql01.mikr.us',
+    'dbname': 'db_m185',
+    'user': 'm185',
+    'password': '5854_9a960a'
+}
+
+create_schema("team_season", conn_details)
+
+for stat_type, stats in all_stats.items():
+    print(f"\nStats Type: {stat_type}")
+    print("DataFrame columns:", stats.columns)
+    file_name = f"{stat_type}_stats.csv"
+    upload_df_to_postgres(stats, file_name, "team_season", conn_details)
