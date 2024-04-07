@@ -13,10 +13,10 @@ def flatten_columns(df):
     """
     Flatten a DataFrame's multi-level column headers into a single level,
     ensuring key columns like 'league', 'season', and 'team' are preserved.
-    
+
     Parameters:
-    - df: DataFrame with multi-level columns.
-    
+    - df (DataFrame): DataFrame with multi-level columns.
+
     Returns:
     - DataFrame with flattened column headers.
     """
@@ -39,6 +39,15 @@ def flatten_columns(df):
     return df
 
 def load_cached_data(cache_file):
+    """
+    Load cached data from a JSON file.
+
+    Parameters:
+    - cache_file (str): Path to the cache file.
+
+    Returns:
+    - dict: Cached data if file is found, otherwise an empty dictionary.
+    """
     try:
         with open(cache_file, 'r') as file:
             return json.load(file)
@@ -46,6 +55,13 @@ def load_cached_data(cache_file):
         return {}
 
 def save_cached_data(cache_file, data):
+    """
+    Save data to a cache file in JSON format.
+
+    Parameters:
+    - cache_file (str): Path to the cache file.
+    - data (dict): Data to be cached.
+    """
     with open(cache_file, 'w') as file:
         json.dump(data, file)
 
@@ -53,14 +69,14 @@ def download_all_team_season_stats(leagues, seasons, opponent_stats=False):
     """
     Downloads all types of team season stats for specified leagues and seasons,
     and flattens the multi-level column headers.
-    
+
     Parameters:
-    - leagues: string or iterable, IDs of leagues to include.
-    - seasons: string, int, or list, Seasons to include.
-    - opponent_stats: bool, If True, will retrieve opponent stats for each stat type.
-    
+    - leagues (str or iterable): IDs of leagues to include.
+    - seasons (str, int, or list): Seasons to include.
+    - opponent_stats (bool): If True, will retrieve opponent stats for each stat type.
+
     Returns:
-    - A dictionary of pd.DataFrame(s) with the team season stats for each stat type.
+    - dict: A dictionary of pd.DataFrame(s) with the team season stats for each stat type.
     """
     # Initialize FBref with specified leagues and seasons
     fbref = FBref(leagues=leagues, seasons=seasons)
@@ -106,15 +122,6 @@ def generate_seasons(start_year, end_year):
         seasons.append(season)
     return seasons
 
-# Example usage
-start_year = 2022
-end_year = 2024  # This is the start year of the last season you want to include
-seasons = generate_seasons(start_year, end_year)
-
-# Example usage
-leagues = "ESP-La Liga"
-all_stats = download_all_team_season_stats(leagues, seasons)
-
 def connect_to_db():
     """
     Connects to a PostgreSQL database using environment variables and returns the connection and cursor.
@@ -139,6 +146,13 @@ def connect_to_db():
     return conn, conn.cursor()
 
 def create_schema(schema_name, conn):
+    """
+    Create a new schema in the database if it does not exist.
+
+    Parameters:
+    - schema_name (str): Name of the schema to create.
+    - conn (connection): Database connection object.
+    """
     cursor = conn.cursor()
     
     try:
@@ -152,7 +166,7 @@ def create_schema(schema_name, conn):
         cursor.close()
 
 
-def upload_df_to_postgres(df, file_name, schema_name, conn_details):
+def upload_df_to_postgres(df, file_name, schema_name, conn):
     """
     Uploads a DataFrame to a PostgreSQL table.
     
@@ -222,12 +236,24 @@ def upload_df_to_postgres(df, file_name, schema_name, conn_details):
     finally:
         cursor.close()
 
-conn, cursor = connect_to_db()
+def main():
+    """
+    Main function to execute the script functionality.
+    It downloads team season stats for specified leagues and seasons,
+    connects to a PostgreSQL database, creates a schema, and uploads the data.
+    """
+    leagues = "ESP-La Liga"
+    seasons = generate_seasons(2022, 2024)
+    all_stats = download_all_team_season_stats(leagues, seasons)
 
-create_schema("team_season", conn)
+    conn, cursor = connect_to_db()
+    create_schema("team_season", conn)
 
-for stat_type, stats in all_stats.items():
-    print(f"\nStats Type: {stat_type}")
-    print("DataFrame columns:", stats.columns)
-    file_name = f"{stat_type}_stats.csv"
-    upload_df_to_postgres(stats, file_name, "team_season", conn)
+    for stat_type, stats in all_stats.items():
+        print(f"\nStats Type: {stat_type}")
+        print("DataFrame columns:", stats.columns)
+        upload_df_to_postgres(stats, f"{stat_type}_stats", "team_season", conn)
+
+if __name__ == "__main__":
+    main()
+
