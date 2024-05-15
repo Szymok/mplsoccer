@@ -7,33 +7,60 @@ import time
 from matplotlib import pyplot as plt
 from  matplotlib.ticker import FuncFormatter
 import seaborn as sns
+import os
 
 st.set_page_config(layout="wide")
 
-st.set_page_config(layout="wide")
+host = os.getenv('DB_HOST')
+dbname = os.getenv('DB_NAME')
+user = os.getenv('DB_USER')
+password = os.getenv('DB_PASSWORD')
 
-# Database connection parameters
-DB_HOST = 'your_database_host'
-DB_NAME = 'your_database_name'
-DB_USER = 'your_database_user'
-DB_PASS = 'your_database_password'
-
-# Establishing database connection using SQLAlchemy Engine
-# This is preferable in a Streamlit app for handling connections efficiently
-def create_db_engine():
-    engine_url = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}'
-    engine = create_engine(engine_url)
-    return engine
+# Establishing database connection using psycopg2
+def create_db_connection():
+    conn = psycopg2.connect(
+        dbname=dbname,
+        user=user,
+        password=password,
+        host=host
+    )
+    return conn
 
 # Load the data from PostgreSQL database
-def load_data_from_db(query, engine):
-    with engine.connect() as conn:
-        df = pd.read_sql(query, conn)
+def load_data_from_db(query, conn):
+    df = pd.read_sql_query(query, conn)
     return df
 
-engine = create_db_engine()
-query = "SELECT * FROM your_table_name"  # Adjust the query as needed
-df_database = load_data_from_db(query, engine)
+def get_schemas(conn):
+    query = "SELECT schema_name FROM information_schema.schemata"
+    df_schemas = pd.read_sql_query(query, conn)
+    return df_schemas['schema_name'].tolist()
+
+def get_tables(conn, schema):
+    query = f"SELECT table_name FROM information_schema.tables WHERE table_schema = '{schema}'"
+    df_tables = pd.read_sql_query(query, conn)
+    return df_tables['table_name'].tolist()
+
+# Initialize the database connection
+conn = create_db_connection()
+
+# Fetch available schemas
+schemas = get_schemas(conn)
+
+# Sidebar for schema selection
+selected_schema = st.sidebar.selectbox('Select Schema', schemas)
+
+# Fetch available tables based on the selected schema
+tables = get_tables(conn, selected_schema)
+
+# Sidebar for table selection
+selected_table = st.sidebar.selectbox('Select Table', tables)
+
+# Construct the SQL query dynamically
+query = f"SELECT * FROM {selected_schema}.{selected_table};"
+
+# Load the data from the selected schema and table
+df_database = load_data_from_db(query, conn)
 types = ['Mean', 'Absolute', 'Median', 'Maximum', 'Minimum']
 label_attr_dict = {}
 label_attr_dict_teams = {}
@@ -44,25 +71,32 @@ label_fact_dict = {}
 # Helper methods
 def get_unique_seasons_modified(df_data):
     '''
-    Returns the unique seasons from the dataframe
+    Converts season format from '0001' to '2000/2001' and returns the unique seasons.
     '''
     unique_seasons = np.unique(df_data.season).tolist()
     seasons_modified = []
-    for s, season in enumerate(unique_seasons):
-        if s==0:
-            season = " " + season
-        if s==len(unique_seasons)-1:
-            season = season + " "
-        seasons_modified.append(season.replace("-","/"))
+    for season in unique_seasons:
+        # Extract the start and end years from the season string
+        start_year = int(season[:2]) + 2000  # Convert the first two characters to an integer and add 2000
+        end_year = int(season[2:]) + 2000  # Convert the last two characters to an integer and add 2000
+        # Format the season string as '2000/2001'
+        season_str = f"{start_year}/{end_year}"
+        seasons_modified.append(season_str)
     return seasons_modified
 
 def get_unique_matchdays(df_data):
     '''
-    Returns the minimum and maximum
+    Returns the unique matchdays from the dataframe
     '''
-    unique_matchdays = np.unique(df_data.matchday).tolist()
-    return unique_matchdays
-
+    if 'round' in df_data.columns:
+        # Extract matchday from the 'round' column
+        df_data['matchday'] = df_data['round'].str.extract('(\d+)').astype(int)
+        unique_matchdays = np.unique(df_data['matchday']).tolist()
+        return unique_matchdays
+    else:
+        # If 'round' column is not present, return an empty list or handle accordingly
+        return []
+        
 def get_unique_teams(df_data):
     '''
     Returns the unique teams from the dataframe
@@ -70,20 +104,37 @@ def get_unique_teams(df_data):
     unique_teams = np.unique(df_data.team).tolist()
     return unique_teams
 
-def filter_season(df_data):
-    df_filtered_season = pd.DataFrame()
-    seasons = np.unique(df_data.season).tolist() # Season list 13-14
-    start_raw = start_season.replace('/','-').replace(' ','')
-    end_raw = end_season.replace('/','-').replace(' ','')
-    start_index = seasons.index(start_raw)
-    end_index = seasons.index(end_raw)+1
-    seasons_selected = seasons[start_index:end_index]
-    df_filtered_season = df_data[df_data['season'].isin(seasons_selected)]
+def filter_season(df_data, start_season, end_season):
+    # Convert the start and end seasons from '2000/2001' format to '0001' format
+    start_season_compact = start_season.replace('/', '')[2:]
+    end_season_compact = end_season.replace('/', '')[2:]
+    
+    # Convert the season column to a more readable format '2000/2001'
+    df_data['season_readable'] = df_data['season'].apply(lambda x: f"20{x[:2]}/20{x[2:]}")
+    
+    # Find the unique seasons in the readable format
+    unique_seasons_readable = np.unique(df_data['season_readable']).tolist()
+    
+    # Find the index of the start and end seasons in the unique seasons list
+    start_index = unique_seasons_readable.index(start_season)
+    end_index = unique_seasons_readable.index(end_season) + 1
+    
+    # Select the seasons within the start and end index
+    seasons_selected_readable = unique_seasons_readable[start_index:end_index]
+    
+    # Filter the DataFrame based on the selected seasons
+    df_filtered_season = df_data[df_data['season_readable'].isin(seasons_selected_readable)]
+    
+    # Drop the temporary 'season_readable' column
+    df_filtered_season = df_filtered_season.drop(columns=['season_readable'])
+    
     return df_filtered_season
 
-def filter_matchday(df_data):
-    df_filtered_matchday = pd.DataFrame()
-    matchdays_list = list(range(selected_matchdays[0], selected_matchdays[1]+1))
+def filter_matchday(df_data, selected_matchdays):
+    '''
+    Filters the DataFrame based on the selected matchday range.
+    '''
+    matchdays_list = list(range(selected_matchdays[0], selected_matchdays[1] + 1))
     df_filtered_matchday = df_data[df_data['matchday'].isin(matchdays_list)]
     return df_filtered_matchday
     
@@ -94,33 +145,24 @@ def filter_teams(df_data):
         return df_filtered_team
     return df_data
 
-def stack_home_away_dataframe(df_data):
-    df_data['game_id'] = df_data.index + 1
-    delta_names = ['goals', 'ht_goals', 'shots_on_goal', 'distance', 'total_passes', 'pass_ratio', 'possession', 'tackle_ratio', 'fouls', 'offside', 'corners']
-    for column in delta_names:
-        h_delta_column = 'h_delta_' + column
-        a_delta_column = 'a_delta_' + column
-        h_column = 'h_' + column
-        a_column = 'a_' + column
-        df_data[h_delta_column] = df_data[h_column]-df_data[a_column]
-        df_data[a_delta_column] = df_data[a_column]-df_data[h_column]
+def stack_team_dataframe(df_data):
+    # Get all column names from the DataFrame
+    column_names = df_data.columns.tolist()
+    
+    # Filter the dataframe to include only the columns you're interested in
+    # Since we're now including all columns, there's no need to filter them out
+    df_filtered = df_data[column_names].copy()
 
-    column_names = ['distance','total_passes','success_passes','failed_passes','pass_ratio','possession','tackle_ratio','offside','corners','delta_goals','delta_ht_goals','delta_shots_on_goal','delta_distance','delta_total_passes','delta_pass_ratio','delta_possession','delta_tackle_ratio','delta_fouls','delta_offside','delta_corners']
-    h_column_names = ['game_id','season','matchday','h_team','h_goals','a_goals','h_ht_goals','a_ht_goals','h_shots_on_goal','a_shots_on_goal','h_fouls','a_fouls']
-    a_column_names = ['game_id','season','matchday','a_team','a_goals','h_goals','a_ht_goals','h_ht_goals','a_shots_on_goal','h_shots_on_goal','a_fouls','h_fouls']
-    column_names_new = ['game_id','season','matchday','location','team','goals','goals_received','ht_goals','ht_goals_received','shots_on_goal','shots_on_goal_received','fouls','got_fouled','distance','total_passes','success_passes','failed_passes','pass_ratio','possession','tackle_ratio','offside','corners','delta_goals','delta_ht_goals','delta_shots_on_goal','delta_distance','delta_total_passes','delta_pass_ratio','delta_possession','delta_tackle_ratio','delta_fouls','delta_offside','delta_corners']
-    for column in column_names: 
-        h_column_names.append('h_' + column)
-        a_column_names.append('a_' + column)
-    df_home = df_data.filter(h_column_names)
-    df_away = df_data.filter(a_column_names)
-    df_home.insert(3, 'location', 'h')
-    df_away.insert(3, 'location', 'a')
-    df_home.columns = column_names_new
-    df_away.columns = column_names_new
-    df_total = df_home.append(df_away, ignore_index=True).sort_values(['game_id', 'season', 'matchday'], ascending=[True, True, True])
-    df_total_sorted = df_total[['game_id','season','matchday','location','team','goals','goals_received','delta_goals','ht_goals','ht_goals_received','delta_ht_goals','shots_on_goal','shots_on_goal_received','delta_shots_on_goal','distance','delta_distance','total_passes','delta_total_passes','success_passes','failed_passes','pass_ratio','delta_pass_ratio','possession','delta_possession','tackle_ratio','delta_tackle_ratio','fouls','got_fouled','delta_fouls','offside','delta_offside','corners','delta_corners']]
-    return df_total_sorted
+    # Assuming you might need to sort or perform other operations on the filtered data
+    # For example, sorting by 'season' and 'team' for readability
+    # Ensure 'season' and 'team' are in your DataFrame to avoid KeyError
+    if 'season' in df_filtered.columns and 'team' in df_filtered.columns:
+        df_sorted = df_filtered.sort_values(['season', 'team'], ascending=[True, True])
+    else:
+        # If 'season' or 'team' columns are not present, return the filtered DataFrame as is
+        df_sorted = df_filtered
+
+    return df_sorted
 
 def group_measure_by_attribute(aspect, attribute, measure):
     df_data = df_data_filtered
@@ -408,7 +450,7 @@ with row3_1:
 ### SELECTION ###
 #################
     
-df_stacked = stack_home_away_dataframe(df_database)
+df_stacked = stack_team_dataframe(df_database)
 
 st.sidebar.text('')
 st.sidebar.text('')
@@ -418,20 +460,45 @@ st.sidebar.text('')
 
 st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
 unique_seasons = get_unique_seasons_modified(df_database)
-start_season, end_season = st.sidebar.select_slider('Select the season range you want to include', unique_seasons, value = [' 13/14', '23/24 '])
-df_data_filtered_season = filter_season(df_stacked)
+# Sidebar for season selection
+start_season, end_season = st.sidebar.select_slider(
+    'Select the season range you want to include',
+    options=unique_seasons,
+    value=(unique_seasons[0], unique_seasons[-1])
+)
+# Filter data based on selected seasons
+df_data_filtered_season = filter_season(df_database, start_season, end_season)
+# Get unique seasons and matchdays
+unique_seasons = get_unique_seasons_modified(df_database)
+unique_matchdays = get_unique_matchdays(df_database)
 
 ### MATCHDAY RANGE ###
-unique_matchdays = get_unique_matchdays(df_data_filtered_season)
-selected_matchdays = st.sidebar.select_slider('Select the matchday range you want to include', unique_matchdays, value=[min(unique_matchdays), max(unique_matchdays)])
-df_data_filtered_matchday = filter_matchday(df_data_filtered_season)
+# unique_matchdays = get_unique_matchdays(df_data_filtered_season)
+# Sidebar for matchday selection
+# Check if the selected schema is 'team_season'
+if selected_schema == 'team_match':
+    # Get unique matchdays
+    unique_matchdays = get_unique_matchdays(df_data_filtered_season)
+    
+    # Sidebar for matchday selection
+    selected_matchdays = st.sidebar.select_slider(
+        'Select the matchday range you want to include',
+        options=unique_matchdays,
+        value=(min(unique_matchdays), max(unique_matchdays))
+    )
+    
+    # Filter data based on selected matchdays
+    df_data_filtered_matchday = filter_matchday(df_data_filtered_season, selected_matchdays)
+else:
+    df_data_filtered_matchday = df_data_filtered_season  # If not 'team_match', use the season-filtered data
+
 
 ### TEAMS SELECTION ###
-unique_teams = get_unique_teams(df_data_filtered_matchday)
+unique_teams = get_unique_teams(df_stacked)
 all_teams_selected = st.sidebar.selectbox('Do you want to only include specific teams? If the answer is yes, please check the box below and then select the team(s) in the new field.', ['Include all available teams', 'Select teams manually (choose below)'])
 if all_teams_selected == 'Select teams manually (choose below)':
     selected_teams = st.sidebar.multiselect('Select and deselect the teams you would like to include in the analysis. You can clear the current selection by clicking the corresponding x-button on the right.', unique_teams, default = unique_teams)
-df_data_filtered = filter_teams(df_data_filtered_matchday)
+df_data_filtered = filter_matchday(df_data_filtered_season, selected_matchdays)
 
 ### SEE DATA ###
 row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
@@ -439,10 +506,10 @@ with row6_1:
     st.subheader('Currently selected data:')
 
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4, row2_4, row2_spacer5   = st.columns((.2, 1.6, .2, 1.6, .2, 1.6, .2, 1.6, .2))
-with row2_1:
-    unique_games_in_df = df_data_filtered.game_id.nunique()
-    str_games = "🏟️ " + str(unique_games_in_df) + " Matches"
-    st.markdown(str_games)
+# with row2_1:
+#     unique_games_in_df = df_data_filtered.url.nunique()
+#     str_games = "🏟️ " + str(unique_games_in_df) + " Matches"
+#     st.markdown(str_games)
 with row2_2:
     unique_teams_in_df = len(np.unique(df_data_filtered.team).tolist())
     t = ' Teams'
@@ -450,14 +517,14 @@ with row2_2:
         t = ' Team'
     str_teams = "🏃‍♂️ " + str(unique_teams_in_df) + t
     st.markdown(str_teams)
-with row2_3:
-    total_goals_in_df = df_data_filtered['goals'].sum()
-    str_goals = "🥅 " + str(total_goals_in_df) + " Goals"
-    st.markdown(str_goals)
-with row2_4:
-    total_shots_in_df = df_data_filtered['shots_on_goal'].sum()
-    str_shots = "👟⚽ " + str(total_shots_in_df) + " Shots"
-    st.markdown(str_shots)
+# with row2_3:
+#     total_goals_in_df = df_data_filtered['goals'].sum()
+#     str_goals = "🥅 " + str(total_goals_in_df) + " Goals"
+#     st.markdown(str_goals)
+# with row2_4:
+#     total_shots_in_df = df_data_filtered['shots_on_goal'].sum()
+#     str_shots = "👟⚽ " + str(total_shots_in_df) + " Shots"
+#     st.markdown(str_shots)
 
 row3_spacer1, row3_1, row3_spacer2 = st.columns((.2, 7.1, .2))
 with row3_1:
@@ -485,20 +552,20 @@ if all_teams_selected == 'Include all available teams':
     with row13_3:
         show_me_what = st.selectbox('', ['by a team', 'by both teams', 'difference between teams'], key='one_both_diff')
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
-    with row14_1:
-        return_game_id_value_team = find_match_game_id(show_me_hi_lo,show_me_aspect,show_me_what)
-        df_match_result = build_matchfacts_return_string(return_game_id_value_team,show_me_hi_lo,show_me_aspect,show_me_what)     
+    # with row14_1:
+    #     return_game_id_value_team = find_match_game_id(show_me_hi_lo,show_me_aspect,show_me_what)
+    #     df_match_result = build_matchfacts_return_string(return_game_id_value_team,show_me_hi_lo,show_me_aspect,show_me_what)     
     row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
     with row15_1:
         st.subheader(" ‎")
-    with row15_2:
-        st.subheader(str(df_match_result.iloc[0]['team']))
-    with row15_3:
-        end_result = str(df_match_result.iloc[0]['goals']) + " : " +str(df_match_result.iloc[1]['goals'])
-        ht_result = " ‎ ‎( " + str(df_match_result.iloc[0]['ht_goals']) + " : " +str(df_match_result.iloc[1]['ht_goals']) + " )"
-        st.subheader(end_result + " " + ht_result)  
-    with row15_4:
-        st.subheader(str(df_match_result.iloc[1]['team']))
+    # with row15_2:
+    #     st.subheader(str(df_match_result.iloc[0]['team']))
+    # with row15_3:
+    #     end_result = str(df_match_result.iloc[0]['goals']) + " : " +str(df_match_result.iloc[1]['goals'])
+    #     ht_result = " ‎ ‎( " + str(df_match_result.iloc[0]['ht_goals']) + " : " +str(df_match_result.iloc[1]['ht_goals']) + " )"
+    #     st.subheader(end_result + " " + ht_result)  
+    # with row15_4:
+    #     st.subheader(str(df_match_result.iloc[1]['team']))
 else:
     row17_spacer1, row17_1, row17_spacer2 = st.columns((.2, 7.1, .2))
     with row17_1:
@@ -514,22 +581,22 @@ if all_teams_selected == 'Include all available teams':
         st.markdown("🤕 Fouls")
         st.markdown("🚫 Offside")
         st.markdown("📐 Corners")
-    with row16_2:
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['shots_on_goal']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['distance']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[0]['total_passes']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎‎"+str(df_match_result.iloc[0]['possession']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['fouls']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['offside']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['corners']))
-    with row16_4:
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['shots_on_goal']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['distance']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[1]['total_passes']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[1]['possession']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['fouls']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['offside']))
-        st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['corners']))
+    # with row16_2:
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['shots_on_goal']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['distance']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[0]['total_passes']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎‎"+str(df_match_result.iloc[0]['possession']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['fouls']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['offside']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['corners']))
+    # with row16_4:
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['shots_on_goal']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['distance']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[1]['total_passes']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[1]['possession']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['fouls']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['offside']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['corners']))
 
 ### TEAM ###
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
