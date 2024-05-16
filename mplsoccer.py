@@ -506,10 +506,11 @@ with row6_1:
     st.subheader('Currently selected data:')
 
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4, row2_4, row2_spacer5   = st.columns((.2, 1.6, .2, 1.6, .2, 1.6, .2, 1.6, .2))
-# with row2_1:
-#     unique_games_in_df = df_data_filtered.url.nunique()
-#     str_games = "🏟️ " + str(unique_games_in_df) + " Matches"
-#     st.markdown(str_games)
+if selected_schema == 'team_match':
+    with row2_1:
+        unique_games_in_df = df_data_filtered['game'].nunique()
+        str_games = "🏟️ " + str(unique_games_in_df) + " Matches (Distinct)"
+        st.markdown(str_games)
 with row2_2:
     unique_teams_in_df = len(np.unique(df_data_filtered.team).tolist())
     t = ' Teams'
