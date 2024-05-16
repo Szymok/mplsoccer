@@ -440,7 +440,7 @@ with row0_1:
     st.title('Real Madrid Stats Analysis')
 with row0_2:
     st.text('')
-    st.subheader('App by [SkSzymon](https://wwww.twitter.com/SkSzymon)')
+    st.subheader('App by [SkSzymon](https://www.twitter.com/SkSzymon)')
 row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
 with row3_1:
     st.markdown("Hello there! Have you ever spent your weekend watching the LaLiga matches and had your friends complain about how 'players definitely used to run more' ? However, you did not want to start an argument because you did not have any stats at hand? Well, this interactive application containing LaLiga data from season ... to ... allows you to discover just that! If you're on a mobile device, I would recommend switching over to landscape for viewing ease.")
@@ -518,10 +518,17 @@ with row2_2:
         t = ' Team'
     str_teams = "🏃‍♂️ " + str(unique_teams_in_df) + t
     st.markdown(str_teams)
-# with row2_3:
-#     total_goals_in_df = df_data_filtered['goals'].sum()
-#     str_goals = "🥅 " + str(total_goals_in_df) + " Goals"
-#     st.markdown(str_goals)
+if selected_schema == 'team_match':
+    with row2_3:
+        # Ensure the 'GF' column is numeric
+        df_data_filtered['GF'] = pd.to_numeric(df_data_filtered['GF'], errors='coerce')
+        
+        # Sum the goals and divide by 2
+        total_goals_in_df = df_data_filtered['GF'].sum() / 2  # Divide by 2 because of home and away rows for each game
+        
+        # Format the result as an integer
+        str_goals = "🥅 " + str(int(total_goals_in_df)) + " Goals"
+        st.markdown(str_goals)
 # with row2_4:
 #     total_shots_in_df = df_data_filtered['shots_on_goal'].sum()
 #     str_shots = "👟⚽ " + str(total_shots_in_df) + " Shots"
