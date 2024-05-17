@@ -64,22 +64,57 @@ df_database = load_data_from_db(query, conn)
 types = ['Mean', 'Absolute', 'Median', 'Maximum', 'Minimum']
 label_attr_dict = {}
 label_attr_dict_teams = {}
-color_dict = {}
+color_dict = {
+    'Alavés': '#1E90FF', 
+    'Almería': '#FF4500', 
+    'Athletic Bilbao': '#8B0000', 
+    'Atlético Madrid': '#00008B', 
+    'Barcelona': '#0000FF', 
+    'Cádiz': '#FFD700', 
+    'Celta Vigo': '#00CED1', 
+    'Elche': '#32CD32', 
+    'Espanyol': '#1E90FF', 
+    'Getafe': '#0000CD', 
+    'Girona': '#FF69B4', 
+    'Granada': '#DC143C', 
+    'Las Palmas': '#FFFF00', 
+    'Mallorca': '#FF6347', 
+    'Osasuna': '#FF4500', 
+    'Rayo Vallecano': '#FF0000', 
+    'Real Betis': '#008000', 
+    'Real Madrid': '#FFFFFF', 
+    'Real Sociedad': '#4169E1', 
+    'Sevilla': '#FF0000', 
+    'Valencia': '#FFA500', 
+    'Villarreal': '#FFFF00'
+}
 label_attr_dict_correlation = {}
 label_fact_dict = {}
 
 # Helper methods
 def get_unique_seasons_modified(df_data):
     '''
-    Converts season format from '0001' to '2000/2001' and returns the unique seasons.
+    Converts season format from '9091' to '1990/1991' and returns the unique seasons.
     '''
     unique_seasons = np.unique(df_data.season).tolist()
     seasons_modified = []
     for season in unique_seasons:
         # Extract the start and end years from the season string
-        start_year = int(season[:2]) + 2000  # Convert the first two characters to an integer and add 2000
-        end_year = int(season[2:]) + 2000  # Convert the last two characters to an integer and add 2000
-        # Format the season string as '2000/2001'
+        start_year = int(season[:2])
+        end_year = int(season[2:])
+        
+        # Determine the century for the start and end years
+        if start_year >= 90:
+            start_year += 1900
+        else:
+            start_year += 2000
+        
+        if end_year >= 90:
+            end_year += 1900
+        else:
+            end_year += 2000
+        
+        # Format the season string as '1990/1991'
         season_str = f"{start_year}/{end_year}"
         seasons_modified.append(season_str)
     return seasons_modified
@@ -458,14 +493,17 @@ st.sidebar.text('')
 
 ### SEASON RANGE ###
 
-st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
-unique_seasons = get_unique_seasons_modified(df_database)
-# Sidebar for season selection
-start_season, end_season = st.sidebar.select_slider(
-    'Select the season range you want to include',
-    options=unique_seasons,
-    value=(unique_seasons[0], unique_seasons[-1])
-)
+if selected_schema == 'team_match':
+    st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
+    unique_seasons = get_unique_seasons_modified(df_database)
+    
+    # Sidebar for season selection
+    start_season, end_season = st.sidebar.select_slider(
+        'Select the season range you want to include',
+        options=unique_seasons,
+        value=(unique_seasons[0], unique_seasons[-1])
+    )
+
 # Filter data based on selected seasons
 df_data_filtered_season = filter_season(df_database, start_season, end_season)
 # Get unique seasons and matchdays
