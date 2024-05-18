@@ -356,7 +356,7 @@ def plot_x_per_season(attr, measure):
                         va = 'center',
                         xytext = (0, 15),
                         textcoords = 'offset points')
-    st.pyploy(fig)
+    st.pyplot(fig)
 
 def plot_x_per_matchday(attr, measure):
     rc = {'figure.figsize':(8,4.5),
