@@ -31,6 +31,12 @@ def load_data_from_db(query, conn):
     df = pd.read_sql_query(query, conn)
     return df
 
+# Convert relevant columns to numeric
+def convert_columns_to_numeric(df, columns):
+    for column in columns:
+        df[column] = pd.to_numeric(df[column], errors='coerce')
+    return df
+
 def get_schemas(conn):
     query = "SELECT schema_name FROM information_schema.schemata"
     df_schemas = pd.read_sql_query(query, conn)
@@ -61,9 +67,18 @@ query = f"SELECT * FROM {selected_schema}.{selected_table};"
 
 # Load the data from the selected schema and table
 df_database = load_data_from_db(query, conn)
+# List of columns to convert to numeric
+numeric_columns = [
+    'GF', 'GA', 'Standard_Gls', 'Standard_Sh', 'Standard_SoT', 'Standard_SoTpercent',
+    'Standard_G/Sh', 'Standard_G/SoT', 'Standard_Dist', 'Standard_FK', 'Standard_PK',
+    'Standard_PKatt', 'Expected_xG', 'Expected_npxG', 'Expected_npxG/Sh', 'Expected_G-xG',
+    'Expected_np:G-xG'
+]
+
+# Convert the relevant columns to numeric
+df_database = convert_columns_to_numeric(df_database, numeric_columns)
+
 types = ['Mean', 'Absolute', 'Median', 'Maximum', 'Minimum']
-label_attr_dict = {}
-label_attr_dict_teams = {}
 color_dict = {
     'Alavés': '#1E90FF', 
     'Almería': '#FF4500', 
@@ -88,9 +103,78 @@ color_dict = {
     'Valencia': '#FFA500', 
     'Villarreal': '#FFFF00'
 }
-label_attr_dict_correlation = {}
-label_fact_dict = {}
 
+label_attr_dict = {
+    "Goals Scored": "Standard_Gls",
+    "Shots": "Standard_Sh",
+    "Shots on Target": "Standard_SoT",
+    "Shots on Target Percentage": "Standard_SoTpercent",
+    "Goals per Shot": "Standard_G/Sh",
+    "Goals per Shot on Target": "Standard_G/SoT",
+    "Average Shot Distance": "Standard_Dist",
+    "Free Kicks": "Standard_FK",
+    "Penalty Kicks": "Standard_PK",
+    "Penalty Kicks Attempted": "Standard_PKatt",
+    "Expected Goals": "Expected_xG",
+    "Non-Penalty Expected Goals": "Expected_npxG",
+    "Non-Penalty Expected Goals per Shot": "Expected_npxG/Sh",
+    "Goals minus Expected Goals": "Expected_G-xG",
+    "Non-Penalty Goals minus Expected Goals": "Expected_np:G-xG"
+}
+
+label_attr_dict_teams = {
+    "Goals Scored": "Standard_Gls",
+    "Shots": "Standard_Sh",
+    "Shots on Target": "Standard_SoT",
+    "Shots on Target Percentage": "Standard_SoTpercent",
+    "Goals per Shot": "Standard_G/Sh",
+    "Goals per Shot on Target": "Standard_G/SoT",
+    "Average Shot Distance": "Standard_Dist",
+    "Free Kicks": "Standard_FK",
+    "Penalty Kicks": "Standard_PK",
+    "Penalty Kicks Attempted": "Standard_PKatt",
+    "Expected Goals": "Expected_xG",
+    "Non-Penalty Expected Goals": "Expected_npxG",
+    "Non-Penalty Expected Goals per Shot": "Expected_npxG/Sh",
+    "Goals minus Expected Goals": "Expected_G-xG",
+    "Non-Penalty Goals minus Expected Goals": "Expected_np:G-xG"
+}
+
+label_attr_dict_correlation = {
+    "Goals Scored": "delta_Standard_Gls",
+    "Shots": "delta_Standard_Sh",
+    "Shots on Target": "delta_Standard_SoT",
+    "Shots on Target Percentage": "delta_Standard_SoTpercent",
+    "Goals per Shot": "delta_Standard_G/Sh",
+    "Goals per Shot on Target": "delta_Standard_G/SoT",
+    "Average Shot Distance": "delta_Standard_Dist",
+    "Free Kicks": "delta_Standard_FK",
+    "Penalty Kicks": "delta_Standard_PK",
+    "Penalty Kicks Attempted": "delta_Standard_PKatt",
+    "Expected Goals": "delta_Expected_xG",
+    "Non-Penalty Expected Goals": "delta_Expected_npxG",
+    "Non-Penalty Expected Goals per Shot": "delta_Expected_npxG/Sh",
+    "Goals minus Expected Goals": "delta_Expected_G-xG",
+    "Non-Penalty Goals minus Expected Goals": "delta_Expected_np:G-xG"
+}
+
+label_fact_dict = {
+    "goals scored": "Standard_Gls",
+    "shots": "Standard_Sh",
+    "shots on target": "Standard_SoT",
+    "shots on target percentage": "Standard_SoTpercent",
+    "goals per shot": "Standard_G/Sh",
+    "goals per shot on target": "Standard_G/SoT",
+    "average shot distance": "Standard_Dist",
+    "free kicks": "Standard_FK",
+    "penalty kicks": "Standard_PK",
+    "penalty kicks attempted": "Standard_PKatt",
+    "expected goals": "Expected_xG",
+    "non-penalty expected goals": "Expected_npxG",
+    "non-penalty expected goals per shot": "Expected_npxG/Sh",
+    "goals minus expected goals": "Expected_G-xG",
+    "non-penalty goals minus expected goals": "Expected_np:G-xG"
+}
 # Helper methods
 def get_unique_seasons_modified(df_data):
     '''
@@ -201,26 +285,21 @@ def stack_team_dataframe(df_data):
 
 def group_measure_by_attribute(aspect, attribute, measure):
     df_data = df_data_filtered
+    df_data[attribute] = pd.to_numeric(df_data[attribute], errors='coerce')
     df_return = pd.DataFrame()
-    if(measure == 'Absolute'):
-        if(attribute == 'pass_ratio' or attribute == 'tackle_ratio' or attribute == 'possession'):
+    if measure == 'Absolute':
+        if attribute in ['pass_ratio', 'tackle_ratio', 'possession']:
             measure = 'Mean'
         else:
             df_return = df_data.groupby([aspect]).sum()
-
-        
-    if(measure == 'Mean'):
+    if measure == 'Mean':
         df_return = df_data.groupby([aspect]).mean()
-
-    if(measure == 'Median'):
+    if measure == 'Median':
         df_return = df_data.groupby([aspect]).median()
-
-    if(measure == 'Maximum'):
+    if measure == 'Maximum':
         df_return = df_data.groupby([aspect]).max()
-
-    if(measure == 'Minimum'):
+    if measure == 'Minimum':
         df_return = df_data.groupby([aspect]).min()
-
     df_return['aspect'] = df_return.index
     if aspect == 'team':
         df_return = df_return.sort_values(by=[attribute], ascending=False)
@@ -348,7 +427,14 @@ def plot_x_per_team(attr,measure): #total #against, #conceived
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
     ### Goals
-    attribute = label_attr_dict_teams[attr]
+    attribute = label_attr_dict_teams.get(attr, None)
+    if attribute is None:
+        st.error(f"Attribute '{attr}' not found in label_attr_dict_teams.")
+        return
+
+    # Convert relevant columns to numeric
+    df_data_filtered[attribute] = pd.to_numeric(df_data_filtered[attribute], errors='coerce')
+    
     df_plot = pd.DataFrame()
     df_plot = group_measure_by_attribute("team",attribute,measure)
     if specific_team_colors:
