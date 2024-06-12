@@ -1,21 +1,17 @@
 from soccerdata import FBref
 import psycopg2
-from psycopg2.extras import execute_batch
+from psycopg2.extras import execute_batch, execute_values
 import pandas as pd
+import os
+import json
+from dotenv import load_dotenv
+from datetime import datetime
+
+# Load environment variables from .env file
+load_dotenv()
 
 def flatten_columns(df):
-    """
-    Flatten a DataFrame's multi-level column headers into a single level,
-    ensuring key columns are preserved.
-    
-    Parameters:
-    - df: DataFrame with multi-level columns.
-    
-    Returns:
-    - DataFrame with flattened column headers.
-    """
-    key_columns = ['date', 'league', 'season', 'team', 'player', 'position', 'minutes']  # Extend based on your data
-    
+    key_columns = ['date', 'league', 'season', 'team', 'player', 'position', 'minutes']
     if isinstance(df.columns, pd.MultiIndex):
         new_columns = []
         for col in df.columns:
@@ -28,23 +24,9 @@ def flatten_columns(df):
     return df
 
 def download_all_player_match_stats(leagues, seasons, stat_types=None, match_id=None, force_cache=False):
-    """
-    Downloads various player match stats for specified leagues, seasons, and optionally for specific matches.
-    
-    Parameters:
-    - leagues: string or iterable, IDs of leagues to include.
-    - seasons: string, int, or list, Seasons to include.
-    - stat_types: list of str, Types of stats to retrieve. If None, defaults to a predefined list.
-    - match_id: int or list of int, optional, Match ID(s) to retrieve stats for. If None, retrieves for all matches.
-    - force_cache: bool, If True, forces the use of cached data.
-    
-    Returns:
-    - A dictionary of pd.DataFrame(s) with the player match stats for each stat type.
-    """
     if stat_types is None:
         stat_types = ['summary', 'keepers', 'passing', 'passing_types', 'defense', 'possession', 'misc']
     
-    # Initialize FBref with specified leagues and seasons
     fbref = FBref(leagues=leagues, seasons=seasons)
     
     all_stats = {}
@@ -63,33 +45,25 @@ def download_all_player_match_stats(leagues, seasons, stat_types=None, match_id=
     
     return all_stats
 
-# Example usage
-leagues = "ESP-La Liga"
-seasons = ["23-24"]
-player_match_stats = download_all_player_match_stats(leagues, seasons)
+def generate_seasons(start_year, end_year):
+    seasons = []
+    for year in range(start_year, end_year):
+        start_str = str(year)[-2:]
+        end_str = str(year + 1)[-2:]
+        season = f"{start_str}-{end_str}"
+        seasons.append(season)
+    return seasons
 
-for stat_type, stats in player_match_stats.items():
-    print(f"\nStats Type: {stat_type}")
-    stats.reset_index(drop=True, inplace=True)
-    print(stats.head())
+def add_timestamp_column(df, timestamp):
+    df['script_run_time'] = timestamp
+    return df
 
-import psycopg2
-from psycopg2.extras import execute_batch
-
-def connect_to_db(host='localhost', dbname='soccer_stats', user='username', password='password'):
-    """
-    Connects to a PostgreSQL database and returns the connection and cursor.
+def connect_to_db():
+    host = os.getenv('DB_HOST')
+    dbname = os.getenv('DB_NAME')
+    user = os.getenv('DB_USER')
+    password = os.getenv('DB_PASSWORD')
     
-    Parameters:
-    - host: Database host address
-    - dbname: Name of the database
-    - user: Username for the database
-    - password: Password for the database user
-    
-    Returns:
-    - conn: Database connection object
-    - cursor: Database cursor object
-    """
     conn = psycopg2.connect(
         host=host,
         dbname=dbname,
@@ -98,27 +72,109 @@ def connect_to_db(host='localhost', dbname='soccer_stats', user='username', pass
     )
     return conn, conn.cursor()
 
-def upload_df_to_postgres(df, table_name, conn_details):
-    """
-    Uploads a DataFrame to a PostgreSQL table.
-    
-    Parameters:
-    - df: DataFrame to upload.
-    - table_name: Name of the target table in the database.
-    - conn_details: Dictionary containing connection details (host, dbname, user, password).
-    """
-    conn, cursor = connect_to_db(**conn_details)
-    cols = ','.join(list(df.columns))
-    values_placeholder = ','.join(['%s'] * len(df.columns))
-    insert_query = f'INSERT INTO {table_name} ({cols}) VALUES ({values_placeholder})'
+def create_schema(schema_name, conn):
+    cursor = conn.cursor()
     
     try:
-        execute_batch(cursor, insert_query, df.values.tolist())
+        cursor.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name};")
         conn.commit()
-        print(f"Data uploaded successfully to table {table_name}.")
+        print(f"Schema '{schema_name}' created successfully.")
     except Exception as e:
         conn.rollback()
-        print(f"Failed to upload data to table {table_name}: {e}")
+        print(f"Failed to create schema '{schema_name}': {e}")
     finally:
         cursor.close()
-        conn.close()
+
+def create_table_if_not_exists(df, table_name, schema_name, cursor):
+    columns_with_types = []
+    for col in df.columns:
+        col_name = col.replace('"', '""')
+        col_name = f'"{col_name}"'
+        if pd.api.types.is_integer_dtype(df[col]):
+            col_type = 'INTEGER'
+        elif pd.api.types.is_float_dtype(df[col]):
+            col_type = 'REAL'
+        elif pd.api.types.is_datetime64_any_dtype(df[col]):
+            col_type = 'TIMESTAMP'
+        else:
+            col_type = 'TEXT'
+        columns_with_types.append(f'{col_name} {col_type}')
+    
+    create_table_query = f"""
+    CREATE TABLE IF NOT EXISTS {schema_name}.{table_name} (
+        {', '.join(columns_with_types)}
+    )
+    """
+    cursor.execute(create_table_query)
+
+def upload_df_to_postgres(df, file_name, schema_name, conn, season):
+    table_name = os.path.splitext(file_name)[0]
+    cursor = conn.cursor()
+    
+    df = df.reset_index()
+    df.columns = df.columns.str.replace('%', 'percent')
+
+    for col in df.columns:
+        if pd.api.types.is_datetime64_any_dtype(df[col]):
+            df[col] = df[col].where(df[col].notna(), None)
+        elif pd.api.types.is_numeric_dtype(df[col]):
+            df[col] = df[col].astype(object).where(df[col].notna(), None)
+        elif pd.api.types.is_string_dtype(df[col]):
+            df[col] = df[col].astype(object).where(df[col].notna(), None)
+
+    try:
+        create_table_if_not_exists(df, table_name, schema_name, cursor)
+
+        cursor.execute(f"SELECT column_name FROM information_schema.columns WHERE table_schema = %s AND table_name = %s", (schema_name, table_name))
+        existing_columns = [row[0] for row in cursor.fetchall()]
+        
+        for col in df.columns:
+            if col not in existing_columns:
+                col_name = col.replace('"', '""')
+                col_name = f'"{col_name}"'
+                if pd.api.types.is_integer_dtype(df[col]):
+                    col_type = 'INTEGER'
+                elif pd.api.types.is_float_dtype(df[col]):
+                    col_type = 'REAL'
+                elif pd.api.types.is_datetime64_any_dtype(df[col]):
+                    col_type = 'TIMESTAMP'
+                else:
+                    col_type = 'TEXT'
+                alter_table_query = f'ALTER TABLE {schema_name}.{table_name} ADD COLUMN {col_name} {col_type}'
+                cursor.execute(alter_table_query)
+
+        delete_query = f'DELETE FROM {schema_name}.{table_name} WHERE "season" = %s'
+        cursor.execute(delete_query, (season,))
+
+        cols = ','.join(['"' + col.replace('"', '""') + '"' for col in df.columns])
+        insert_query = f'INSERT INTO {schema_name}.{table_name} ({cols}) VALUES %s'
+        
+        data = [tuple(x) for x in df.to_numpy()]
+        
+        execute_values(cursor, insert_query, data)
+        conn.commit()
+        print(f"Data for season {season} uploaded successfully to table {schema_name}.{table_name}.")
+    except Exception as e:
+        conn.rollback()
+        print(f"Failed to upload data to table {schema_name}.{table_name}: {e}")
+    finally:
+        cursor.close()
+
+def main():
+    leagues = "ESP-La Liga"
+    seasons = generate_seasons(2023, 2024)
+    all_stats = download_all_player_match_stats(leagues, seasons)
+
+    conn, cursor = connect_to_db()
+    create_schema("player_match", conn)
+
+    current_datetime = datetime.now()
+
+    for stat_type, stats in all_stats.items():
+        stats_with_timestamp = add_timestamp_column(stats, current_datetime)
+        print(f"\nStats Type: {stat_type}")
+        print("DataFrame columns:", stats.columns)
+        upload_df_to_postgres(stats, f"{stat_type}_stats", "player_match", conn, "23-24")
+
+if __name__ == "__main__":
+    main()
