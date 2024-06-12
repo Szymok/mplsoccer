@@ -151,7 +151,7 @@ def upload_df_to_postgres(df, file_name, schema_name, conn, season):
 
 def main():
     leagues = "ESP-La Liga"
-    seasons = generate_seasons(2003, 2004)  # Include all seasons up to 2024
+    seasons = generate_seasons(2002, 2003)  # Include all seasons up to 2024
     all_stats = download_all_team_match_stats(leagues, seasons)
 
     conn, cursor = connect_to_db()
@@ -163,7 +163,7 @@ def main():
         stats_with_timestamp = add_timestamp_column(stats, current_datetime)
         print(f"\nStats Type: {stat_type}")
         print("DataFrame columns:", stats.columns)
-        upload_df_to_postgres(stats, f"{stat_type}_stats", "team_match", conn, "03-04")
+        upload_df_to_postgres(stats, f"{stat_type}_stats", "team_match", conn, "02-03")
 
 if __name__ == "__main__":
     main()
