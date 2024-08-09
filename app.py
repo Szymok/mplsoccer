@@ -32,10 +32,11 @@ def load_data_from_db(query, conn):
     return df
 
 # Convert relevant columns to numeric
-def convert_columns_to_numeric(df, columns):
+def convert_columns_to_numeric(df_data, columns):
     for column in columns:
-        df[column] = pd.to_numeric(df[column], errors='coerce')
-    return df
+        if column in df_data.columns:
+            df_data[column] = pd.to_numeric(df_data[column], errors='coerce')
+    return df_data
 
 def get_schemas(conn):
     query = "SELECT schema_name FROM information_schema.schemata"
@@ -47,20 +48,49 @@ def get_tables(conn, schema):
     df_tables = pd.read_sql_query(query, conn)
     return df_tables['table_name'].tolist()
 
+def get_columns(conn, selected_schema, selected_table):
+    query = f"""
+    SELECT column_name, data_type 
+    FROM information_schema.columns 
+    WHERE table_schema = '{selected_schema}' 
+    AND table_name = '{selected_table}';
+    """
+    return pd.read_sql(query, conn)
+
 # Initialize the database connection
 conn = create_db_connection()
 
 # Fetch available schemas
 schemas = get_schemas(conn)
 
-# Sidebar for schema selection
-selected_schema = st.sidebar.selectbox('Select Schema', schemas)
+# Assuming you have a variable or input where the user selects the schema
+selected_schema = st.selectbox("Select the schema:", ["team_season", "team_match", "player_season", "player_match"])
+
+# Function to filter data by season
+def filter_season(df, start_season, end_season):
+    return df[(df['season'] >= start_season) & (df['season'] <= end_season)]
+
+# Function to filter data by matchday (only relevant for player_match or team_match schemas)
+def filter_matchday(df, matchdays):
+    return df[df['round'].isin(matchdays)]
 
 # Fetch available tables based on the selected schema
 tables = get_tables(conn, selected_schema)
 
-# Sidebar for table selection
-selected_table = st.sidebar.selectbox('Select Table', tables)
+# Check that tables is indeed a list or array-like structure
+if isinstance(tables, list) or isinstance(tables, tuple):
+    selected_table = st.sidebar.selectbox('Select Table', tables)
+else:
+    st.error("Failed to retrieve tables. Please check your database connection.")
+
+# Fetch columns of the selected table
+columns_info = get_columns(conn, selected_schema, selected_table)
+# Check that columns_info is a DataFrame
+if isinstance(columns_info, pd.DataFrame) and not columns_info.empty:
+    column_names = columns_info['column_name'].tolist()
+else:
+    st.error("Failed to retrieve columns for the selected table.")
+column_names = columns_info['column_name'].tolist()
 
 # Construct the SQL query dynamically
 query = f"SELECT * FROM {selected_schema}.{selected_table};"
@@ -68,15 +98,9 @@ query = f"SELECT * FROM {selected_schema}.{selected_table};"
 # Load the data from the selected schema and table
 df_database = load_data_from_db(query, conn)
 # List of columns to convert to numeric
-numeric_columns = [
-    'GF', 'GA', 'Standard_Gls', 'Standard_Sh', 'Standard_SoT', 'Standard_SoTpercent',
-    'Standard_G/Sh', 'Standard_G/SoT', 'Standard_Dist', 'Standard_FK', 'Standard_PK',
-    'Standard_PKatt', 'Expected_xG', 'Expected_npxG', 'Expected_npxG/Sh', 'Expected_G-xG',
-    'Expected_np:G-xG'
-]
-
+numeric_columns = column_names  
 # Convert the relevant columns to numeric
-df_database = convert_columns_to_numeric(df_database, numeric_columns)
+# df_database = convert_columns_to_numeric(df_database, numeric_columns)
 
 types = ['Mean', 'Absolute', 'Median', 'Maximum', 'Minimum']
 color_dict = {
@@ -177,30 +201,28 @@ label_fact_dict = {
 }
 # Helper methods
 def get_unique_seasons_modified(df_data):
-    '''
-    Converts season format from '9091' to '1990/1991' and returns the unique seasons.
-    '''
-    unique_seasons = np.unique(df_data.season).tolist()
+    """
+    Converts season format from a 4-digit number (e.g., '1718') to '2017/2018' and returns the unique seasons.
+    """
     seasons_modified = []
+    unique_seasons = df_data['season'].unique()  # Assuming 'season' is a column in your DataFrame
+
     for season in unique_seasons:
-        # Extract the start and end years from the season string
-        start_year = int(season[:2])
-        end_year = int(season[2:])
-        
-        # Determine the century for the start and end years
-        if start_year >= 90:
-            start_year += 1900
+        season_str = str(season)  # Convert to string if it's an integer
+        if len(season_str) == 4 and season_str.isdigit():  # Ensure it has 4 digits
+            start_year = int(season_str[:2])
+            end_year = int(season_str[2:])
+            
+            # Determine the century for the start and end years
+            start_year += 1900 if start_year >= 90 else 2000
+            end_year += 1900 if end_year >= 90 else 2000
+            
+            # Format the season string as '2017/2018'
+            season_formatted = f"{start_year}/{end_year}"
+            seasons_modified.append(season_formatted)
         else:
-            start_year += 2000
-        
-        if end_year >= 90:
-            end_year += 1900
-        else:
-            end_year += 2000
-        
-        # Format the season string as '1990/1991'
-        season_str = f"{start_year}/{end_year}"
-        seasons_modified.append(season_str)
+            st.warning(f"Skipping invalid season value: {season}")
+    
     return seasons_modified
 
 def get_unique_matchdays(df_data):
@@ -229,7 +251,7 @@ def filter_season(df_data, start_season, end_season):
     end_season_compact = end_season.replace('/', '')[2:]
     
     # Convert the season column to a more readable format '2000/2001'
-    df_data['season_readable'] = df_data['season'].apply(lambda x: f"20{x[:2]}/20{x[2:]}")
+    df_data['season_readable'] = df_data['season'].apply(lambda x: f"20{str(x)[:2]}/20{str(x)[2:]}")
     
     # Find the unique seasons in the readable format
     unique_seasons_readable = np.unique(df_data['season_readable']).tolist()
@@ -579,7 +601,7 @@ st.sidebar.text('')
 
 ### SEASON RANGE ###
 
-if selected_schema == 'team_match':
+if selected_schema in ['team_match', 'team_season']:
     st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
     unique_seasons = get_unique_seasons_modified(df_database)
     
@@ -589,9 +611,32 @@ if selected_schema == 'team_match':
         options=unique_seasons,
         value=(unique_seasons[0], unique_seasons[-1])
     )
+    
+    # Ensure start_season is defined
+    if 'start_season' not in locals():
+        start_season = None
+        end_season = None
 
 # Filter data based on selected seasons
 df_data_filtered_season = filter_season(df_database, start_season, end_season)
+
+# Conditional logic based on the schema selected
+if selected_schema in ["player_match", "team_match"]:
+    # Only for schemas that include matchdays
+    selected_matchdays = st.multiselect("Select matchdays to include", options=df_data_filtered_season['round'].unique())
+    
+    if selected_matchdays:  # Ensure that matchdays are selected
+        df_data_filtered = filter_matchday(df_data_filtered_season, selected_matchdays)
+    else:
+        st.warning("Please select at least one matchday.")
+        df_data_filtered = df_data_filtered_season
+else:
+    # For the `team_season` schema where matchdays are not relevant
+    df_data_filtered = df_data_filtered_season
+
+# Continue with the rest of your Streamlit app logic
+st.write(df_data_filtered)
+
 # Get unique seasons and matchdays
 unique_seasons = get_unique_seasons_modified(df_database)
 unique_matchdays = get_unique_matchdays(df_database)

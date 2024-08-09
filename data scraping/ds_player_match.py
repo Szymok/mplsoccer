@@ -6,6 +6,10 @@ import os
 import json
 from dotenv import load_dotenv
 from datetime import datetime
+import requests
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
+from requests_toolbelt.sessions import BaseUrlSession
 
 # Load environment variables from .env file
 load_dotenv()
@@ -23,12 +27,36 @@ def flatten_columns(df):
         df.columns = new_columns
     return df
 
-def download_all_player_match_stats(leagues, seasons, stat_types=None, match_id=None, force_cache=False):
+def create_tor_session():
+    # Use Tor network for proxies
+    proxies = {
+        'http': 'socks5h://127.0.0.1:9050',
+        'https': 'socks5h://127.0.0.1:9050'
+    }
+
+    # Create a session
+    session = BaseUrlSession(base_url='https://fbref.com/')
+    session.proxies.update(proxies)
+
+    # Add retry strategy to handle request failures gracefully
+    retries = Retry(total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
+    session.mount('http://', HTTPAdapter(max_retries=retries))
+    session.mount('https://', HTTPAdapter(max_retries=retries))
+
+    return session
+
+def download_all_player_match_stats(leagues, seasons, stat_types=None, match_id=None, force_cache=True):
     if stat_types is None:
         stat_types = ['summary', 'keepers', 'passing', 'passing_types', 'defense', 'possession', 'misc']
     
+    # Create Tor session
+    session = create_tor_session()
+
     fbref = FBref(leagues=leagues, seasons=seasons)
-    
+
+    # Override the _session attribute of the FBref object
+    fbref._session = session
+
     all_stats = {}
     for stat_type in stat_types:
         try:
@@ -162,7 +190,7 @@ def upload_df_to_postgres(df, file_name, schema_name, conn, season):
 
 def main():
     leagues = "ESP-La Liga"
-    seasons = generate_seasons(2023, 2024)
+    seasons = generate_seasons(2016, 2017)
     all_stats = download_all_player_match_stats(leagues, seasons)
 
     conn, cursor = connect_to_db()
@@ -174,7 +202,7 @@ def main():
         stats_with_timestamp = add_timestamp_column(stats, current_datetime)
         print(f"\nStats Type: {stat_type}")
         print("DataFrame columns:", stats.columns)
-        upload_df_to_postgres(stats, f"{stat_type}_stats", "player_match", conn, "23-24")
+        upload_df_to_postgres(stats, f"{stat_type}_stats", "player_match", conn, "16-17")
 
 if __name__ == "__main__":
     main()
