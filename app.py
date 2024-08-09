@@ -631,20 +631,17 @@ if selected_schema in ["player_match", "team_match"]:
         st.warning("Please select at least one matchday.")
         df_data_filtered = df_data_filtered_season
 else:
-    # For the `team_season` schema where matchdays are not relevant
+    # For schemas where matchdays are not relevant
     df_data_filtered = df_data_filtered_season
 
 # Continue with the rest of your Streamlit app logic
 st.write(df_data_filtered)
 
-# Get unique seasons and matchdays
+# Get unique seasons
 unique_seasons = get_unique_seasons_modified(df_database)
-unique_matchdays = get_unique_matchdays(df_database)
 
 ### MATCHDAY RANGE ###
-# unique_matchdays = get_unique_matchdays(df_data_filtered_season)
-# Sidebar for matchday selection
-# Check if the selected schema is 'team_season'
+# Check if the selected schema is 'team_match'
 if selected_schema == 'team_match':
     # Get unique matchdays
     unique_matchdays = get_unique_matchdays(df_data_filtered_season)
@@ -665,9 +662,15 @@ else:
 ### TEAMS SELECTION ###
 unique_teams = get_unique_teams(df_stacked)
 all_teams_selected = st.sidebar.selectbox('Do you want to only include specific teams? If the answer is yes, please check the box below and then select the team(s) in the new field.', ['Include all available teams', 'Select teams manually (choose below)'])
+
 if all_teams_selected == 'Select teams manually (choose below)':
     selected_teams = st.sidebar.multiselect('Select and deselect the teams you would like to include in the analysis. You can clear the current selection by clicking the corresponding x-button on the right.', unique_teams, default = unique_teams)
-df_data_filtered = filter_matchday(df_data_filtered_season, selected_matchdays)
+
+# Adjust filtering based on schema
+if selected_schema in ["player_match", "team_match"]:
+    df_data_filtered = filter_matchday(df_data_filtered_season, selected_matchdays)
+else:
+    df_data_filtered = df_data_filtered_season
 
 ### SEE DATA ###
 row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
