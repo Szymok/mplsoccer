@@ -90,7 +90,17 @@ if isinstance(columns_info, pd.DataFrame) and not columns_info.empty:
     column_names = columns_info['column_name'].tolist()
 else:
     st.error("Failed to retrieve columns for the selected table.")
+    st.stop()  # Stop the execution if there's an error
 column_names = columns_info['column_name'].tolist()
+
+def some_function_using_columns(df):
+    # Example usage of dynamic columns instead of hard-coded ones
+    for column in column_names:
+        if column in df.columns:
+            # Perform operations on the column, like checking or plotting
+            st.write(f"Processing {column}")
+        else:
+            st.warning(f"Column '{column}' not found in the data.")
 
 # Construct the SQL query dynamically
 query = f"SELECT * FROM {selected_schema}.{selected_table};"
@@ -101,7 +111,7 @@ df_database = load_data_from_db(query, conn)
 numeric_columns = column_names  
 # Convert the relevant columns to numeric
 # df_database = convert_columns_to_numeric(df_database, numeric_columns)
-
+current_columns = column_names
 types = ['Mean', 'Absolute', 'Median', 'Maximum', 'Minimum']
 color_dict = {
     'Alavés': '#1E90FF', 
@@ -128,77 +138,77 @@ color_dict = {
     'Villarreal': '#FFFF00'
 }
 
-label_attr_dict = {
-    "Goals Scored": "Standard_Gls",
-    "Shots": "Standard_Sh",
-    "Shots on Target": "Standard_SoT",
-    "Shots on Target Percentage": "Standard_SoTpercent",
-    "Goals per Shot": "Standard_G/Sh",
-    "Goals per Shot on Target": "Standard_G/SoT",
-    "Average Shot Distance": "Standard_Dist",
-    "Free Kicks": "Standard_FK",
-    "Penalty Kicks": "Standard_PK",
-    "Penalty Kicks Attempted": "Standard_PKatt",
-    "Expected Goals": "Expected_xG",
-    "Non-Penalty Expected Goals": "Expected_npxG",
-    "Non-Penalty Expected Goals per Shot": "Expected_npxG/Sh",
-    "Goals minus Expected Goals": "Expected_G-xG",
-    "Non-Penalty Goals minus Expected Goals": "Expected_np:G-xG"
-}
+# label_attr_dict = {
+#     "Goals Scored": "Standard_Gls", 
+#     "Shots": "Standard_Sh", 
+#     "Shots on Target": "Standard_SoT",
+#     "Shots on Target Percentage": "Standard_SoTpercent",
+#     "Goals per Shot": "Standard_G/Sh",
+#     "Goals per Shot on Target": "Standard_G/SoT",
+#     "Average Shot Distance": "Standard_Dist",
+#     "Free Kicks": "Standard_FK",
+#     "Penalty Kicks": "Standard_PK",
+#     "Penalty Kicks Attempted": "Standard_PKatt",
+#     "Expected Goals": "Expected_xG",
+#     "Non-Penalty Expected Goals": "Expected_npxG",
+#     "Non-Penalty Expected Goals per Shot": "Expected_npxG/Sh",
+#     "Goals minus Expected Goals": "Expected_G-xG",
+#     "Non-Penalty Goals minus Expected Goals": "Expected_np:G-xG"
+# }
 
-label_attr_dict_teams = {
-    "Goals Scored": "Standard_Gls",
-    "Shots": "Standard_Sh",
-    "Shots on Target": "Standard_SoT",
-    "Shots on Target Percentage": "Standard_SoTpercent",
-    "Goals per Shot": "Standard_G/Sh",
-    "Goals per Shot on Target": "Standard_G/SoT",
-    "Average Shot Distance": "Standard_Dist",
-    "Free Kicks": "Standard_FK",
-    "Penalty Kicks": "Standard_PK",
-    "Penalty Kicks Attempted": "Standard_PKatt",
-    "Expected Goals": "Expected_xG",
-    "Non-Penalty Expected Goals": "Expected_npxG",
-    "Non-Penalty Expected Goals per Shot": "Expected_npxG/Sh",
-    "Goals minus Expected Goals": "Expected_G-xG",
-    "Non-Penalty Goals minus Expected Goals": "Expected_np:G-xG"
-}
+# label_attr_dict_teams = {
+#     "Goals Scored": "Standard_Gls",
+#     "Shots": "Standard_Sh",
+#     "Shots on Target": "Standard_SoT",
+#     "Shots on Target Percentage": "Standard_SoTpercent",
+#     "Goals per Shot": "Standard_G/Sh",
+#     "Goals per Shot on Target": "Standard_G/SoT",
+#     "Average Shot Distance": "Standard_Dist",
+#     "Free Kicks": "Standard_FK",
+#     "Penalty Kicks": "Standard_PK",
+#     "Penalty Kicks Attempted": "Standard_PKatt",
+#     "Expected Goals": "Expected_xG",
+#     "Non-Penalty Expected Goals": "Expected_npxG",
+#     "Non-Penalty Expected Goals per Shot": "Expected_npxG/Sh",
+#     "Goals minus Expected Goals": "Expected_G-xG",
+#     "Non-Penalty Goals minus Expected Goals": "Expected_np:G-xG"
+# }
 
-label_attr_dict_correlation = {
-    "Goals Scored": "delta_Standard_Gls",
-    "Shots": "delta_Standard_Sh",
-    "Shots on Target": "delta_Standard_SoT",
-    "Shots on Target Percentage": "delta_Standard_SoTpercent",
-    "Goals per Shot": "delta_Standard_G/Sh",
-    "Goals per Shot on Target": "delta_Standard_G/SoT",
-    "Average Shot Distance": "delta_Standard_Dist",
-    "Free Kicks": "delta_Standard_FK",
-    "Penalty Kicks": "delta_Standard_PK",
-    "Penalty Kicks Attempted": "delta_Standard_PKatt",
-    "Expected Goals": "delta_Expected_xG",
-    "Non-Penalty Expected Goals": "delta_Expected_npxG",
-    "Non-Penalty Expected Goals per Shot": "delta_Expected_npxG/Sh",
-    "Goals minus Expected Goals": "delta_Expected_G-xG",
-    "Non-Penalty Goals minus Expected Goals": "delta_Expected_np:G-xG"
-}
+# label_attr_dict_correlation = {
+#     "Goals Scored": "delta_Standard_Gls",
+#     "Shots": "delta_Standard_Sh",
+#     "Shots on Target": "delta_Standard_SoT",
+#     "Shots on Target Percentage": "delta_Standard_SoTpercent",
+#     "Goals per Shot": "delta_Standard_G/Sh",
+#     "Goals per Shot on Target": "delta_Standard_G/SoT",
+#     "Average Shot Distance": "delta_Standard_Dist",
+#     "Free Kicks": "delta_Standard_FK",
+#     "Penalty Kicks": "delta_Standard_PK",
+#     "Penalty Kicks Attempted": "delta_Standard_PKatt",
+#     "Expected Goals": "delta_Expected_xG",
+#     "Non-Penalty Expected Goals": "delta_Expected_npxG",
+#     "Non-Penalty Expected Goals per Shot": "delta_Expected_npxG/Sh",
+#     "Goals minus Expected Goals": "delta_Expected_G-xG",
+#     "Non-Penalty Goals minus Expected Goals": "delta_Expected_np:G-xG"
+# }
 
-label_fact_dict = {
-    "goals scored": "Standard_Gls",
-    "shots": "Standard_Sh",
-    "shots on target": "Standard_SoT",
-    "shots on target percentage": "Standard_SoTpercent",
-    "goals per shot": "Standard_G/Sh",
-    "goals per shot on target": "Standard_G/SoT",
-    "average shot distance": "Standard_Dist",
-    "free kicks": "Standard_FK",
-    "penalty kicks": "Standard_PK",
-    "penalty kicks attempted": "Standard_PKatt",
-    "expected goals": "Expected_xG",
-    "non-penalty expected goals": "Expected_npxG",
-    "non-penalty expected goals per shot": "Expected_npxG/Sh",
-    "goals minus expected goals": "Expected_G-xG",
-    "non-penalty goals minus expected goals": "Expected_np:G-xG"
-}
+# label_fact_dict = {
+#     "goals scored": "Standard_Gls",
+#     "shots": "Standard_Sh",
+#     "shots on target": "Standard_SoT",
+#     "shots on target percentage": "Standard_SoTpercent",
+#     "goals per shot": "Standard_G/Sh",
+#     "goals per shot on target": "Standard_G/SoT",
+#     "average shot distance": "Standard_Dist",
+#     "free kicks": "Standard_FK",
+#     "penalty kicks": "Standard_PK",
+#     "penalty kicks attempted": "Standard_PKatt",
+#     "expected goals": "Expected_xG",
+#     "non-penalty expected goals": "Expected_npxG",
+#     "non-penalty expected goals per shot": "Expected_npxG/Sh",
+#     "goals minus expected goals": "Expected_G-xG",
+#     "non-penalty goals minus expected goals": "Expected_np:G-xG"
+# }
 # Helper methods
 def get_unique_seasons_modified(df_data):
     """
@@ -331,58 +341,64 @@ def group_measure_by_attribute(aspect, attribute, measure):
 ### ANALYSIS METHODS ###
 ########################
 
-def plot_x_per_season(attr, measure):
+def plot_x_per_season(attr, measure, df_data):
     rc = {
         'figure.figsize':(8,4.5),
-          'axes.facecolor':'#0e1117',
-          'axes.edgecolor': '#0e1117',
-          'axes.labelcolor': 'white',
-          'figure.facecolor': '#0e1117',
-          'patch.edgecolor': '#0e1117',
-          'text.color': 'white',
-          'xtick.color': 'white',
-          'ytick.color': 'white',
-          'grid.color': 'grey',
-          'font.size' : 12,
-          'axes.labelsize': 12,
-          'xtick.labelsize': 12,
-          'ytick.labelsize': 12
+        'axes.facecolor':'#0e1117',
+        'axes.edgecolor': '#0e1117',
+        'axes.labelcolor': 'white',
+        'figure.facecolor': '#0e1117',
+        'patch.edgecolor': '#0e1117',
+        'text.color': 'white',
+        'xtick.color': 'white',
+        'ytick.color': 'white',
+        'grid.color': 'grey',
+        'font.size': 12,
+        'axes.labelsize': 12,
+        'xtick.labelsize': 12,
+        'ytick.labelsize': 12
     }
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
-    ### Goals
-    attribute = label_attr_dict[attr]
-    df_plot = pd.DataFrame()
-    df_plot = group_measure_by_attribute('season', attribute, measure)
-    ax = sns.barplot(x='aspect', y=attribute, data=df_plot, color='#b80606')
-    y_str = measure + ' ' + attr + ' ' + ' per Team'
+
+    # Check if 'attr' is a valid column in the DataFrame
+    if attr not in df_data.columns:
+        st.error(f"Attribute '{attr}' not found in data.")
+        return
+
+    # Use the attr variable directly as the column to plot
+    df_plot = group_measure_by_attribute('season', attr, measure)
+
+    ax = sns.barplot(x='aspect', y=attr, data=df_plot, color='#b80606')
+    y_str = measure + ' ' + attr + ' per Team'
     if measure == 'Absolute':
         y_str = measure + ' ' + attr
-    if measure == 'Minimum' or measure == 'Maximum':
-        y_str = measure + ' ' + attr + ' ' + ' by a Team'
+    if measure in ['Minimum', 'Maximum']:
+        y_str = measure + ' ' + attr + ' by a Team'
 
-    ax.set(xlabel = 'Season', ylabel = y_str)
-    if measure == 'Mean' or attribute in ['distance', 'pass_ratio', 'possesion', 'tackle_ratio']:
+    ax.set(xlabel='Season', ylabel=y_str)
+    if measure == 'Mean' or attr in ['distance', 'pass_ratio', 'possession', 'tackle_ratio']:
         for p in ax.patches:
             ax.annotate(format(p.get_height(), '.2f'),
                         (p.get_x() + p.get_width() / 2., p.get_height()),
-                        ha = 'center',
-                        va = 'center',
-                        xytext = (0, 15),
-                        textcoords = 'offset points')
+                        ha='center',
+                        va='center',
+                        xytext=(0, 15),
+                        textcoords='offset points')
     else:
         for p in ax.patches:
             ax.annotate(format(str(int(p.get_height()))),
                         (p.get_x() + p.get_width() / 2., p.get_height()),
-                        ha = 'center',
-                        va = 'center',
-                        xytext = (0, 15),
-                        textcoords = 'offset points')
+                        ha='center',
+                        va='center',
+                        xytext=(0, 15),
+                        textcoords='offset points')
+    
     st.pyplot(fig)
 
-def plot_x_per_matchday(attr, measure):
-    rc = {'figure.figsize':(8,4.5),
-          'axes.facecolor':'#0e1117',
+def plot_x_per_matchday(attr, measure, df_data):
+    rc = {'figure.figsize': (8, 4.5),
+          'axes.facecolor': '#0e1117',
           'axes.edgecolor': '#0e1117',
           'axes.labelcolor': 'white',
           'figure.facecolor': '#0e1117',
@@ -391,48 +407,56 @@ def plot_x_per_matchday(attr, measure):
           'xtick.color': 'white',
           'ytick.color': 'white',
           'grid.color': 'grey',
-          'font.size' : 8,
+          'font.size': 8,
           'axes.labelsize': 12,
           'xtick.labelsize': 8,
           'ytick.labelsize': 12}
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
-    ### Goals
-    attribute = label_attr_dict[attr]
-    df_plot = pd.DataFrame()
-    df_plot = group_measure_by_attribute("matchday",attribute,measure)
-    ax = sns.barplot(x="aspect", y=attribute, data=df_plot.reset_index(), color = "#b80606")
-    plt.gca().xaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)+1))
+
+    # Check if 'attr' is a valid column in the DataFrame
+    if attr not in df_data.columns:
+        st.error(f"Attribute '{attr}' not found in data.")
+        return
+
+    # Use the attr variable directly as the column to plot
+    df_plot = group_measure_by_attribute("matchday", attr, measure)
+
+    ax = sns.barplot(x="aspect", y=attr, data=df_plot.reset_index(), color="#b80606")
+    plt.gca().xaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x) + 1))
+    
     y_str = measure + " " + attr + " per Team"
     if measure == "Absolute":
         y_str = measure + " " + attr
-    if measure == "Minimum" or measure == "Maximum":
+    if measure in ["Minimum", "Maximum"]:
         y_str = measure + " " + attr + " by a Team"
-        
-    ax.set(xlabel = "Matchday", ylabel = y_str)
-    if measure == "Mean" or attribute in ["distance","pass_ratio","possession","tackle_ratio"]:
+
+    ax.set(xlabel="Matchday", ylabel=y_str)
+
+    if measure == "Mean" or attr in ["distance", "pass_ratio", "possession", "tackle_ratio"]:
         for p in ax.patches:
-            ax.annotate(format(p.get_height(), '.2f'), 
-                  (p.get_x() + p.get_width() / 2., p.get_height()),
-                   ha = 'center',
-                   va = 'center', 
-                   xytext = (0, 18),
-                   rotation = 90,
-                   textcoords = 'offset points')
+            ax.annotate(format(p.get_height(), '.2f'),
+                        (p.get_x() + p.get_width() / 2., p.get_height()),
+                        ha='center',
+                        va='center',
+                        xytext=(0, 18),
+                        rotation=90,
+                        textcoords='offset points')
     else:
         for p in ax.patches:
-            ax.annotate(format(str(int(p.get_height()))), 
-                  (p.get_x() + p.get_width() / 2., p.get_height()),
-                   ha = 'center',
-                   va = 'center', 
-                   xytext = (0, 18),
-                   rotation = 90,
-                   textcoords = 'offset points')
+            ax.annotate(format(str(int(p.get_height()))),
+                        (p.get_x() + p.get_width() / 2., p.get_height()),
+                        ha='center',
+                        va='center',
+                        xytext=(0, 18),
+                        rotation=90,
+                        textcoords='offset points')
+    
     st.pyplot(fig)
 
-def plot_x_per_team(attr,measure): #total #against, #conceived
-    rc = {'figure.figsize':(8,4.5),
-          'axes.facecolor':'#0e1117',
+def plot_x_per_team(attr, measure, df_data_filtered):  # Added df_data_filtered as a parameter
+    rc = {'figure.figsize': (8, 4.5),
+          'axes.facecolor': '#0e1117',
           'axes.edgecolor': '#0e1117',
           'axes.labelcolor': 'white',
           'figure.facecolor': '#0e1117',
@@ -441,59 +465,63 @@ def plot_x_per_team(attr,measure): #total #against, #conceived
           'xtick.color': 'white',
           'ytick.color': 'white',
           'grid.color': 'grey',
-          'font.size' : 8,
+          'font.size': 8,
           'axes.labelsize': 12,
           'xtick.labelsize': 8,
           'ytick.labelsize': 12}
-    
+
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
-    ### Goals
-    attribute = label_attr_dict_teams.get(attr, None)
-    if attribute is None:
-        st.error(f"Attribute '{attr}' not found in label_attr_dict_teams.")
+
+    # Assume attr directly corresponds to a column name in df_data_filtered
+    if attr not in df_data_filtered.columns:
+        st.error(f"Attribute '{attr}' not found in data.")
         return
 
     # Convert relevant columns to numeric
-    df_data_filtered[attribute] = pd.to_numeric(df_data_filtered[attribute], errors='coerce')
+    df_data_filtered[attr] = pd.to_numeric(df_data_filtered[attr], errors='coerce')
+
+    df_plot = group_measure_by_attribute("team", attr, measure)
     
-    df_plot = pd.DataFrame()
-    df_plot = group_measure_by_attribute("team",attribute,measure)
-    if specific_team_colors:
-        ax = sns.barplot(x="aspect", y=attribute, data=df_plot.reset_index(), palette = color_dict)
+    if specific_team_colors:  # assumed available in context
+        ax = sns.barplot(x="aspect", y=attr, data=df_plot.reset_index(), palette=color_dict)
     else:
-        ax = sns.barplot(x="aspect", y=attribute, data=df_plot.reset_index(), color = "#b80606")
-    y_str = measure + " " + attr + " " + "per Game"
+        ax = sns.barplot(x="aspect", y=attr, data=df_plot.reset_index(), color="#b80606")
+        
+    y_str = measure + " " + attr + " per Game"
     if measure == "Absolute":
         y_str = measure + " " + attr
-    if measure == "Minimum" or measure == "Maximum":
-        y_str = measure + " " + attr + "in a Game"
-    ax.set(xlabel = "Team", ylabel = y_str)
-    plt.xticks(rotation=66,horizontalalignment="right")
-    if measure == "Mean" or attribute in ["distance","pass_ratio","possession","tackle_ratio"]:
+    if measure in ["Minimum", "Maximum"]:
+        y_str = measure + " " + attr + " in a Game"
+        
+    ax.set(xlabel="Team", ylabel=y_str)
+    plt.xticks(rotation=66, horizontalalignment="right")
+
+    if measure == "Mean" or attr in ["distance", "pass_ratio", "possession", "tackle_ratio"]:
         for p in ax.patches:
-            ax.annotate(format(p.get_height(), '.2f'), 
-                  (p.get_x() + p.get_width() / 2., p.get_height()),
-                   ha = 'center',
-                   va = 'center', 
-                   xytext = (0, 18),
-                   rotation = 90,
-                   textcoords = 'offset points')
+            ax.annotate(format(p.get_height(), '.2f'),
+                        (p.get_x() + p.get_width() / 2., p.get_height()),
+                        ha='center',
+                        va='center',
+                        xytext=(0, 18),
+                        rotation=90,
+                        textcoords='offset points')
     else:
         for p in ax.patches:
-            ax.annotate(format(str(int(p.get_height()))), 
-                  (p.get_x() + p.get_width() / 2., p.get_height()),
-                   ha = 'center',
-                   va = 'center', 
-                   xytext = (0, 18),
-                   rotation = 90,
-                   textcoords = 'offset points')
+            ax.annotate(format(str(int(p.get_height()))),
+                        (p.get_x() + p.get_width() / 2., p.get_height()),
+                        ha='center',
+                        va='center',
+                        xytext=(0, 18),
+                        rotation=90,
+                        textcoords='offset points')
+
     st.pyplot(fig)
 
-def plt_attribute_correlation(aspect1, aspect2):
+def plt_attribute_correlation(aspect1, aspect2, df_data_filtered, corr_type):  # Added parameters for data and correlation type
     df_plot = df_data_filtered
-    rc = {'figure.figsize':(5,5),
-          'axes.facecolor':'#0e1117',
+    rc = {'figure.figsize': (5, 5),
+          'axes.facecolor': '#0e1117',
           'axes.edgecolor': '#0e1117',
           'axes.labelcolor': 'white',
           'figure.facecolor': '#0e1117',
@@ -502,43 +530,66 @@ def plt_attribute_correlation(aspect1, aspect2):
           'xtick.color': 'white',
           'ytick.color': 'white',
           'grid.color': 'grey',
-          'font.size' : 8,
+          'font.size': 8,
           'axes.labelsize': 12,
           'xtick.labelsize': 12,
           'ytick.labelsize': 12}
+    
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
-    asp1 = label_attr_dict_correlation[aspect1]
-    asp2 = label_attr_dict_correlation[aspect2]
-    if(corr_type=="Regression Plot (Recommended)"):
-        ax = sns.regplot(x=asp1, y=asp2, x_jitter=.1, data=df_plot, color = '#f21111',scatter_kws={"color": "#f21111"},line_kws={"color": "#c2dbfc"})
-    if(corr_type=="Standard Scatter Plot"):
-        ax = sns.scatterplot(x=asp1, y=asp2, data=df_plot, color = '#f21111')
-    #if(corr_type=="Violin Plot (High Computation)"):
-    #    ax = sns.violinplot(x=asp1, y=asp2, data=df_plot, color = '#f21111')
-    ax.set(xlabel = aspect1, ylabel = aspect2)
-    st.pyplot(fig, ax)
 
-def find_match_game_id(min_max, attribute, what):
+    # Check if aspect1 and aspect2 are valid columns in the DataFrame
+    if aspect1 not in df_plot.columns or aspect2 not in df_plot.columns:
+        st.error(f"One of the attributes '{aspect1}' or '{aspect2}' not found in data.")
+        return
+
+    if corr_type == "Regression Plot (Recommended)":
+        ax = sns.regplot(x=aspect1, y=aspect2, x_jitter=.1, data=df_plot, color='#f21111', scatter_kws={"color": "#f21111"}, line_kws={"color": "#c2dbfc"})
+    
+    if corr_type == "Standard Scatter Plot":
+        ax = sns.scatterplot(x=aspect1, y=aspect2, data=df_plot, color='#f21111')
+    
+    # Uncomment below for violin plot option
+    # if(corr_type=="Violin Plot (High Computation)"):
+    #     ax = sns.violinplot(x=aspect1, y=aspect2, data=df_plot, color='#f21111')
+    
+    ax.set(xlabel=aspect1, ylabel=aspect2)
+    st.pyplot(fig)
+
+def find_match_game_id(min_max, attribute, what, df_data_filtered):  # Added df_data_filtered as a parameter
     df_find = df_data_filtered
-    search_attribute = label_fact_dict[attribute]
-    if(what == 'difference between teams'):
-        search_attribute = 'delta_' + label_fact_dict[attribute]
-        df_find[search_attribute] = df_find[search_attribute].abs()
-    if(what == 'by both teams'):
-        df_find = df_data_filtered.groupby(['game_id'], as_index=False).sum()
+
+    # Check if attribute is a valid column in the DataFrame
+    if attribute not in df_find.columns:
+        raise ValueError(f"Attribute '{attribute}' not found in data.")
+    
+    # Use the attribute directly for searching
+    search_attribute = attribute
+    
+    if what == 'difference between teams':
+        search_attribute = 'delta_' + attribute
+        df_find[search_attribute] = df_find[search_attribute].abs()  # Make sure this column exists as well
+    if what == 'by both teams':
+        df_find = df_find.groupby(['game_id'], as_index=False).sum()
+
+    # Check if the search_attribute exists in the DataFrame
+    if search_attribute not in df_find.columns:
+        raise ValueError(f"Attribute '{search_attribute}' not found in data.")
+
     column = df_find[search_attribute]
     index = 0
-    if(min_max == 'Minimum'):
+    if min_max == 'Minimum':
         index = column.idxmin()
-    if(min_max == 'Maximum'):
+    elif min_max == 'Maximum':
         index = column.idxmax()
+
     game_id = df_find.at[index, 'game_id']
     value = df_find.at[index, search_attribute]
     team = ''
-    if(what != 'by both teams'):
+    if what != 'by both teams':
         team = df_find.at[index, 'team']
-    return_game_id_value_team = [game_id,value,team]
+    
+    return_game_id_value_team = [game_id, value, team]
     return return_game_id_value_team
 
 def build_matchfacts_return_string(return_game_id_value_team, min_max, attribute, what):
@@ -723,26 +774,33 @@ row12_spacer1, row12_1, row12_spacer2 = st.columns((.2, 7.1, .2))
 with row12_1:
     st.subheader('Match Finder')
     st.markdown('Show the (or a) match with the...')
+
 if all_teams_selected == 'Include all available teams':
     row13_spacer1, row13_1, row13_spacer2, row13_2, row13_spacer3, row13_3, row13_spacer4 = st.columns((.2, 2.3, .2, 2.3, .2, 2.3, .2))
+    
     with row13_1:
         show_me_hi_lo = st.selectbox('', ['Maximum', 'Minimum'], key='hi_lo')
+
     with row13_2:
-        show_me_aspect = st.selectbox('', list(label_fact_dict.keys()), key='what')
+        # Assuming the user selects a valid attribute directly
+        show_me_aspect = st.selectbox('', df_data_filtered.columns.tolist(), key='what')
+
     with row13_3:
         show_me_what = st.selectbox('', ['by a team', 'by both teams', 'difference between teams'], key='one_both_diff')
+
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
     # with row14_1:
-    #     return_game_id_value_team = find_match_game_id(show_me_hi_lo,show_me_aspect,show_me_what)
-    #     df_match_result = build_matchfacts_return_string(return_game_id_value_team,show_me_hi_lo,show_me_aspect,show_me_what)     
+    #     return_game_id_value_team = find_match_game_id(show_me_hi_lo, show_me_aspect, show_me_what)
+    #     df_match_result = build_matchfacts_return_string(return_game_id_value_team, show_me_hi_lo, show_me_aspect, show_me_what)     
+
     row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
     with row15_1:
         st.subheader(" ‎")
     # with row15_2:
     #     st.subheader(str(df_match_result.iloc[0]['team']))
     # with row15_3:
-    #     end_result = str(df_match_result.iloc[0]['goals']) + " : " +str(df_match_result.iloc[1]['goals'])
-    #     ht_result = " ‎ ‎( " + str(df_match_result.iloc[0]['ht_goals']) + " : " +str(df_match_result.iloc[1]['ht_goals']) + " )"
+    #     end_result = str(df_match_result.iloc[0]['goals']) + " : " + str(df_match_result.iloc[1]['goals'])
+    #     ht_result = " ‎ ‎( " + str(df_match_result.iloc[0]['ht_goals']) + " : " + str(df_match_result.iloc[1]['ht_goals']) + " )"
     #     st.subheader(end_result + " " + ht_result)  
     # with row15_4:
     #     st.subheader(str(df_match_result.iloc[1]['team']))
@@ -761,22 +819,24 @@ if all_teams_selected == 'Include all available teams':
         st.markdown("🤕 Fouls")
         st.markdown("🚫 Offside")
         st.markdown("📐 Corners")
+
+    # Assuming df_match_result is defined elsewhere in the code
     # with row16_2:
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['shots_on_goal']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['distance']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[0]['total_passes']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎‎"+str(df_match_result.iloc[0]['possession']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['fouls']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['offside']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[0]['corners']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['shots_on_goal']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['distance']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎" + str(df_match_result.iloc[0]['total_passes']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['possession']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['fouls']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['offside']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['corners']))
     # with row16_4:
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['shots_on_goal']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['distance']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[1]['total_passes']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎"+str(df_match_result.iloc[1]['possession']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['fouls']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['offside']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎"+str(df_match_result.iloc[1]['corners']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['shots_on_goal']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['distance']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['total_passes']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['possession']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['fouls']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['offside']))
+    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['corners']))
 
 ### TEAM ###
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
@@ -784,13 +844,14 @@ with row4_1:
     st.subheader('Analysis per Team')
 row5_spacer1, row5_1, row5_spacer2, row5_2, row5_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
 with row5_1:
-    st.markdown('Investigate a variety of stats for each team. Which team scores the most goals per game? How deas your team compare in terms of distance ran per game?')
-    plot_x_per_team_selected = st.selectbox('Which attribute do you want to analyze?', list(label_attr_dict_teams.keys()), key='attribute_team')
-    plot_x_per_team_type = st.selectbox('Which measure do you want to analyze?', types, key = 'measure_team')
+    st.markdown('Investigate a variety of stats for each team. Which team scores the most goals per game? How does your team compare in terms of distance ran per game?')
+    plot_x_per_team_selected = st.selectbox('Which attribute do you want to analyze?', df_data_filtered.columns.tolist(), key='attribute_team')  # Use DataFrame columns
+    plot_x_per_team_type = st.selectbox('Which measure do you want to analyze?', types, key='measure_team')
     specific_team_colors = st.checkbox('Use team specific color scheme')
+
 with row5_2:
     if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
-        plot_x_per_team(plot_x_per_team_selected, plot_x_per_team_type)
+        plot_x_per_team(plot_x_per_team_selected, plot_x_per_team_type, df_data_filtered)  # Pass df_data_filtered
     else:
         st.warning('Please select at least one team')
 
@@ -800,12 +861,13 @@ with row6_1:
     st.subheader('Analysis per Season')
 row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
 with row7_1:
-    st.markdown('Investigate developments and trends. Which season had teams score the most goals? Has the amount of passes per games changed?')
-    plot_x_per_season_selected = st.selectbox('Which attribute do you want to analyze?', list(label_attr_dict.keys()), key='attribute_season')
-    plot_x_per_season_type = st.selectbox('Which measure do you want to analyze?', types, key = 'measure_season')
+    st.markdown('Investigate developments and trends. Which season had teams score the most goals? Has the amount of passes per game changed?')
+    plot_x_per_season_selected = st.selectbox('Which attribute do you want to analyze?', df_data_filtered.columns.tolist(), key='attribute_season')  # Use DataFrame columns
+    plot_x_per_season_type = st.selectbox('Which measure do you want to analyze?', types, key='measure_season')
+
 with row7_2:
     if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
-        plot_x_per_season(plot_x_per_season_selected, plot_x_per_season_type)
+        plot_x_per_season(plot_x_per_season_selected, plot_x_per_season_type, df_data_filtered)  # Pass df_data_filtered
     else:
         st.warning('Please select at least one team')
 
@@ -816,11 +878,12 @@ with row8_1:
 row9_spacer1, row9_1, row9_spacer2, row9_2, row9_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
 with row9_1:
     st.markdown('Investigate stats over the course of a season. At what point in the season do teams score the most goals? Do teams run less toward the end of the season?')
-    plot_x_per_matchday_selected = st.selectbox('Which aspect do you want to analyze?', list(label_attr_dict.keys()), key='attribute_matchday')
-    plot_x_per_matchday_type = st.selectbox('Which measure do you want to analyze?', types, key = 'measure_matchday')
+    plot_x_per_matchday_selected = st.selectbox('Which aspect do you want to analyze?', df_data_filtered.columns.tolist(), key='attribute_matchday')  # Use DataFrame columns
+    plot_x_per_matchday_type = st.selectbox('Which measure do you want to analyze?', types, key='measure_matchday')
+
 with row9_2:
     if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
-        plot_x_per_matchday(plot_x_per_matchday_selected, plot_x_per_matchday_type)
+        plot_x_per_matchday(plot_x_per_matchday_selected, plot_x_per_matchday_type, df_data_filtered)  # Pass df_data_filtered
     else:
         st.warning('Please select at least one team')
 
@@ -833,11 +896,12 @@ row11_spacer1, row11_1, row11_spacer2, row11_2, row11_spacer3 = st.columns((.2, 
 with row11_1:
     st.markdown('Investigate the correlation between two attributes. Do teams that run more also score more goals?')
     corr_type = st.selectbox('Which plot type do you want to use?', corr_plot_types)
-    y_axis_aspect2 = st.selectbox('Which attribute do you want on the y-axis?', list(label_attr_dict_correlation.keys()))
-    x_axis_aspect1 = st.selectbox('Which attribute do you want on the x-axis?', list(label_attr_dict_correlation.keys()))
+    y_axis_aspect2 = st.selectbox('Which attribute do you want on the y-axis?', df_data_filtered.columns.tolist())  # Use DataFrame columns
+    x_axis_aspect1 = st.selectbox('Which attribute do you want on the x-axis?', df_data_filtered.columns.tolist())  # Use DataFrame columns
+
 with row11_2:
     if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
-        plt_attribute_correlation(x_axis_aspect1, y_axis_aspect2)
+        plt_attribute_correlation(x_axis_aspect1, y_axis_aspect2, df_data_filtered, corr_type)  # Pass df_data_filtered and corr_type
     else:
         st.warning('Please select at least one team')
 
