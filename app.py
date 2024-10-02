@@ -283,10 +283,31 @@ def filter_season(df_data, start_season, end_season):
 
 def filter_matchday(df_data, selected_matchdays):
     '''
-    Filters the DataFrame based on the selected matchday range.
+    Filters the DataFrame based on the selected matchday (round) values.
     '''
-    matchdays_list = list(range(selected_matchdays[0], selected_matchdays[1] + 1))
-    df_filtered_matchday = df_data[df_data['matchday'].isin(matchdays_list)]
+    matchdays_list = []
+
+    for matchday in selected_matchdays:
+        # Format the matchday to match the string format in the DataFrame
+        if isinstance(matchday, str):
+            matchweek_number = matchday.split()[1]  # Extract the numeric part
+        elif isinstance(matchday, int):
+            matchweek_number = str(matchday)  # Convert to string for comparison
+        
+        # Construct the matchweek string
+        formatted_matchday = f"Matchweek {matchweek_number}"
+        matchdays_list.append(formatted_matchday)
+
+    # Debugging print statements
+    print("Matchdays List:", matchdays_list)  # Check matchdays_list content
+    print("Unique rounds in DataFrame:", df_data['round'].unique())  # Unique rounds
+
+    # Filter based on matchdays_list using string match
+    df_filtered_matchday = df_data[df_data['round'].isin(matchdays_list)]
+    
+    # Debug statement to check filtered DataFrame
+    print("Filtered DataFrame:", df_filtered_matchday)  # Check what the filtered DataFrame contains
+    
     return df_filtered_matchday
     
 def filter_teams(df_data):
@@ -316,25 +337,29 @@ def stack_team_dataframe(df_data):
     return df_sorted
 
 def group_measure_by_attribute(aspect, attribute, measure):
-    df_data = df_data_filtered
+    df_data = df_data_filtered.copy()  # Work on a copy to avoid modifying the original DataFrame
+    
+    # Convert to numeric, coercing errors to NaN
     df_data[attribute] = pd.to_numeric(df_data[attribute], errors='coerce')
+    df_data = df_data.dropna(subset=[attribute])  # Drop NaN values
+
     df_return = pd.DataFrame()
+
     if measure == 'Absolute':
-        if attribute in ['pass_ratio', 'tackle_ratio', 'possession']:
-            measure = 'Mean'
-        else:
-            df_return = df_data.groupby([aspect]).sum()
-    if measure == 'Mean':
+        df_return = df_data.groupby([aspect]).sum()
+    elif measure == 'Mean':
         df_return = df_data.groupby([aspect]).mean()
-    if measure == 'Median':
+    elif measure == 'Median':
         df_return = df_data.groupby([aspect]).median()
-    if measure == 'Maximum':
+    elif measure == 'Maximum':
         df_return = df_data.groupby([aspect]).max()
-    if measure == 'Minimum':
+    elif measure == 'Minimum':
         df_return = df_data.groupby([aspect]).min()
+
     df_return['aspect'] = df_return.index
     if aspect == 'team':
         df_return = df_return.sort_values(by=[attribute], ascending=False)
+
     return df_return
 
 ########################
@@ -654,20 +679,19 @@ st.sidebar.text('')
 
 if selected_schema in ['team_match', 'team_season']:
     st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
-    unique_seasons = get_unique_seasons_modified(df_database)
     
+    # Get unique seasons from the database and ensure they are sorted
+    unique_seasons = get_unique_seasons_modified(df_database)
+    unique_seasons.sort()  # Ensure the seasons are sorted
+
     # Sidebar for season selection
     start_season, end_season = st.sidebar.select_slider(
         'Select the season range you want to include',
         options=unique_seasons,
-        value=(unique_seasons[0], unique_seasons[-1])
+        value=(unique_seasons[0], unique_seasons[-1])  # Default to the entire range
     )
-    
-    # Ensure start_season is defined
-    if 'start_season' not in locals():
-        start_season = None
-        end_season = None
 
+    # At this point, start_season and end_season are already defined by select_slider
 # Filter data based on selected seasons
 df_data_filtered_season = filter_season(df_database, start_season, end_season)
 
@@ -734,6 +758,17 @@ if selected_schema == 'team_match':
         unique_games_in_df = df_data_filtered['game'].nunique()
         str_games = "🏟️ " + str(unique_games_in_df) + " Matches (Distinct)"
         st.markdown(str_games)
+else:
+    with row2_1:
+        # Ensure the 'players_used' column is numeric
+        df_data_filtered['players_used'] = pd.to_numeric(df_data_filtered['players_used'], errors='coerce')
+        
+        # Calculate the total players used
+        total_players_used = df_data_filtered['players_used'].sum()  # Sum of players used
+        
+        # Format the result as an integer
+        str_players_used = "👥 " + str(int(total_players_used)) + " Players Used"
+        st.markdown(str_players_used)
 with row2_2:
     unique_teams_in_df = len(np.unique(df_data_filtered.team).tolist())
     t = ' Teams'
@@ -741,22 +776,18 @@ with row2_2:
         t = ' Team'
     str_teams = "🏃‍♂️ " + str(unique_teams_in_df) + t
     st.markdown(str_teams)
-if selected_schema == 'team_match':
-    with row2_3:
-        # Ensure the 'GF' column is numeric
-        df_data_filtered['GF'] = pd.to_numeric(df_data_filtered['GF'], errors='coerce')
-        
-        # Sum the goals and divide by 2
-        total_goals_in_df = df_data_filtered['GF'].sum() / 2  # Divide by 2 because of home and away rows for each game
-        
-        # Format the result as an integer
-        str_goals = "🥅 " + str(int(total_goals_in_df)) + " Goals"
-        st.markdown(str_goals)
-# with row2_4:
-#     total_shots_in_df = df_data_filtered['shots_on_goal'].sum()
-#     str_shots = "👟⚽ " + str(total_shots_in_df) + " Shots"
-#     st.markdown(str_shots)
 
+with row2_3:
+    # Add count of selected rows
+    num_selected_rows = df_data_filtered.shape[0]  # Number of selected rows in the DataFrame
+    str_selected_rows = "🔢 " + str(num_selected_rows) + " Selected Rows"
+    st.markdown(str_selected_rows)
+
+with row2_4:
+    # Count distinct seasons in df_data_filtered
+    unique_seasons_in_df = df_data_filtered['season'].nunique()  # Assuming the season column is named 'season'
+    str_seasons = "📅 " + str(unique_seasons_in_df) + " Distinct Seasons"
+    st.markdown(str_seasons)
 row3_spacer1, row3_1, row3_spacer2 = st.columns((.2, 7.1, .2))
 with row3_1:
     st.markdown("")
@@ -769,6 +800,42 @@ st.text('')
 ### ANALYSIS SELECTION ###
 ##########################
 
+def find_match_game_id(min_max, attribute, what, df_data_filtered):
+    df_find = df_data_filtered
+    
+    # Convert the selected attribute to numeric
+    df_find[attribute] = pd.to_numeric(df_find[attribute], errors='coerce')
+    
+    # Handle NaN values if necessary
+    df_find = df_find.dropna(subset=[attribute])  # Optionally drop NaNs
+    
+    search_attribute = attribute
+
+    if what == 'difference between teams':
+        search_attribute = 'delta_' + attribute
+        df_find[search_attribute] = df_find[search_attribute].abs()
+    
+    if what == 'by both teams':
+        df_find = df_find.groupby(['game'], as_index=False).sum()
+    
+    column = df_find[search_attribute]
+    index = 0
+    
+    if min_max == 'Minimum':
+        index = column.idxmin()
+    elif min_max == 'Maximum':
+        index = column.idxmax()
+    
+    game_info = df_find.at[index, 'game']  # Use 'game' here instead of 'game_id'
+    value = df_find.at[index, search_attribute]
+    team = ''
+    
+    if what != 'by both teams':
+        team = df_find.at[index, 'team']  # Ensure 'team' exists
+    
+    return_game_info_value_team = [game_info, value, team]
+    return return_game_info_value_team
+
 ### DATA EXPLORATION ###
 row12_spacer1, row12_1, row12_spacer2 = st.columns((.2, 7.1, .2))
 with row12_1:
@@ -776,22 +843,25 @@ with row12_1:
     st.markdown('Show the (or a) match with the...')
 
 if all_teams_selected == 'Include all available teams':
+    # Define all columns in one go to avoid missing definitions
     row13_spacer1, row13_1, row13_spacer2, row13_2, row13_spacer3, row13_3, row13_spacer4 = st.columns((.2, 2.3, .2, 2.3, .2, 2.3, .2))
     
     with row13_1:
         show_me_hi_lo = st.selectbox('', ['Maximum', 'Minimum'], key='hi_lo')
 
     with row13_2:
-        # Assuming the user selects a valid attribute directly
         show_me_aspect = st.selectbox('', df_data_filtered.columns.tolist(), key='what')
 
-    with row13_3:
+    with row13_3:  # This must be defined above
         show_me_what = st.selectbox('', ['by a team', 'by both teams', 'difference between teams'], key='one_both_diff')
 
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
-    # with row14_1:
-    #     return_game_id_value_team = find_match_game_id(show_me_hi_lo, show_me_aspect, show_me_what)
-    #     df_match_result = build_matchfacts_return_string(return_game_id_value_team, show_me_hi_lo, show_me_aspect, show_me_what)     
+    with row14_1:
+        return_game_info_value_team = find_match_game_id(show_me_hi_lo, show_me_aspect, show_me_what, df_data_filtered)
+        # Extract game info, value, and team
+        game_info, value, team = return_game_info_value_team
+        # Display the result
+        st.markdown(f"Selected Match: {game_info}, {show_me_aspect}: {value} by Team: {team}")
 
     row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
     with row15_1:
