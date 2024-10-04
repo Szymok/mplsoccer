@@ -581,71 +581,83 @@ def plt_attribute_correlation(aspect1, aspect2, df_data_filtered, corr_type):  #
     ax.set(xlabel=aspect1, ylabel=aspect2)
     st.pyplot(fig)
 
-def find_match_game_id(min_max, attribute, what, df_data_filtered):  # Added df_data_filtered as a parameter
-    df_find = df_data_filtered
+def find_match_game_id(min_max, attribute, what, df_data_filtered):
+    # Ensure the selected attribute is numeric and handle any NaNs
+    df_data_filtered[attribute] = pd.to_numeric(df_data_filtered[attribute], errors='coerce')
+    df_data_filtered.dropna(subset=[attribute], inplace=True)  # Drop rows where the attribute is NaN
 
-    # Check if attribute is a valid column in the DataFrame
-    if attribute not in df_find.columns:
-        raise ValueError(f"Attribute '{attribute}' not found in data.")
+    # Group by game and season and summarize the attribute of interest
+    if what == "by both teams":
+        df_grouped = df_data_filtered.groupby(['game', 'season'], as_index=False).agg({attribute: 'sum'})
+    else:
+        # For 'by a team', we're aggregating for each individual team in the game
+        df_grouped = df_data_filtered.groupby(['game', 'season', 'team'], as_index=False).agg({attribute: 'sum'})
     
-    # Use the attribute directly for searching
-    search_attribute = attribute
-    
-    if what == 'difference between teams':
-        search_attribute = 'delta_' + attribute
-        df_find[search_attribute] = df_find[search_attribute].abs()  # Make sure this column exists as well
-    if what == 'by both teams':
-        df_find = df_find.groupby(['game_id'], as_index=False).sum()
-
-    # Check if the search_attribute exists in the DataFrame
-    if search_attribute not in df_find.columns:
-        raise ValueError(f"Attribute '{search_attribute}' not found in data.")
-
-    column = df_find[search_attribute]
-    index = 0
+    # Determine index based on min/max selection
     if min_max == 'Minimum':
-        index = column.idxmin()
+        index = df_grouped[attribute].idxmin()
     elif min_max == 'Maximum':
-        index = column.idxmax()
-
-    game_id = df_find.at[index, 'game_id']
-    value = df_find.at[index, search_attribute]
-    team = ''
-    if what != 'by both teams':
-        team = df_find.at[index, 'team']
+        index = df_grouped[attribute].idxmax()
     
-    return_game_id_value_team = [game_id, value, team]
-    return return_game_id_value_team
+    # Retrieve the relevant information
+    game_info = df_grouped.at[index, 'game']
+    season = df_grouped.at[index, 'season']
+    value = df_grouped.at[index, attribute]
+    
+    # If it is by-a-team, retrieve the corresponding team
+    team = df_grouped.at[index, 'team'] if what == "by a team" else "N/A"
+
+    return_game_info_value_team = [game_info, season, value, team]
+    return return_game_info_value_team
 
 def build_matchfacts_return_string(return_game_id_value_team, min_max, attribute, what):
     game_id = return_game_id_value_team[0]
-    df_match_result = df_data_filtered.loc[df_data_filtered['game_id'] == game_id]
-    season = df_match_result.iloc[0]['season'].replace('-','/')
+    df_match_result = df_data_filtered.loc[df_data_filtered['game'] == game_id]  # Update based on your game identifier
+    
+    season = df_match_result.iloc[0]['season'].replace('-', '/')
     matchday = str(df_match_result.iloc[0]['matchday'])
     home_team = df_match_result.iloc[0]['team']
     away_team = df_match_result.iloc[1]['team']
     goals_home = str(df_match_result.iloc[0]['goals'])
     goals_away = str(df_match_result.iloc[1]['goals'])
-    string1 = 'On matchday ' + matchday + ' of the season ' + season + ' ' + home_team + ' played against ' + away_team + '.'
+    
+    string1 = f'On matchday {matchday} of the season {season}, {home_team} played against {away_team}.'
     string2 = ''
-    if(goals_home>goals_away):
-        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") win for " + home_team + "."
-    if(goals_home<goals_away):
-        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") loss for " + home_team + "."
-    if(goals_home==goals_away):
-        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") draw. "
-    string3 = ""
-    value = str(abs(round(return_game_id_value_team[1],2)))
+    
+    if goals_home > goals_away:
+        string2 = f"The match resulted in a {goals_home}:{goals_away} ({df_match_result.iloc[0]['ht_goals']}:{df_match_result.iloc[1]['ht_goals']}) win for {home_team}."
+    elif goals_home < goals_away:
+        string2 = f"The match resulted in a {goals_home}:{goals_away} ({df_match_result.iloc[0]['ht_goals']}:{df_match_result.iloc[1]['ht_goals']}) loss for {home_team}."
+    else:
+        string2 = f"The match resulted in a {goals_home}:{goals_away} ({df_match_result.iloc[0]['ht_goals']}:{df_match_result.iloc[1]['ht_goals']}) draw."
+
+    value = str(abs(round(return_game_id_value_team[1], 2)))
     team = str(return_game_id_value_team[2])
-    if(what == "difference between teams"):
-        string3 = " Over the course of the match, a difference of " + value + " " + attribute + " was recorded between the teams."
-        string4 = " This is the " + min_max.lower() + " difference for two teams in the currently selected data."
-    if(what == "by both teams"):
-        string3 = " Over the course of the match, both teams recorded " + value + " " + attribute + " together."
-        string4 = " This is the " + min_max.lower() +" value for two teams in the currently selected data."
-    if(what == "by a team"):
-        string3 = " Over the course of the match, " + team + " recorded " + value + " " + attribute + "."
-        string4 = " This is the " + min_max.lower() +" value for a team in the currently selected data."
+    string3 = ""
+    string4 = ""
+
+    if what == "difference between teams":
+        # Ensure you're aggregating on numeric columns only
+        numeric_columns = df_match_result.select_dtypes(include='number')  # Only consider numeric columns
+        
+        if not numeric_columns.empty:
+            difference = numeric_columns.sum(axis=1)  # Adjust based on your logic
+            string3 = f" Over the course of the match, a difference of {value} {attribute} was recorded between the teams."
+            string4 = f" This is the {min_max.lower()} difference for two teams in the currently selected data."
+    
+    elif what == "by both teams":
+        # Similar logic to aggregate numbers only
+        numeric_columns = df_match_result.select_dtypes(include='number')  # Only consider numeric columns
+
+        if not numeric_columns.empty:
+            total = numeric_columns.sum(axis=1).iloc[0]  # Adjust this if you need to sum for all rows
+            string3 = f" Over the course of the match, both teams recorded {total} {attribute} together."
+            string4 = f" This is the {min_max.lower()} value for two teams in the currently selected data."
+    
+    elif what == "by a team":
+        string3 = f" Over the course of the match, {team} recorded {value} {attribute}."
+        string4 = f" This is the {min_max.lower()} value for a team in the currently selected data."
+
     answer = string1 + string2 + string3 + string4
     st.markdown(answer)
     return df_match_result
@@ -801,40 +813,56 @@ st.text('')
 ##########################
 
 def find_match_game_id(min_max, attribute, what, df_data_filtered):
-    df_find = df_data_filtered
+    # Ensure the selected attribute is numeric and handle any NaNs
+    df_data_filtered[attribute] = pd.to_numeric(df_data_filtered[attribute], errors='coerce')
+    df_data_filtered.dropna(subset=[attribute], inplace=True)  # Drop NaN values resulting from conversion
     
-    # Convert the selected attribute to numeric
-    df_find[attribute] = pd.to_numeric(df_find[attribute], errors='coerce')
+    if what == "by both teams":
+        # Group by game and season and summarize the attribute of interest
+        df_grouped = df_data_filtered.groupby(['game', 'season'], as_index=False).agg({attribute: 'sum'})
+    else:
+        # For 'by a team', we're aggregating for each individual team in the game
+        df_grouped = df_data_filtered.groupby(['game', 'season', 'team'], as_index=False).agg({attribute: 'sum'})
     
-    # Handle NaN values if necessary
-    df_find = df_find.dropna(subset=[attribute])  # Optionally drop NaNs
-    
-    search_attribute = attribute
-
-    if what == 'difference between teams':
-        search_attribute = 'delta_' + attribute
-        df_find[search_attribute] = df_find[search_attribute].abs()
-    
-    if what == 'by both teams':
-        df_find = df_find.groupby(['game'], as_index=False).sum()
-    
-    column = df_find[search_attribute]
-    index = 0
-    
+    # Determine index based on min/max selection
     if min_max == 'Minimum':
-        index = column.idxmin()
+        index = df_grouped[attribute].idxmin()
     elif min_max == 'Maximum':
-        index = column.idxmax()
+        index = df_grouped[attribute].idxmax()
     
-    game_info = df_find.at[index, 'game']  # Use 'game' here instead of 'game_id'
-    value = df_find.at[index, search_attribute]
-    team = ''
+    # Retrieve the relevant information
+    game_info = df_grouped.at[index, 'game']
+    season = df_grouped.at[index, 'season']
+    value = df_grouped.at[index, attribute]
     
-    if what != 'by both teams':
-        team = df_find.at[index, 'team']  # Ensure 'team' exists
-    
-    return_game_info_value_team = [game_info, value, team]
+    # If it is by-a-team, retrieve the corresponding team
+    team = df_grouped.at[index, 'team'] if what == "by a team" else "N/A"
+
+    return_game_info_value_team = [game_info, season, value, team]
     return return_game_info_value_team
+
+def plot_top_5_stat(df_data, attribute, order='max'):
+    # Convert the selected attribute to numeric, if not already done
+    df_data[attribute] = pd.to_numeric(df_data[attribute], errors='coerce')
+    
+    # Drop NaN values resulted from the conversion
+    df_data = df_data.dropna(subset=[attribute])
+    
+    # Get top 5 matches based on the specified order
+    if order == 'max':
+        top_matches = df_data.nlargest(5, attribute)  # Get top 5 by maximum value
+    else:
+        top_matches = df_data.nsmallest(5, attribute)  # Get top 5 by minimum value
+
+    # Create a bar plot
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x='game', y=attribute, data=top_matches, palette='viridis')
+    plt.title(f'Top 5 Matches for {attribute} ({order.capitalize()})')
+    plt.xlabel('Match')
+    plt.ylabel(attribute)
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    st.pyplot(plt)  # Display the plot in Streamlit
 
 ### DATA EXPLORATION ###
 row12_spacer1, row12_1, row12_spacer2 = st.columns((.2, 7.1, .2))
@@ -858,10 +886,10 @@ if all_teams_selected == 'Include all available teams':
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
     with row14_1:
         return_game_info_value_team = find_match_game_id(show_me_hi_lo, show_me_aspect, show_me_what, df_data_filtered)
-        # Extract game info, value, and team
-        game_info, value, team = return_game_info_value_team
-        # Display the result
+        game_info, season, value, team = return_game_info_value_team        # Display the result
         st.markdown(f"Selected Match: {game_info}, {show_me_aspect}: {value} by Team: {team}")
+        # Create a chart for the top 5 matches based on the selected statistic
+        plot_top_5_stat(df_data_filtered, show_me_aspect, show_me_hi_lo.lower())  # Pass order as 'min' or 'max'    
 
     row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
     with row15_1:
@@ -878,35 +906,6 @@ else:
     row17_spacer1, row17_1, row17_spacer2 = st.columns((.2, 7.1, .2))
     with row17_1:
         st.warning('Unfortunately this analysis is only available if all teams are included')
-
-if all_teams_selected == 'Include all available teams':
-    row16_spacer1, row16_1, row16_2, row16_3, row16_4, row16_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
-    with row16_1:
-        st.markdown("👟 Shots on Goal")
-        st.markdown("🏃‍♂️ Distance (in km)")
-        st.markdown("🔁 Passes")
-        st.markdown("🤹‍♂️ Possession")
-        st.markdown("🤕 Fouls")
-        st.markdown("🚫 Offside")
-        st.markdown("📐 Corners")
-
-    # Assuming df_match_result is defined elsewhere in the code
-    # with row16_2:
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['shots_on_goal']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['distance']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎" + str(df_match_result.iloc[0]['total_passes']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['possession']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['fouls']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['offside']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[0]['corners']))
-    # with row16_4:
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['shots_on_goal']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['distance']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['total_passes']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['possession']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['fouls']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['offside']))
-    #     st.markdown(" ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" + str(df_match_result.iloc[1]['corners']))
 
 ### TEAM ###
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
