@@ -417,64 +417,66 @@ def plot_x_per_season(attr, measure, df_data):
                         ha='center', va='bottom', fontsize=10, color='white', weight='bold')
 
     st.pyplot(fig)
-    
+
 def plot_x_per_matchday(attr, measure, df_data):
-    rc = {'figure.figsize': (8, 4.5),
-          'axes.facecolor': '#0e1117',
-          'axes.edgecolor': '#0e1117',
-          'axes.labelcolor': 'white',
-          'figure.facecolor': '#0e1117',
-          'patch.edgecolor': '#0e1117',
-          'text.color': 'white',
-          'xtick.color': 'white',
-          'ytick.color': 'white',
-          'grid.color': 'grey',
-          'font.size': 8,
-          'axes.labelsize': 12,
-          'xtick.labelsize': 8,
-          'ytick.labelsize': 12}
+    rc = {
+        'figure.figsize': (8, 4.5),
+        'axes.facecolor': '#0e1117',
+        'axes.edgecolor': '#0e1117',
+        'axes.labelcolor': 'white',
+        'figure.facecolor': '#0e1117',
+        'patch.edgecolor': '#0e1117',
+        'text.color': 'white',
+        'xtick.color': 'white',
+        'ytick.color': 'white',
+        'grid.color': 'grey',
+        'font.size': 12,
+        'axes.labelsize': 12,
+        'xtick.labelsize': 12,
+        'ytick.labelsize': 12
+    }
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
 
-    # Check if 'attr' is a valid column in the DataFrame
-    if attr not in df_data.columns:
-        st.error(f"Attribute '{attr}' not found in data.")
+    # Ensure the selected attribute is numeric and handle any NaNs
+    df_data[attr] = pd.to_numeric(df_data[attr], errors='coerce')
+    df_filtered = df_data.dropna(subset=[attr])  # Drop NaN values
+
+    # Initialize df_plot
+    df_plot = pd.DataFrame()
+
+    # Group by `round` and calculate based on the selected measure
+    if measure == 'Maximum':
+        df_plot = df_filtered.groupby(['round'])[attr].max().reset_index()
+    elif measure == 'Minimum':
+        df_plot = df_filtered.groupby(['round'])[attr].min().reset_index()
+    elif measure == 'Mean':
+        df_plot = df_filtered.groupby(['round'])[attr].mean().reset_index()
+    elif measure == 'Median':
+        df_plot = df_filtered.groupby(['round'])[attr].median().reset_index()
+    elif measure == 'Absolute':
+        df_plot = df_filtered.groupby(['round'])[attr].sum().reset_index()  # Raw sum for Absolute
+    else:
+        # Handle unexpected measure values
+        st.error("Unknown measure selected.")
+        return  # Exit the function if an unknown measure is used
+    
+    # Check if df_plot is empty before plotting
+    if df_plot.empty:
+        st.warning("No data available for the selected measure and round.")
         return
 
-    # Use the attr variable directly as the column to plot
-    df_plot = group_measure_by_attribute("matchday", attr, measure)
+    # Create a bar plot
+    ax = sns.barplot(x='round', y=attr, data=df_plot, color='#b80606')
+    ax.set(xlabel='Round', ylabel=attr)
 
-    ax = sns.barplot(x="aspect", y=attr, data=df_plot.reset_index(), color="#b80606")
-    plt.gca().xaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x) + 1))
+    # Annotate bars with the actual values
+    for p in ax.patches:
+        ax.annotate(format(p.get_height(), '.2f'), 
+                    (p.get_x() + p.get_width() / 2., p.get_height()), 
+                    ha='center', va='bottom', fontsize=10, color='white')
     
-    y_str = measure + " " + attr + " per Team"
-    if measure == "Absolute":
-        y_str = measure + " " + attr
-    if measure in ["Minimum", "Maximum"]:
-        y_str = measure + " " + attr + " by a Team"
-
-    ax.set(xlabel="Matchday", ylabel=y_str)
-
-    if measure == "Mean" or attr in ["distance", "pass_ratio", "possession", "tackle_ratio"]:
-        for p in ax.patches:
-            ax.annotate(format(p.get_height(), '.2f'),
-                        (p.get_x() + p.get_width() / 2., p.get_height()),
-                        ha='center',
-                        va='center',
-                        xytext=(0, 18),
-                        rotation=90,
-                        textcoords='offset points')
-    else:
-        for p in ax.patches:
-            ax.annotate(format(str(int(p.get_height()))),
-                        (p.get_x() + p.get_width() / 2., p.get_height()),
-                        ha='center',
-                        va='center',
-                        xytext=(0, 18),
-                        rotation=90,
-                        textcoords='offset points')
-    
-    st.pyplot(fig)
+    st.pyplot(fig)  # Display the plot
 
 def plot_x_per_team(attr, measure, df_data_filtered):  # Added df_data_filtered as a parameter
     rc = {'figure.figsize': (8, 4.5),
@@ -540,44 +542,48 @@ def plot_x_per_team(attr, measure, df_data_filtered):  # Added df_data_filtered 
 
     st.pyplot(fig)
 
-def plt_attribute_correlation(aspect1, aspect2, df_data_filtered, corr_type):  # Added parameters for data and correlation type
-    df_plot = df_data_filtered
-    rc = {'figure.figsize': (5, 5),
-          'axes.facecolor': '#0e1117',
-          'axes.edgecolor': '#0e1117',
-          'axes.labelcolor': 'white',
-          'figure.facecolor': '#0e1117',
-          'patch.edgecolor': '#0e1117',
-          'text.color': 'white',
-          'xtick.color': 'white',
-          'ytick.color': 'white',
-          'grid.color': 'grey',
-          'font.size': 8,
-          'axes.labelsize': 12,
-          'xtick.labelsize': 12,
-          'ytick.labelsize': 12}
-    
+def plt_attribute_correlation(aspect1, aspect2, df_data_filtered, corr_type):
+    rc = {
+        'figure.figsize': (5, 5),
+        'axes.facecolor': '#0e1117',
+        'axes.edgecolor': '#0e1117',
+        'axes.labelcolor': 'white',
+        'figure.facecolor': '#0e1117',
+        'patch.edgecolor': '#0e1117',
+        'text.color': 'white',
+        'xtick.color': 'white',
+        'ytick.color': 'white',
+        'grid.color': 'grey',
+        'font.size': 8,
+        'axes.labelsize': 12,
+        'xtick.labelsize': 12,
+        'ytick.labelsize': 12
+    }
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
 
-    # Check if aspect1 and aspect2 are valid columns in the DataFrame
-    if aspect1 not in df_plot.columns or aspect2 not in df_plot.columns:
-        st.error(f"One of the attributes '{aspect1}' or '{aspect2}' not found in data.")
+    # Convert both attributes to numeric
+    df_data_filtered[aspect1] = pd.to_numeric(df_data_filtered[aspect1], errors='coerce')
+    df_data_filtered[aspect2] = pd.to_numeric(df_data_filtered[aspect2], errors='coerce')
+
+    # Drop rows with NaN values for either attribute
+    df_filtered = df_data_filtered.dropna(subset=[aspect1, aspect2])
+
+    # Check if df_filtered is empty
+    if df_filtered.empty:
+        st.warning("No data available for correlating the selected attributes.")
         return
 
+    # Create scatter or regplot based on corr_type
     if corr_type == "Regression Plot (Recommended)":
-        ax = sns.regplot(x=aspect1, y=aspect2, x_jitter=.1, data=df_plot, color='#f21111', scatter_kws={"color": "#f21111"}, line_kws={"color": "#c2dbfc"})
-    
-    if corr_type == "Standard Scatter Plot":
-        ax = sns.scatterplot(x=aspect1, y=aspect2, data=df_plot, color='#f21111')
-    
-    # Uncomment below for violin plot option
-    # if(corr_type=="Violin Plot (High Computation)"):
-    #     ax = sns.violinplot(x=aspect1, y=aspect2, data=df_plot, color='#f21111')
-    
+        ax = sns.regplot(x=aspect1, y=aspect2, x_jitter=.1, data=df_filtered, color='#f21111',
+                         scatter_kws={"color": "#f21111"}, line_kws={"color": "#c2dbfc"})
+    elif corr_type == "Standard Scatter Plot":
+        ax = sns.scatterplot(x=aspect1, y=aspect2, data=df_filtered, color='#f21111')
+
     ax.set(xlabel=aspect1, ylabel=aspect2)
     st.pyplot(fig)
-
+    
 def find_match_game_id(min_max, attribute, what, df_data_filtered):
     # Ensure the selected attribute is numeric and handle any NaNs
     df_data_filtered[attribute] = pd.to_numeric(df_data_filtered[attribute], errors='coerce')
@@ -732,7 +738,7 @@ if selected_schema == 'team_match':
     
     # Sidebar for matchday selection
     selected_matchdays = st.sidebar.select_slider(
-        'Select the matchday range you want to include',
+        'Select the matchweek range you want to include',
         options=unique_matchdays,
         value=(min(unique_matchdays), max(unique_matchdays))
     )
