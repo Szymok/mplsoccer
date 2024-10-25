@@ -114,28 +114,37 @@ numeric_columns = column_names
 current_columns = column_names
 types = ['Mean', 'Absolute', 'Median', 'Maximum', 'Minimum']
 color_dict = {
-    'Alavés': '#1E90FF', 
-    'Almería': '#FF4500', 
-    'Athletic Bilbao': '#8B0000', 
-    'Atlético Madrid': '#00008B', 
-    'Barcelona': '#0000FF', 
-    'Cádiz': '#FFD700', 
-    'Celta Vigo': '#00CED1', 
-    'Elche': '#32CD32', 
-    'Espanyol': '#1E90FF', 
-    'Getafe': '#0000CD', 
-    'Girona': '#FF69B4', 
-    'Granada': '#DC143C', 
-    'Las Palmas': '#FFFF00', 
-    'Mallorca': '#FF6347', 
-    'Osasuna': '#FF4500', 
-    'Rayo Vallecano': '#FF0000', 
-    'Real Betis': '#008000', 
-    'Real Madrid': '#FFFFFF', 
-    'Real Sociedad': '#4169E1', 
-    'Sevilla': '#FF0000', 
-    'Valencia': '#FFA500', 
-    'Villarreal': '#FFFF00'
+    'Alavés': '#1E90FF',  # Light blue
+    'Almería': '#B22222',  # Firebrick red
+    'Athletic Club': '#A50034',  # Red
+    'Atlético Madrid': '#C8102E',  # Red and white
+    'Barcelona': '#A500A1',  # Red and blue 
+    'Betis': '#5C9A24',  # Green
+    'Cádiz': '#FFD700',  # Gold or yellow
+    'Celta Vigo': '#0080FF',  # Sky blue
+    'Eibar': '#A00000',  # Dark red
+    'Elche': '#005236',  # Dark green
+    'Espanyol': '#0066CC',  # Blue
+    'Getafe': '#A500A1',  # Purple 
+    'Girona': '#FF4500',  # Orange
+    'Granada': '#E50000',  # Dark red
+    'Huesca': '#8A2BE2',  # BlueViolet
+    'La Coruña': '#003DA5',  # Blue
+    'Las Palmas': '#FDD835',  # Yellow
+    'Leganés': '#008000',  # Green
+    'Levante': '#FF0000',  # Red
+    'Málaga': '#003DA5',  # Dark blue
+    'Mallorca': '#A61C24',  # Red
+    'Osasuna': '#D50032',  # Dark red
+    'Rayo Vallecano': '#FF0000',  # Red
+    'Real Betis': '#008000',  # Green
+    'Real Madrid': '#FFFFFF',  # White
+    'Real Sociedad': '#003DA5',  # Blue
+    'Sevilla': '#FF0000',  # Red
+    'Sporting Gijón': '#FF6347',  # Tomato
+    'Valencia': '#FF8C00',  # Dark orange
+    'Valladolid': '#580F4D',  # Dark purple
+    'Villarreal': '#FDD835',  # Yellow
 }
 
 # label_attr_dict = {
@@ -339,26 +348,27 @@ def stack_team_dataframe(df_data):
 def group_measure_by_attribute(aspect, attribute, measure):
     df_data = df_data_filtered.copy()  # Work on a copy to avoid modifying the original DataFrame
     
-    # Convert to numeric, coercing errors to NaN
-    df_data[attribute] = pd.to_numeric(df_data[attribute], errors='coerce')
-    df_data = df_data.dropna(subset=[attribute])  # Drop NaN values
+    # Convert the selected attribute to numeric
+    df_data[attribute] = pd.to_numeric(df_data[attribute], errors='coerce')  # Convert to numeric, coercing errors to NaNs
+    df_data.dropna(subset=[attribute], inplace=True)  # Drop rows where the attribute is NaN after conversion
 
-    df_return = pd.DataFrame()
+    # Ensure we handle only numeric columns aggregated
+    numerical_cols = df_data.select_dtypes(include=['number']).columns.tolist()  # Get numeric column names
 
     if measure == 'Absolute':
-        df_return = df_data.groupby([aspect]).sum()
+        df_return = df_data.groupby([aspect]).sum(numeric_only=True)  # Use only numeric columns for sum
     elif measure == 'Mean':
-        df_return = df_data.groupby([aspect]).mean()
+        df_return = df_data.groupby([aspect]).mean(numeric_only=True)  # Use only numeric columns for mean
     elif measure == 'Median':
-        df_return = df_data.groupby([aspect]).median()
+        df_return = df_data.groupby([aspect]).median(numeric_only=True)
     elif measure == 'Maximum':
-        df_return = df_data.groupby([aspect]).max()
+        df_return = df_data.groupby([aspect]).max(numeric_only=True)
     elif measure == 'Minimum':
-        df_return = df_data.groupby([aspect]).min()
+        df_return = df_data.groupby([aspect]).min(numeric_only=True)
 
-    df_return['aspect'] = df_return.index
+    df_return['aspect'] = df_return.index  # Add aspect column for easier handling later
     if aspect == 'team':
-        df_return = df_return.sort_values(by=[attribute], ascending=False)
+        df_return = df_return.sort_values(by=[attribute], ascending=False)  # Sort by the aggregated column
 
     return df_return
 
@@ -368,8 +378,8 @@ def group_measure_by_attribute(aspect, attribute, measure):
 
 def plot_x_per_season(attr, measure, df_data):
     rc = {
-        'figure.figsize':(8,4.5),
-        'axes.facecolor':'#0e1117',
+        'figure.figsize': (8, 4.5),
+        'axes.facecolor': '#0e1117',
         'axes.edgecolor': '#0e1117',
         'axes.labelcolor': 'white',
         'figure.facecolor': '#0e1117',
@@ -386,41 +396,28 @@ def plot_x_per_season(attr, measure, df_data):
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
 
-    # Check if 'attr' is a valid column in the DataFrame
-    if attr not in df_data.columns:
-        st.error(f"Attribute '{attr}' not found in data.")
-        return
+    # Here you would group and calculate your desired stats.
+    df_plot = group_measure_by_attribute("season", attr, measure)
 
-    # Use the attr variable directly as the column to plot
-    df_plot = group_measure_by_attribute('season', attr, measure)
+    # Bar plot
+    sns.barplot(x='aspect', y=attr, data=df_plot.reset_index(), color='#b80606', ax=ax)
 
-    ax = sns.barplot(x='aspect', y=attr, data=df_plot, color='#b80606')
-    y_str = measure + ' ' + attr + ' per Team'
-    if measure == 'Absolute':
-        y_str = measure + ' ' + attr
-    if measure in ['Minimum', 'Maximum']:
-        y_str = measure + ' ' + attr + ' by a Team'
+    ax.set(xlabel='Season', ylabel=attr)
 
-    ax.set(xlabel='Season', ylabel=y_str)
-    if measure == 'Mean' or attr in ['distance', 'pass_ratio', 'possession', 'tackle_ratio']:
-        for p in ax.patches:
-            ax.annotate(format(p.get_height(), '.2f'),
-                        (p.get_x() + p.get_width() / 2., p.get_height()),
-                        ha='center',
-                        va='center',
-                        xytext=(0, 15),
-                        textcoords='offset points')
-    else:
-        for p in ax.patches:
-            ax.annotate(format(str(int(p.get_height()))),
-                        (p.get_x() + p.get_width() / 2., p.get_height()),
-                        ha='center',
-                        va='center',
-                        xytext=(0, 15),
-                        textcoords='offset points')
-    
+    # Annotate bars with the correct formatting
+    for p in ax.patches:
+        # Use format to control precision for small values
+        value = p.get_height()
+        
+        if value < 1:
+            ax.annotate(f'{value:.2f}', (p.get_x() + p.get_width() / 2., value), 
+                        ha='center', va='bottom', fontsize=10, color='white', weight='bold')
+        else:
+            ax.annotate(f'{int(value)}', (p.get_x() + p.get_width() / 2., value),
+                        ha='center', va='bottom', fontsize=10, color='white', weight='bold')
+
     st.pyplot(fig)
-
+    
 def plot_x_per_matchday(attr, measure, df_data):
     rc = {'figure.figsize': (8, 4.5),
           'axes.facecolor': '#0e1117',
