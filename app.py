@@ -403,6 +403,7 @@ def plot_x_per_season(attr, measure, df_data):
     sns.barplot(x='aspect', y=attr, data=df_plot.reset_index(), color='#b80606', ax=ax)
 
     ax.set(xlabel='Season', ylabel=attr)
+    plt.xticks(rotation=66, horizontalalignment="center")
 
     # Annotate bars with the correct formatting
     for p in ax.patches:
@@ -433,7 +434,7 @@ def plot_x_per_matchday(attr, measure, df_data, start_season, end_season, select
         'font.size': 12,
         'axes.labelsize': 12,
         'xtick.labelsize': 12,
-        'ytick.labelsize': 12,
+        'ytick.labelsize': 12
     }
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
@@ -487,10 +488,10 @@ def plot_x_per_matchday(attr, measure, df_data, start_season, end_season, select
     for p in ax.patches:
         ax.annotate(format(p.get_height(), '.2f'), 
                     (p.get_x() + p.get_width() / 2., p.get_height()), 
-                    ha='center', va='bottom', fontsize=10, color='white')
+                    ha='center', va='bottom', fontsize=10, color='white', weight='bold')
 
     st.pyplot(fig)  # Display the plot
-    
+
 def plot_x_per_team(attr, measure, df_data_filtered):  # Added df_data_filtered as a parameter
     rc = {'figure.figsize': (8, 4.5),
           'axes.facecolor': '#0e1117',
@@ -1009,7 +1010,7 @@ if selected_schema != 'team_season':
         plot_x_per_matchday_selected = st.selectbox('Which aspect do you want to analyze?', df_data_filtered.columns.tolist(), key='attribute_matchday')  # Use DataFrame columns
         plot_x_per_matchday_type = st.selectbox('Which measure do you want to analyze?', types, key='measure_matchday')
 
-    with row9_spacer2:
+    with row9_2:
         if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
             plot_x_per_matchday(plot_x_per_matchday_selected, plot_x_per_matchday_type, df_data_filtered, start_season, end_season, selected_matchdays)
         else:
