@@ -867,6 +867,8 @@ def plot_top_5_stat(df_data, attribute, order='max'):
     plt.tight_layout()
     st.pyplot(plt)  # Display the plot in Streamlit
 
+exclude_columns = ['league', 'team', 'game', 'date', 'round', 'day', 'venue', 'result', 'opponent']
+
 ### DATA EXPLORATION ###
 row12_spacer1, row12_1, row12_spacer2 = st.columns((.2, 7.1, .2))
 with row12_1:
@@ -881,7 +883,11 @@ if all_teams_selected == 'Include all available teams':
         show_me_hi_lo = st.selectbox('', ['Maximum', 'Minimum'], key='hi_lo')
 
     with row13_2:
-        show_me_aspect = st.selectbox('', df_data_filtered.columns.tolist(), key='what')
+        # Get the list of columns after excluding the unwanted ones
+        all_columns = df_data_filtered.columns.tolist()
+        filtered_columns = [col for col in all_columns if col not in exclude_columns]
+        
+        show_me_aspect = st.selectbox('Select attribute to analyze:', filtered_columns, key='what')
 
     with row13_3:  # This must be defined above
         show_me_what = st.selectbox('', ['by a team', 'by both teams', 'difference between teams'], key='one_both_diff')
@@ -917,8 +923,17 @@ with row4_1:
 row5_spacer1, row5_1, row5_spacer2, row5_2, row5_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
 with row5_1:
     st.markdown('Investigate a variety of stats for each team. Which team scores the most goals per game? How does your team compare in terms of distance ran per game?')
-    plot_x_per_team_selected = st.selectbox('Which attribute do you want to analyze?', df_data_filtered.columns.tolist(), key='attribute_team')  # Use DataFrame columns
+    
+    # Get the list of columns after excluding the unwanted ones
+    all_columns = df_data_filtered.columns.tolist()
+    filtered_columns = [col for col in all_columns if col not in exclude_columns]
+
+    # Only select numeric columns for analysis (if needed)
+    plot_x_per_team_selected = st.selectbox('Which attribute do you want to analyze?', filtered_columns, key='attribute_team')
+
+    # This allows for non-numeric options like "GA," "GF," etc. to be selected
     plot_x_per_team_type = st.selectbox('Which measure do you want to analyze?', types, key='measure_team')
+    
     specific_team_colors = st.checkbox('Use team specific color scheme')
 
 with row5_2:
@@ -934,8 +949,23 @@ with row6_1:
 row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
 with row7_1:
     st.markdown('Investigate developments and trends. Which season had teams score the most goals? Has the amount of passes per game changed?')
-    plot_x_per_season_selected = st.selectbox('Which attribute do you want to analyze?', df_data_filtered.columns.tolist(), key='attribute_season')  # Use DataFrame columns
-    plot_x_per_season_type = st.selectbox('Which measure do you want to analyze?', types, key='measure_season')
+
+    # Get the list of columns after excluding the unwanted ones
+    all_columns = df_data_filtered.columns.tolist()
+    filtered_columns = [col for col in all_columns if col not in exclude_columns]
+
+    # Assuming users can select any valid attribute for analysis
+    plot_x_per_season_selected = st.selectbox(
+        'Which attribute do you want to analyze?',
+        filtered_columns,
+        key='attribute_season'
+    )
+    
+    plot_x_per_season_type = st.selectbox(
+        'Which measure do you want to analyze?',
+        types,
+        key='measure_season'
+    )
 
 with row7_2:
     if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
