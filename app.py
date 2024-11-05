@@ -418,7 +418,7 @@ def plot_x_per_season(attr, measure, df_data):
 
     st.pyplot(fig)
 
-def plot_x_per_matchday(attr, measure, df_data):
+def plot_x_per_matchday(attr, measure, df_data, start_season, end_season, selected_matchdays):
     rc = {
         'figure.figsize': (8, 4.5),
         'axes.facecolor': '#0e1117',
@@ -433,51 +433,64 @@ def plot_x_per_matchday(attr, measure, df_data):
         'font.size': 12,
         'axes.labelsize': 12,
         'xtick.labelsize': 12,
-        'ytick.labelsize': 12
+        'ytick.labelsize': 12,
     }
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
 
-    # Ensure the selected attribute is numeric and handle any NaNs
-    df_data[attr] = pd.to_numeric(df_data[attr], errors='coerce')
-    df_filtered = df_data.dropna(subset=[attr])  # Drop NaN values
+    # Convert seasons to integers from the selected format "YYYY/YYYY"
+    start_season_num = int(start_season.split('/')[0])  # Extract start year
+    end_season_num = int(end_season.split('/')[0])      # Extract end year
 
-    # Initialize df_plot
-    df_plot = pd.DataFrame()
+    # Filter the DataFrame for the selected season range and matchweeks
+    # Convert selected matchweeks to the correct format for filtering
+    selected_rounds_as_strings = [f"Matchweek {week}" for week in selected_matchdays]
 
-    # Group by `round` and calculate based on the selected measure
+    df_filtered = df_data[
+        (df_data['season'].between(start_season_num, end_season_num)) & 
+        (df_data['round'].isin(selected_rounds_as_strings))
+    ]
+
+    # Ensure the selected attribute is numeric and handle NaNs
+    df_filtered[attr] = pd.to_numeric(df_filtered[attr], errors='coerce')
+    df_filtered = df_filtered.dropna(subset=[attr])  # Drop NaN values
+
+    if df_filtered.empty:
+        st.warning("No data available for the selected season range and matchweeks.")
+        return  # Exit if no data for the plot
+
+    # Calculate statistics based on the measure
     if measure == 'Maximum':
         df_plot = df_filtered.groupby(['round'])[attr].max().reset_index()
     elif measure == 'Minimum':
         df_plot = df_filtered.groupby(['round'])[attr].min().reset_index()
     elif measure == 'Mean':
         df_plot = df_filtered.groupby(['round'])[attr].mean().reset_index()
+    elif measure == 'Sum':
+        df_plot = df_filtered.groupby(['round'])[attr].sum().reset_index()
     elif measure == 'Median':
         df_plot = df_filtered.groupby(['round'])[attr].median().reset_index()
-    elif measure == 'Absolute':
-        df_plot = df_filtered.groupby(['round'])[attr].sum().reset_index()  # Raw sum for Absolute
     else:
-        # Handle unexpected measure values
         st.error("Unknown measure selected.")
-        return  # Exit the function if an unknown measure is used
-    
+        return  # Exit for unknown measure
+
     # Check if df_plot is empty before plotting
     if df_plot.empty:
-        st.warning("No data available for the selected measure and round.")
+        st.warning("No data available for the calculated measure and matchweeks.")
         return
 
-    # Create a bar plot
+    # Create a bar plot using the round column for x-axis
     ax = sns.barplot(x='round', y=attr, data=df_plot, color='#b80606')
-    ax.set(xlabel='Round', ylabel=attr)
+    ax.set(xlabel='Matchweek', ylabel=attr)
 
-    # Annotate bars with the actual values
+    # Annotate bars with actual values
     for p in ax.patches:
         ax.annotate(format(p.get_height(), '.2f'), 
                     (p.get_x() + p.get_width() / 2., p.get_height()), 
                     ha='center', va='bottom', fontsize=10, color='white')
-    
-    st.pyplot(fig)  # Display the plot
 
+    st.pyplot(fig)  # Display the plot
+    
 def plot_x_per_team(attr, measure, df_data_filtered):  # Added df_data_filtered as a parameter
     rc = {'figure.figsize': (8, 4.5),
           'axes.facecolor': '#0e1117',
@@ -585,32 +598,31 @@ def plt_attribute_correlation(aspect1, aspect2, df_data_filtered, corr_type):
     st.pyplot(fig)
     
 def find_match_game_id(min_max, attribute, what, df_data_filtered):
-    # Ensure the selected attribute is numeric and handle any NaNs
-    df_data_filtered[attribute] = pd.to_numeric(df_data_filtered[attribute], errors='coerce')
-    df_data_filtered.dropna(subset=[attribute], inplace=True)  # Drop rows where the attribute is NaN
+    # Create a copy of the DataFrame to avoid modifying a slice
+    df_find = df_data_filtered.copy()
 
-    # Group by game and season and summarize the attribute of interest
+    # Ensure the selected attribute is numeric and handle NaN values
+    df_find.loc[:, attribute] = pd.to_numeric(df_find[attribute], errors='coerce')  # Use .loc to avoid warnings
+    df_find.dropna(subset=[attribute], inplace=True)  # Drop NaN values in the attribute
+
+    # Group by relevant columns
     if what == "by both teams":
-        df_grouped = df_data_filtered.groupby(['game', 'season'], as_index=False).agg({attribute: 'sum'})
+        df_grouped = df_find.groupby(['season', 'team'], as_index=False).agg({attribute: 'sum'})
     else:
-        # For 'by a team', we're aggregating for each individual team in the game
-        df_grouped = df_data_filtered.groupby(['game', 'season', 'team'], as_index=False).agg({attribute: 'sum'})
-    
+        df_grouped = df_find.groupby(['season', 'team'], as_index=False).agg({attribute: 'sum'})
+
     # Determine index based on min/max selection
     if min_max == 'Minimum':
         index = df_grouped[attribute].idxmin()
     elif min_max == 'Maximum':
         index = df_grouped[attribute].idxmax()
-    
-    # Retrieve the relevant information
-    game_info = df_grouped.at[index, 'game']
+
+    # Retrieve relevant information
     season = df_grouped.at[index, 'season']
     value = df_grouped.at[index, attribute]
-    
-    # If it is by-a-team, retrieve the corresponding team
-    team = df_grouped.at[index, 'team'] if what == "by a team" else "N/A"
+    team = df_grouped.at[index, 'team']
 
-    return_game_info_value_team = [game_info, season, value, team]
+    return_game_info_value_team = [season, value, team]  # Return the necessary values
     return return_game_info_value_team
 
 def build_matchfacts_return_string(return_game_id_value_team, min_max, attribute, what):
@@ -816,40 +828,38 @@ st.text('')
 ##########################
 
 def find_match_game_id(min_max, attribute, what, df_data_filtered):
-    # Ensure the selected attribute is numeric and handle any NaNs
-    df_data_filtered[attribute] = pd.to_numeric(df_data_filtered[attribute], errors='coerce')
-    df_data_filtered.dropna(subset=[attribute], inplace=True)  # Drop NaN values resulting from conversion
+    df_find = df_data_filtered
     
+    # Make sure 'attribute' is numeric
+    df_find[attribute] = pd.to_numeric(df_find[attribute], errors='coerce')
+    df_find.dropna(subset=[attribute], inplace=True)  # Drop NaNs
+
+    # Group only by season and team since game information is not available
     if what == "by both teams":
-        # Group by game and season and summarize the attribute of interest
-        df_grouped = df_data_filtered.groupby(['game', 'season'], as_index=False).agg({attribute: 'sum'})
+        df_grouped = df_find.groupby(['season', 'team'], as_index=False).agg({attribute: 'sum'})
     else:
-        # For 'by a team', we're aggregating for each individual team in the game
-        df_grouped = df_data_filtered.groupby(['game', 'season', 'team'], as_index=False).agg({attribute: 'sum'})
-    
-    # Determine index based on min/max selection
+        # For 'by a team', let's say it's the team's individual stat
+        df_grouped = df_find.groupby(['season', 'team'], as_index=False).agg({attribute: 'sum'})
+
+    # Find the index for max/min
     if min_max == 'Minimum':
         index = df_grouped[attribute].idxmin()
     elif min_max == 'Maximum':
         index = df_grouped[attribute].idxmax()
     
-    # Retrieve the relevant information
-    game_info = df_grouped.at[index, 'game']
+    # Retrieve information
     season = df_grouped.at[index, 'season']
     value = df_grouped.at[index, attribute]
-    
-    # If it is by-a-team, retrieve the corresponding team
-    team = df_grouped.at[index, 'team'] if what == "by a team" else "N/A"
+    team = df_grouped.at[index, 'team']
+    game_info = "N/A"  # Placeholder since there's no game context
 
-    return_game_info_value_team = [game_info, season, value, team]
+    return_game_info_value_team = [season, value, team]  # Return necessary values
     return return_game_info_value_team
 
 def plot_top_5_stat(df_data, attribute, order='max'):
     # Convert the selected attribute to numeric, if not already done
     df_data[attribute] = pd.to_numeric(df_data[attribute], errors='coerce')
-    
-    # Drop NaN values resulted from the conversion
-    df_data = df_data.dropna(subset=[attribute])
+    df_data = df_data.dropna(subset=[attribute])  # Drop NaN values
     
     # Get top 5 matches based on the specified order
     if order == 'max':
@@ -857,15 +867,25 @@ def plot_top_5_stat(df_data, attribute, order='max'):
     else:
         top_matches = df_data.nsmallest(5, attribute)  # Get top 5 by minimum value
 
-    # Create a bar plot
+    # Create the bar plot
     plt.figure(figsize=(10, 6))
-    sns.barplot(x='game', y=attribute, data=top_matches, palette='viridis')
-    plt.title(f'Top 5 Matches for {attribute} ({order.capitalize()})')
-    plt.xlabel('Match')
-    plt.ylabel(attribute)
+
+    # Check if the current schema being analyzed is 'team_season' or 'team_match'
+    if 'game' in df_data.columns:  # e.g. in team_match schema
+        ax = sns.barplot(x='game', y=attribute, data=top_matches, palette='viridis')
+    else:  # Assuming it's in team_season schema
+        ax = sns.barplot(x='season', y=attribute, data=top_matches, palette='viridis')  # Use appropriate column
+
+    ax.set(title=f'Top 5 Teams for {attribute} ({order.capitalize()})', xlabel='Match', ylabel=attribute)
     plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    st.pyplot(plt)  # Display the plot in Streamlit
+    
+    # Annotate bars with actual values
+    for p in ax.patches:
+        ax.annotate(format(p.get_height(), '.2f'), 
+                    (p.get_x() + p.get_width() / 2., p.get_height()), 
+                    ha='center', va='bottom', fontsize=10, color='white')
+
+    st.pyplot(plt)  # Display the plot
 
 exclude_columns = ['league', 'team', 'game', 'date', 'round', 'day', 'venue', 'result', 'opponent']
 
@@ -895,10 +915,11 @@ if all_teams_selected == 'Include all available teams':
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
     with row14_1:
         return_game_info_value_team = find_match_game_id(show_me_hi_lo, show_me_aspect, show_me_what, df_data_filtered)
-        game_info, season, value, team = return_game_info_value_team        # Display the result
-        st.markdown(f"Selected Match: {game_info}, {show_me_aspect}: {value} by Team: {team}")
-        # Create a chart for the top 5 matches based on the selected statistic
-        plot_top_5_stat(df_data_filtered, show_me_aspect, show_me_hi_lo.lower())  # Pass order as 'min' or 'max'    
+        season, value, team = return_game_info_value_team        
+        # Display the result
+        st.markdown(f"Selected Season: {season}, {show_me_aspect}: {value}, Team: {team}")        # Create a chart for the top 5 matches based on the selected statistic
+        # Call this after defining return_game_info_value_team and getting the context
+        plot_top_5_stat(df_data_filtered, show_me_aspect, show_me_hi_lo.lower())  # Pass order as 'min' or 'max'
 
     row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
     with row15_1:
@@ -974,20 +995,27 @@ with row7_2:
         st.warning('Please select at least one team')
 
 ### MATCHDAY ###
+# Assuming this segment is part of your Streamlit code
 row8_spacer1, row8_1, row8_spacer2 = st.columns((.2, 7.1, .2))
 with row8_1:
     st.subheader('Analysis per Matchday')
-row9_spacer1, row9_1, row9_spacer2, row9_2, row9_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
-with row9_1:
-    st.markdown('Investigate stats over the course of a season. At what point in the season do teams score the most goals? Do teams run less toward the end of the season?')
-    plot_x_per_matchday_selected = st.selectbox('Which aspect do you want to analyze?', df_data_filtered.columns.tolist(), key='attribute_matchday')  # Use DataFrame columns
-    plot_x_per_matchday_type = st.selectbox('Which measure do you want to analyze?', types, key='measure_matchday')
 
-with row9_2:
-    if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
-        plot_x_per_matchday(plot_x_per_matchday_selected, plot_x_per_matchday_type, df_data_filtered)  # Pass df_data_filtered
-    else:
-        st.warning('Please select at least one team')
+# Check if the selected schema is 'team_season' to conditionally render the content
+if selected_schema != 'team_season':
+    row9_spacer1, row9_1, row9_spacer2, row9_2, row9_spacer3 = st.columns((.2, 2.3, .4, 4.4, .2))
+    with row9_1:
+        st.markdown('Investigate stats over the course of a season. At what point in the season do teams score the most goals? Do teams run less toward the end of the season?')
+        
+        plot_x_per_matchday_selected = st.selectbox('Which aspect do you want to analyze?', df_data_filtered.columns.tolist(), key='attribute_matchday')  # Use DataFrame columns
+        plot_x_per_matchday_type = st.selectbox('Which measure do you want to analyze?', types, key='measure_matchday')
+
+    with row9_spacer2:
+        if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
+            plot_x_per_matchday(plot_x_per_matchday_selected, plot_x_per_matchday_type, df_data_filtered, start_season, end_season, selected_matchdays)
+        else:
+            st.warning('Please select at least one team')
+else:
+    st.warning('Analysis per Matchday is not available for the selected team season schema.')
 
 ### CORRELATION ###
 corr_plot_types = ['Regression Plot (Recommended)', 'Standard Scatter Plot']
