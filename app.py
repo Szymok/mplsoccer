@@ -246,17 +246,21 @@ def get_unique_seasons_modified(df_data):
 
 def get_unique_matchdays(df_data):
     '''
-    Returns the unique matchdays from the dataframe
+    Returns the unique matchdays from the dataframe as integers, sorted.
     '''
     if 'round' in df_data.columns:
-        # Extract matchday from the 'round' column
-        df_data['matchday'] = df_data['round'].str.extract('(\d+)').astype(int)
-        unique_matchdays = np.unique(df_data['matchday']).tolist()
-        return unique_matchdays
+        # Extract unique matchweeks from 'round' column
+        unique_matchdays = df_data['round'].unique().tolist()
+        # Extract numeric part and sort
+        matchday_numbers = [int(matchday.split()[1]) for matchday in unique_matchdays]
+        sorted_matchday_numbers = sorted(matchday_numbers)
+        # Format back to the "Matchweek X" format if needed
+        sorted_unique_matchdays = [f"Matchweek {num}" for num in sorted_matchday_numbers]
+        return sorted_unique_matchdays
     else:
-        # If 'round' column is not present, return an empty list or handle accordingly
-        return []
-        
+        # If 'round' column is not present, return an empty list
+        return []  
+
 def get_unique_teams(df_data):
     '''
     Returns the unique teams from the dataframe
@@ -421,7 +425,7 @@ def plot_x_per_season(attr, measure, df_data):
 
 def plot_x_per_matchday(attr, measure, df_data, start_season, end_season, selected_matchdays):
     rc = {
-        'figure.figsize': (8, 4.5),
+        'figure.figsize': (8, 6),
         'axes.facecolor': '#0e1117',
         'axes.edgecolor': '#0e1117',
         'axes.labelcolor': 'white',
@@ -434,23 +438,35 @@ def plot_x_per_matchday(attr, measure, df_data, start_season, end_season, select
         'font.size': 12,
         'axes.labelsize': 12,
         'xtick.labelsize': 12,
-        'ytick.labelsize': 12
+        'ytick.labelsize': 12,
     }
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
 
-    # Convert seasons to integers from the selected format "YYYY/YYYY"
+    # Convert selected seasons to integers
     start_season_num = int(start_season.split('/')[0])  # Extract start year
     end_season_num = int(end_season.split('/')[0])      # Extract end year
 
-    # Filter the DataFrame for the selected season range and matchweeks
-    # Convert selected matchweeks to the correct format for filtering
-    selected_rounds_as_strings = [f"Matchweek {week}" for week in selected_matchdays]
+    # Print selected values for debugging
+    print(f"Selected Season Range: {start_season_num} to {end_season_num}")
+    print(f"Selected Matchweeks: {selected_matchdays}")
 
+    # Ensure the 'season' column is formatted correctly for comparison
+    df_data['season'] = pd.to_numeric(df_data['season'], errors='coerce')  # Convert to numeric
+    df_data = df_data.dropna(subset=['season'])  # Drop rows with NaN values in 'season'
+
+    # Debugging: Check the available data after conversions
+    print("Available Seasons in DataFrame:", df_data['season'].unique())
+
+    # Filter the DataFrame for the selected season range and matchweeks
     df_filtered = df_data[
         (df_data['season'].between(start_season_num, end_season_num)) & 
-        (df_data['round'].isin(selected_rounds_as_strings))
+        (df_data['round'].isin(selected_matchdays))
     ]
+
+    # Debugging: Check filtered data
+    print("Filtered DataFrame Shape:", df_filtered.shape)
+    print("Filtered DataFrame Sample:", df_filtered.head())  # Display first few rows after filtering
 
     # Ensure the selected attribute is numeric and handle NaNs
     df_filtered[attr] = pd.to_numeric(df_filtered[attr], errors='coerce')
@@ -467,7 +483,7 @@ def plot_x_per_matchday(attr, measure, df_data, start_season, end_season, select
         df_plot = df_filtered.groupby(['round'])[attr].min().reset_index()
     elif measure == 'Mean':
         df_plot = df_filtered.groupby(['round'])[attr].mean().reset_index()
-    elif measure == 'Sum':
+    elif measure == 'Absolute':
         df_plot = df_filtered.groupby(['round'])[attr].sum().reset_index()
     elif measure == 'Median':
         df_plot = df_filtered.groupby(['round'])[attr].median().reset_index()
@@ -480,15 +496,16 @@ def plot_x_per_matchday(attr, measure, df_data, start_season, end_season, select
         st.warning("No data available for the calculated measure and matchweeks.")
         return
 
-    # Create a bar plot using the round column for x-axis
+    # Create the bar plot
     ax = sns.barplot(x='round', y=attr, data=df_plot, color='#b80606')
     ax.set(xlabel='Matchweek', ylabel=attr)
+    plt.xticks(rotation=45, ha='right')
 
     # Annotate bars with actual values
     for p in ax.patches:
-        ax.annotate(format(p.get_height(), '.2f'), 
+        ax.annotate(format(p.get_height(), '.2f' if measure in ['Mean', 'Median'] else 'd'), 
                     (p.get_x() + p.get_width() / 2., p.get_height()), 
-                    ha='center', va='bottom', fontsize=10, color='white', weight='bold')
+                    ha='center', va='bottom', fontsize=10, color='white')
 
     st.pyplot(fig)  # Display the plot
 
@@ -684,7 +701,7 @@ def build_matchfacts_return_string(return_game_id_value_team, min_max, attribute
 
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
-    st.title('Real Madrid Stats Analysis')
+    st.title('La Liga Stats Analysis')
 with row0_2:
     st.text('')
     st.subheader('App by [SkSzymon](https://www.twitter.com/SkSzymon)')
@@ -719,7 +736,6 @@ if selected_schema in ['team_match', 'team_season']:
         value=(unique_seasons[0], unique_seasons[-1])  # Default to the entire range
     )
 
-    # At this point, start_season and end_season are already defined by select_slider
 # Filter data based on selected seasons
 df_data_filtered_season = filter_season(df_database, start_season, end_season)
 
@@ -727,24 +743,25 @@ df_data_filtered_season = filter_season(df_database, start_season, end_season)
 unique_seasons = get_unique_seasons_modified(df_database)
 
 ### MATCHDAY RANGE ###
-# Check if the selected schema is 'team_match'
 if selected_schema in ["player_match", "team_match"]:
+    st.sidebar.markdown('**Select the matchweek range you want to analyze:** 👇')
     # Get unique matchdays
     unique_matchdays = get_unique_matchdays(df_data_filtered_season)
-    
     # Sidebar for matchday selection
-    selected_matchdays = st.sidebar.select_slider(
+    start_matchweek, end_matchweek = st.sidebar.select_slider(
         'Select the matchweek range you want to include',
         options=unique_matchdays,
-        value=(min(unique_matchdays), max(unique_matchdays))
+        value=(unique_matchdays[0], unique_matchdays[-1])  # Default to the entire range
     )
-    
+    # Create the full list of selected matchweeks from start to end
+    selected_start = int(start_matchweek.split()[1])  # Extract numeric matchweek
+    selected_end = int(end_matchweek.split()[1])      # Extract numeric matchweek
+    full_selected_matchweeks = [f"Matchweek {i}" for i in range(selected_start, selected_end + 1)]
     # Filter data based on selected matchdays
-    df_data_filtered = filter_matchday(df_data_filtered_season, selected_matchdays)
+    df_data_filtered = filter_matchday(df_data_filtered_season, full_selected_matchweeks)
 else:
-    df_data_filtered = df_data_filtered_season  # If not 'team_match', use the season-filtered data
-
-
+    df_data_filtered = df_data_filtered_season
+        
 ### TEAMS SELECTION ###
 unique_teams = get_unique_teams(df_stacked)
 all_teams_selected = st.sidebar.selectbox('Do you want to only include specific teams? If the answer is yes, please check the box below and then select the team(s) in the new field.', ['Include all available teams', 'Select teams manually (choose below)'])
@@ -754,7 +771,7 @@ if all_teams_selected == 'Select teams manually (choose below)':
 
 # Adjust filtering based on schema
 if selected_schema in ["player_match", "team_match"]:
-    df_data_filtered = filter_matchday(df_data_filtered_season, selected_matchdays)
+    df_data_filtered = filter_matchday(df_data_filtered_season, full_selected_matchweeks)
 else:
     df_data_filtered = df_data_filtered_season
 
@@ -866,11 +883,6 @@ if all_teams_selected == 'Include all available teams':
         show_me_what = st.selectbox('', ['by a team', 'by both teams', 'difference between teams'], key='one_both_diff')
 
     # with row13_4:
-        # top_teams_count = df_data_filtered.groupby('team')[show_me_aspect].sum().nlargest(5)  # Adjust this line as needed
-
-        # Display top teams
-        # st.markdown("Top 5 Teams by " + show_me_aspect + ":")
-        # st.write(top_teams_count)
 
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
     with row14_1:
@@ -970,7 +982,7 @@ if selected_schema != 'team_season':
 
     with row9_2:
         if all_teams_selected != 'Select teams manually (choose below)' or selected_teams:
-            plot_x_per_matchday(plot_x_per_matchday_selected, plot_x_per_matchday_type, df_data_filtered, start_season, end_season, selected_matchdays)
+            plot_x_per_matchday(plot_x_per_matchday_selected, plot_x_per_matchday_type, df_data_filtered, start_season, end_season, full_selected_matchweeks)
         else:
             st.warning('Please select at least one team')
 else:
