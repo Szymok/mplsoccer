@@ -738,7 +738,6 @@ else:
     df_data_filtered = df_data_filtered_season
 
 # Continue with the rest of your Streamlit app logic
-st.write(df_data_filtered)
 
 # Get unique seasons
 unique_seasons = get_unique_seasons_modified(df_database)
@@ -858,21 +857,29 @@ def find_match_game_id(min_max, attribute, what, df_data_filtered):
     return return_game_info_value_team
 
 def plot_top_5_stat(df_data, attribute, order='max'):
-    # Convert the selected attribute to numeric, if not already done
+    # Convert selected attribute to numeric, if not already done
     df_data[attribute] = pd.to_numeric(df_data[attribute], errors='coerce')
     df_data = df_data.dropna(subset=[attribute])  # Drop NaN values
     
+    if df_data.empty:
+        st.warning("No data available after filtering.")
+        return  # Exit if no data for the plot
+
     # Get top 5 matches based on the specified order
     if order == 'max':
         top_matches = df_data.nlargest(5, attribute)  # Get top 5 by maximum value
     else:
         top_matches = df_data.nsmallest(5, attribute)  # Get top 5 by minimum value
 
+    if top_matches.empty:
+        st.warning("No top matches available for the selected statistic.")
+        return  # Exit if no top matches
+
     # Create the bar plot
     plt.figure(figsize=(10, 6))
-
+    
     # Check if the current schema being analyzed is 'team_season' or 'team_match'
-    if 'game' in df_data.columns:  # e.g. in team_match schema
+    if 'game' in df_data.columns:  # e.g., in team_match schema
         ax = sns.barplot(x='game', y=attribute, data=top_matches, palette='viridis')
     else:  # Assuming it's in team_season schema
         ax = sns.barplot(x='season', y=attribute, data=top_matches, palette='viridis')  # Use appropriate column
@@ -898,7 +905,7 @@ with row12_1:
 
 if all_teams_selected == 'Include all available teams':
     # Define all columns in one go to avoid missing definitions
-    row13_spacer1, row13_1, row13_spacer2, row13_2, row13_spacer3, row13_3, row13_spacer4 = st.columns((.2, 2.3, .2, 2.3, .2, 2.3, .2))
+    row13_spacer1, row13_1, row13_spacer2, row13_2, row13_spacer3, row13_3, row13_spacer4, row13_4, row13_spacer5 = st.columns((.2, 2.3, .2, 2.3, .2, 2.3, .2, 2.3, .2))
     
     with row13_1:
         show_me_hi_lo = st.selectbox('', ['Maximum', 'Minimum'], key='hi_lo')
@@ -912,6 +919,13 @@ if all_teams_selected == 'Include all available teams':
 
     with row13_3:  # This must be defined above
         show_me_what = st.selectbox('', ['by a team', 'by both teams', 'difference between teams'], key='one_both_diff')
+
+    # with row13_4:
+        # top_teams_count = df_data_filtered.groupby('team')[show_me_aspect].sum().nlargest(5)  # Adjust this line as needed
+
+        # Display top teams
+        # st.markdown("Top 5 Teams by " + show_me_aspect + ":")
+        # st.write(top_teams_count)
 
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
     with row14_1:
