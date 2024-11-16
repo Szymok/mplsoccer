@@ -856,45 +856,6 @@ def find_match_game_id(min_max, attribute, what, df_data_filtered):
     return_game_info_value_team = [season, value, team]  # Return necessary values
     return return_game_info_value_team
 
-def plot_top_5_stat(df_data, attribute, order='max'):
-    # Convert selected attribute to numeric, if not already done
-    df_data[attribute] = pd.to_numeric(df_data[attribute], errors='coerce')
-    df_data = df_data.dropna(subset=[attribute])  # Drop NaN values
-    
-    if df_data.empty:
-        st.warning("No data available after filtering.")
-        return  # Exit if no data for the plot
-
-    # Get top 5 matches based on the specified order
-    if order == 'max':
-        top_matches = df_data.nlargest(5, attribute)  # Get top 5 by maximum value
-    else:
-        top_matches = df_data.nsmallest(5, attribute)  # Get top 5 by minimum value
-
-    if top_matches.empty:
-        st.warning("No top matches available for the selected statistic.")
-        return  # Exit if no top matches
-
-    # Create the bar plot
-    plt.figure(figsize=(10, 6))
-    
-    # Check if the current schema being analyzed is 'team_season' or 'team_match'
-    if 'game' in df_data.columns:  # e.g., in team_match schema
-        ax = sns.barplot(x='game', y=attribute, data=top_matches, palette='viridis')
-    else:  # Assuming it's in team_season schema
-        ax = sns.barplot(x='season', y=attribute, data=top_matches, palette='viridis')  # Use appropriate column
-
-    ax.set(title=f'Top 5 Teams for {attribute} ({order.capitalize()})', xlabel='Match', ylabel=attribute)
-    plt.xticks(rotation=45, ha='right')
-    
-    # Annotate bars with actual values
-    for p in ax.patches:
-        ax.annotate(format(p.get_height(), '.2f'), 
-                    (p.get_x() + p.get_width() / 2., p.get_height()), 
-                    ha='center', va='bottom', fontsize=10, color='white')
-
-    st.pyplot(plt)  # Display the plot
-
 exclude_columns = ['league', 'team', 'game', 'date', 'round', 'day', 'venue', 'result', 'opponent']
 
 ### DATA EXPLORATION ###
@@ -934,7 +895,6 @@ if all_teams_selected == 'Include all available teams':
         # Display the result
         st.markdown(f"Selected Season: {season}, {show_me_aspect}: {value}, Team: {team}")        # Create a chart for the top 5 matches based on the selected statistic
         # Call this after defining return_game_info_value_team and getting the context
-        plot_top_5_stat(df_data_filtered, show_me_aspect, show_me_hi_lo.lower())  # Pass order as 'min' or 'max'
 
     row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
     with row15_1:
