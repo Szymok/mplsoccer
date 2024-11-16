@@ -723,28 +723,12 @@ if selected_schema in ['team_match', 'team_season']:
 # Filter data based on selected seasons
 df_data_filtered_season = filter_season(df_database, start_season, end_season)
 
-# Conditional logic based on the schema selected
-if selected_schema in ["player_match", "team_match"]:
-    # Only for schemas that include matchdays
-    selected_matchdays = st.multiselect("Select matchdays to include", options=df_data_filtered_season['round'].unique())
-    
-    if selected_matchdays:  # Ensure that matchdays are selected
-        df_data_filtered = filter_matchday(df_data_filtered_season, selected_matchdays)
-    else:
-        st.warning("Please select at least one matchday.")
-        df_data_filtered = df_data_filtered_season
-else:
-    # For schemas where matchdays are not relevant
-    df_data_filtered = df_data_filtered_season
-
-# Continue with the rest of your Streamlit app logic
-
 # Get unique seasons
 unique_seasons = get_unique_seasons_modified(df_database)
 
 ### MATCHDAY RANGE ###
 # Check if the selected schema is 'team_match'
-if selected_schema == 'team_match':
+if selected_schema in ["player_match", "team_match"]:
     # Get unique matchdays
     unique_matchdays = get_unique_matchdays(df_data_filtered_season)
     
@@ -756,9 +740,9 @@ if selected_schema == 'team_match':
     )
     
     # Filter data based on selected matchdays
-    df_data_filtered_matchday = filter_matchday(df_data_filtered_season, selected_matchdays)
+    df_data_filtered = filter_matchday(df_data_filtered_season, selected_matchdays)
 else:
-    df_data_filtered_matchday = df_data_filtered_season  # If not 'team_match', use the season-filtered data
+    df_data_filtered = df_data_filtered_season  # If not 'team_match', use the season-filtered data
 
 
 ### TEAMS SELECTION ###
