@@ -719,7 +719,7 @@ st.sidebar.text('')
 
 ### SEASON RANGE ###
 
-if selected_schema in ['team_season', 'team_match', 'player_season', 'player_match']:
+if selected_schema in ['team_season', 'team_match']:
     st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
     
     # Get unique seasons from the database and ensure they are sorted
