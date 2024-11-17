@@ -220,12 +220,9 @@ color_dict = {
 # }
 # Helper methods
 def get_unique_seasons_modified(df_data):
-    """
-    Converts season format from a 4-digit number (e.g., '1718') to '2017/2018' and returns the unique seasons.
-    """
+    """ Converts season format from a 4-digit number (e.g., '1718') to '2017/2018' and returns unique seasons. """
     seasons_modified = []
     unique_seasons = df_data['season'].unique()  # Assuming 'season' is a column in your DataFrame
-
     for season in unique_seasons:
         season_str = str(season)  # Convert to string if it's an integer
         if len(season_str) == 4 and season_str.isdigit():  # Ensure it has 4 digits
@@ -242,6 +239,9 @@ def get_unique_seasons_modified(df_data):
         else:
             st.warning(f"Skipping invalid season value: {season}")
     
+    # Debug: Print modified seasons
+    print("Seasons Modified:", seasons_modified)
+
     return seasons_modified
 
 def get_unique_matchdays(df_data):
@@ -269,28 +269,34 @@ def get_unique_teams(df_data):
     return unique_teams
 
 def filter_season(df_data, start_season, end_season):
-    # Convert the start and end seasons from '2000/2001' format to '0001' format
-    start_season_compact = start_season.replace('/', '')[2:]
-    end_season_compact = end_season.replace('/', '')[2:]
-    
-    # Convert the season column to a more readable format '2000/2001'
+    # Convert all seasons in df_data to the readable format
     df_data['season_readable'] = df_data['season'].apply(lambda x: f"20{str(x)[:2]}/20{str(x)[2:]}")
     
-    # Find the unique seasons in the readable format
+    # Find unique readable seasons
     unique_seasons_readable = np.unique(df_data['season_readable']).tolist()
     
-    # Find the index of the start and end seasons in the unique seasons list
+    print("Unique Seasons Readable:", unique_seasons_readable)  # Debug: Print to verify contents
+    
+    # Check if start and end season are valid in unique_seasons_readable
+    if start_season not in unique_seasons_readable:
+        st.error(f"Start season {start_season} is not available in the list.")
+        return pd.DataFrame()
+    if end_season not in unique_seasons_readable:
+        st.error(f"End season {end_season} is not available in the list.")
+        return pd.DataFrame()
+    
+    # Find the index of the start and end seasons
     start_index = unique_seasons_readable.index(start_season)
     end_index = unique_seasons_readable.index(end_season) + 1
     
-    # Select the seasons within the start and end index
+    # Select seasons within the range
     seasons_selected_readable = unique_seasons_readable[start_index:end_index]
     
-    # Filter the DataFrame based on the selected seasons
+    # Filter the DataFrame
     df_filtered_season = df_data[df_data['season_readable'].isin(seasons_selected_readable)]
     
     # Drop the temporary 'season_readable' column
-    df_filtered_season = df_filtered_season.drop(columns=['season_readable'])
+    df_filtered_season.drop(columns=['season_readable'], inplace=True)
     
     return df_filtered_season
 
@@ -442,68 +448,59 @@ def plot_x_per_matchday(attr, measure, df_data, start_season, end_season, select
     }
     plt.rcParams.update(rc)
     fig, ax = plt.subplots()
-
-    # Convert selected seasons to integers
-    start_season_num = int(start_season.split('/')[0])  # Extract start year
-    end_season_num = int(end_season.split('/')[0])      # Extract end year
-
-    # Print selected values for debugging
+    
+    # Convert seasons to numeric for filtering
+    start_season_num = int(start_season.split('/')[0])
+    end_season_num = int(end_season.split('/')[0])
+    
+    # Debugging: Check selected parameters
     print(f"Selected Season Range: {start_season_num} to {end_season_num}")
     print(f"Selected Matchweeks: {selected_matchdays}")
-
-    # Ensure the 'season' column is formatted correctly for comparison
-    df_data['season'] = pd.to_numeric(df_data['season'], errors='coerce')  # Convert to numeric
-    df_data = df_data.dropna(subset=['season'])  # Drop rows with NaN values in 'season'
-
-    # Debugging: Check the available data after conversions
-    print("Available Seasons in DataFrame:", df_data['season'].unique())
-
-    # Filter the DataFrame for the selected season range and matchweeks
+    
+    # Ensure the 'season' column is numeric
+    df_data['season'] = pd.to_numeric(df_data['season'], errors='coerce')
+    df_data = df_data.dropna(subset=['season'])
+    
+    # Filter the DataFrame and sort matchdays
     df_filtered = df_data[
         (df_data['season'].between(start_season_num, end_season_num)) & 
         (df_data['round'].isin(selected_matchdays))
     ]
+    
+    # Convert 'round' to integers for sorting
+    df_filtered['round_number'] = df_filtered['round'].apply(lambda x: int(x.split()[1]))
+    df_filtered.sort_values('round_number', inplace=True)  # Sort by the numeric matchweek
 
-    # Debugging: Check filtered data
-    print("Filtered DataFrame Shape:", df_filtered.shape)
-    print("Filtered DataFrame Sample:", df_filtered.head())  # Display first few rows after filtering
-
-    # Ensure the selected attribute is numeric and handle NaNs
+    # Ensure the selected attribute is numeric
     df_filtered[attr] = pd.to_numeric(df_filtered[attr], errors='coerce')
-    df_filtered = df_filtered.dropna(subset=[attr])  # Drop NaN values
-
+    df_filtered = df_filtered.dropna(subset=[attr])
+    
     if df_filtered.empty:
         st.warning("No data available for the selected season range and matchweeks.")
-        return  # Exit if no data for the plot
-
-    # Calculate statistics based on the measure
-    if measure == 'Maximum':
-        df_plot = df_filtered.groupby(['round'])[attr].max().reset_index()
-    elif measure == 'Minimum':
-        df_plot = df_filtered.groupby(['round'])[attr].min().reset_index()
-    elif measure == 'Mean':
-        df_plot = df_filtered.groupby(['round'])[attr].mean().reset_index()
-    elif measure == 'Absolute':
-        df_plot = df_filtered.groupby(['round'])[attr].sum().reset_index()
-    elif measure == 'Median':
-        df_plot = df_filtered.groupby(['round'])[attr].median().reset_index()
-    else:
-        st.error("Unknown measure selected.")
-        return  # Exit for unknown measure
-
-    # Check if df_plot is empty before plotting
-    if df_plot.empty:
-        st.warning("No data available for the calculated measure and matchweeks.")
         return
 
-    # Create the bar plot
-    ax = sns.barplot(x='round', y=attr, data=df_plot, color='#b80606')
+    # Calculate statistics for plotting
+    if measure == 'Maximum':
+        df_plot = df_filtered.groupby(['round_number'])[attr].max().reset_index()
+    elif measure == 'Minimum':
+        df_plot = df_filtered.groupby(['round_number'])[attr].min().reset_index()
+    elif measure == 'Mean':
+        df_plot = df_filtered.groupby(['round_number'])[attr].mean().reset_index()
+    elif measure == 'Absolute':
+        df_plot = df_filtered.groupby(['round_number'])[attr].sum().reset_index()
+    elif measure == 'Median':
+        df_plot = df_filtered.groupby(['round_number'])[attr].median().reset_index()
+    else:
+        st.error("Unknown measure selected.")
+        return
+
+    # Plot the data
+    ax = sns.barplot(x='round_number', y=attr, data=df_plot, color='#b80606')
     ax.set(xlabel='Matchweek', ylabel=attr)
     plt.xticks(rotation=45, ha='right')
 
-    # Annotate bars with actual values
     for p in ax.patches:
-        ax.annotate(format(p.get_height(), '.2f' if measure in ['Mean', 'Median'] else 'd'), 
+        ax.annotate(format(p.get_height(), '.2f' if measure in ['Mean', 'Median'] else 'd'),
                     (p.get_x() + p.get_width() / 2., p.get_height()), 
                     ha='center', va='bottom', fontsize=10, color='white')
 
@@ -722,7 +719,7 @@ st.sidebar.text('')
 
 ### SEASON RANGE ###
 
-if selected_schema in ['team_match', 'team_season']:
+if selected_schema in ['team_season', 'team_match', 'player_season', 'player_match']:
     st.sidebar.markdown('**First select the data range you want to analyze:** 👇')
     
     # Get unique seasons from the database and ensure they are sorted
@@ -761,7 +758,7 @@ if selected_schema in ["player_match", "team_match"]:
     df_data_filtered = filter_matchday(df_data_filtered_season, full_selected_matchweeks)
 else:
     df_data_filtered = df_data_filtered_season
-        
+
 ### TEAMS SELECTION ###
 unique_teams = get_unique_teams(df_stacked)
 all_teams_selected = st.sidebar.selectbox('Do you want to only include specific teams? If the answer is yes, please check the box below and then select the team(s) in the new field.', ['Include all available teams', 'Select teams manually (choose below)'])
