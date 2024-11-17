@@ -64,7 +64,7 @@ conn = create_db_connection()
 schemas = get_schemas(conn)
 
 # Assuming you have a variable or input where the user selects the schema
-selected_schema = st.selectbox("Select the schema:", ["team_season", "team_match", "player_season", "player_match"])
+selected_schema = st.selectbox("Select the schema:", ["team_season", "team_match"])
 
 # Function to filter data by season
 def filter_season(df, start_season, end_season):
