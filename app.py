@@ -946,10 +946,10 @@ def main_page():
         else:
             st.warning('Please select at least one team')
 
-    for variable in dir():
-        if variable[0:2] != '__':
-            del globals()[variable]
-    del variable
+    # for variable in dir():
+    #     if variable[0:2] != '__':
+    #       del globals()[variable]
+    # del variable
 
 if st.session_state['current_page'] == 'main':
     main_page()
