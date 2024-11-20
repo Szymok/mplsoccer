@@ -22,7 +22,7 @@ def players_analysis_page():
     # For now, leave it minimal until you're ready to add specific content
     if st.button("Back to Main Page"):
         st.session_state['current_page'] = 'main'
-              
+               
 host = os.getenv('DB_HOST')
 dbname = os.getenv('DB_NAME')
 user = os.getenv('DB_USER')
@@ -273,6 +273,8 @@ def filter_matchday(df_data, selected_matchdays):
 def main_page():
     st.title('Main Analysis Page')
     st.markdown("Overview and general analytics of your application.")
+    if st.button("Go to Player Analysis"):
+        st.session_state['current_page'] = 'players_analysis'
 
     def filter_teams(df_data):
         df_filtered_team = pd.DataFrame()
@@ -946,10 +948,10 @@ def main_page():
         else:
             st.warning('Please select at least one team')
 
-    # for variable in dir():
-    #     if variable[0:2] != '__':
-    #       del globals()[variable]
-    # del variable
+    #for variable in dir():
+    # #    if variable[0:2] != '__':
+    #        del globals()[variable]
+    #del variable
 
 if st.session_state['current_page'] == 'main':
     main_page()
