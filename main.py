@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from database import init_connection, release_connection, get_schemas, get_tables, get_columns, load_data_from_db
+from database import init_engine, release_engine, get_schemas, get_tables, get_columns, load_data_from_db
 from data_processing import get_unique_seasons_modified, get_unique_teams, filter_season, filter_matchday
 from pages.main_page import main_page
 from pages.players_analysis import players_analysis_page
@@ -22,17 +22,17 @@ if 'selected_table' not in st.session_state:
     st.session_state['selected_table'] = None
 
 # Get database connection
-conn, conn_error = init_connection()
+engine, engine_error = init_engine()
 
-if conn_error:
-    st.error(f"Database connection error: {conn_error}")
+if engine_error:
+    st.error(f"Database connection error: {engine_error}")
     st.info("Some functionality may be limited.")
 
 # Sidebar for data selection
 st.sidebar.title("Data Selection")
 
 # Schema selection
-schemas = get_schemas(conn) if conn else []
+schemas = get_schemas(engine) if engine else []
 selected_schema = st.sidebar.selectbox(
     "Select schema:",
     schemas,
@@ -41,14 +41,14 @@ selected_schema = st.sidebar.selectbox(
 st.session_state['selected_schema'] = selected_schema
 
 # Table selection
-tables = get_tables(conn, selected_schema) if conn else []
+tables = get_tables(engine, selected_schema) if engine else []
 selected_table = st.sidebar.selectbox("Select table:", tables)
 st.session_state['selected_table'] = selected_table
 
 # Load data
-if conn and selected_schema and selected_table:
+if engine and selected_schema and selected_table:
     query = f"SELECT * FROM {selected_schema}.{selected_table};"
-    df_database, error = load_data_from_db(query, conn)
+    df_database, error = load_data_from_db(query, engine)
     
     if error:
         st.error(f"Error loading data: {error}")
@@ -81,16 +81,16 @@ if navigation in nav_map:
 # Render the appropriate page
 if df_database is not None:
     if st.session_state['current_page'] == 'main':
-        main_page(df_database, conn)
+        main_page(df_database, engine)
     elif st.session_state['current_page'] == 'team_analysis':
-        team_analysis_page(df_database, conn)
+        team_analysis_page(df_database, engine)
     elif st.session_state['current_page'] == 'players_analysis':
-        players_analysis_page(df_database, conn)
+        players_analysis_page(df_database, engine)
     elif st.session_state['current_page'] == 'match_analysis':
-        match_analysis_page(df_database, conn)
+        match_analysis_page(df_database, engine)
 else:
     st.error("No data available. Please check database connection and selections.")
 
 # Clean up resources
-if conn:
-    release_connection(conn)
+if engine:
+    release_engine(engine)

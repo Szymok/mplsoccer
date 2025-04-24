@@ -144,13 +144,28 @@ def main_page(df_database, conn, schema_info=None):
             col1, col2, col3 = st.columns(3)
             
             with col1:
-                show_me_hi_lo = st.selectbox('', ['Maximum', 'Minimum'], key='hi_lo')
-            
+                show_me_hi_lo = st.selectbox(
+                    'Select Maximum or Minimum:',
+                    ['Maximum', 'Minimum'],
+                    key='hi_lo',
+                    label_visibility='collapsed'
+                )
+
             with col2:
-                show_me_aspect = st.selectbox('Select attribute to analyze:', filtered_columns, key='what')
-            
+                show_me_aspect = st.selectbox(
+                    'Select attribute to analyze:',
+                    filtered_columns,
+                    key='what'
+                )
+
             with col3:
-                show_me_what = st.selectbox('', ['by a team', 'by both teams', 'difference between teams'], key='one_both_diff')
+                show_me_what = st.selectbox(
+                    'Select comparison type:',
+                    ['by a team', 'by both teams', 'difference between teams'],
+                    key='one_both_diff',
+                    label_visibility='collapsed'
+                )
+
             
             # Find match with min/max stat
             try:
